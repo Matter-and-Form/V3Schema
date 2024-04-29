@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+/// Project settings.
+message Project
+{
+    /// Project name.
+    optional string name = 1;
+}

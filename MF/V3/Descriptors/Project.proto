@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+/// V3 project descriptor.
+message Project
+{
+    /// V3 project brief descriptor.
+    message Brief
+    {
+        /// Project index.
+        int32 index = 1;
+
+        /// Project name.
+        string name = 2;
+
+        /// Size in bytes.
+        uint64 size = 3;
+
+        /// Project last modified date and time [year, month, day, hour, minute, second].
+        repeated int32 modified = 4;
+    }
+
+    /// V3 project scan group tree descriptor.
+    message Group
+    {
+        /// Group index.
+        int32 index = 1;
+
+        /// Group name.
+        string name = 2;
+
+        /// Color in the renderer.
+        repeated float color = 3;
+
+        /// Visibility in the renderer.
+        bool visible = 4;
+
+        /// Collapsed state in the group tree.
+        bool collapsed = 5;
+
+        /**
+        * @brief Axis-angle rotation vector.
+        *
+        * The direction of the vector is the rotation axis.
+        * The magnitude of the vector is rotation angle in radians.
+        */
+        repeated double rotation = 6;
+
+        /// Translation vector.
+        repeated double translation = 7;
+
+        /**
+         * The scan index.
+         * If defined this group is a scan and cannot have subgroups.
+         * If undefined then this group is not a scan and can have subgroups.
+         */
+        optional int32 scan = 8;
+
+        /**
+         * Subgroups.
+         * Note that a scan group (group with positive scan index) cannot have subgroups.
+         */
+        repeated Group groups = 9;
+    }
+    
+    /// Project index.
+    int32 index = 1;
+
+    /// Project name.
+    string name = 2;
+
+    Group groups = 3;
+}

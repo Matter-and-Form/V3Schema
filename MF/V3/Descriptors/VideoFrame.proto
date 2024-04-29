@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "MF/V3/Descriptors/Calibration.proto";
+import "MF/V3/Settings/Video.proto";
+
+package MF.V3.Descriptors;
+
+/// Video frame descriptor.
+message VideoFrame
+{
+    /// Video codec.
+    V3.Settings.Video.Codec codec = 1;
+
+    /// Pixel format.
+    V3.Settings.Video.Format format = 2;
+
+    /// Image width.
+    int32 width = 3;
+
+    /// Image height.
+    int32 height = 4;
+
+    /// Image row step in bytes.
+    int32 step = 5;
+
+    /// Frame number.
+    int64 number = 6;
+
+    /// Frame timestamp.
+    uint64 timestamp = 7;
+
+    /// Frame duration.
+    uint64 duration = 8;
+
+    /// Calibration card detection.
+    Calibration.DetectedCard calibrationCard = 9;
+}

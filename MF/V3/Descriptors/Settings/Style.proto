@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/Style.proto";
+
+package MF.V3.Descriptors.Settings;
+
+message Style
+{
+    message Theme
+    {
+        V3.Settings.Style.Theme value = 1;
+        V3.Settings.Style.Theme default = 2;
+    }
+
+    Theme theme = 1;
+}

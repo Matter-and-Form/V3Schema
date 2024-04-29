@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+/// Scan selection.
+message ScanSelection
+{
+    /// Scan selection mode.
+    enum Mode
+    {
+        /// Select user-selected groups.
+        selected = 0;
+        
+        /// Select visible scans.
+        visible = 1;
+
+        /// Select all scans.
+        all = 2;
+    }
+
+    /// The scan selection mode.
+    Mode mode = 1;
+
+    /**
+     * The set of user-selected groups.
+     * These are only used if the selection mode is 'selected'.
+     */
+    repeated int32 groups = 2;
+}

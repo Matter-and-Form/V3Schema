@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors.Settings;
+
+message Projector
+{
+    message Brightness
+    {
+        float value = 1;
+        float default = 2;
+        float min = 3;
+        float max = 4;
+    }
+    
+    Brightness brightness = 1;
+}

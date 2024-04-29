@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+/// I18n settings.
+message I18n
+{
+    enum Language
+    {
+        en = 0;
+        fr = 1;
+    }
+
+    /// The language setting.  Supported languages are ["en", "fr"].
+    optional Language language = 1;
+}

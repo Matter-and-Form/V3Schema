@@ -1,0 +1,213 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/Scan.proto";
+import "MF/V3/Settings/Quality.proto";
+
+package MF.V3.Settings;
+
+/// Advanced settings.
+message Advanced
+{
+    /// Capture settings.
+    message Capture
+    {
+        /// Projector sample rate.
+        repeated int32 horizontalFrequencies = 1;
+
+        /// Image sample rate.
+        repeated int32 verticalFrequencies = 2;
+
+        /// Use the capture settings.
+        optional bool use = 3;
+    }
+
+    /// Sampling settings.
+    message Sampling
+    {
+        /// Projector sample rate.
+        optional float projectorSampleRate = 1;
+
+        /// Image sample rate.
+        optional float imageSampleRate = 2;
+
+        /// Use the sampling settings.
+        optional bool use = 3;
+    }
+
+    /// Edge detection settings.
+    message EdgeDetection
+    {
+        /// The edge detection threshold.
+        optional float threshold = 1;
+
+        /// The Laplacian kernel radius.  This must be in the range [1..5].
+        optional int32 laplacianKernelRadius = 2;
+
+        /**
+        * @brief Gaussian blur kernel radius. (Optional)  To disable, set to 0.
+        *
+        * @details The phase images can optionally blurred before taking the Laplacian to reduce noise.
+        * However as a result, the detected edges are wider.
+        */
+        optional int32 gaussianBlurRadius = 3;
+
+        /**
+        * @brief Gaussian blur kernel standard deviation.  This parameter is ignored if
+        * \p gaussianBlurSize is zero.
+        */
+        optional float gaussianBlurStdDev = 4;
+
+        /**
+        * @brief The maximum image width for processing. (Optional) To disable, set to 0.
+        *
+        * @details If this value is greater than zero, the phase images are resized to the maximum
+        * width prior to computing the Laplacian and the the detected edges are then upsampled to the
+        * original size.
+        *
+        * This would be done to speed up processing or to detect edges on a larger scale.
+        */
+        optional int32 maximumWidthForProcessing = 5;
+
+        /// Use the edge detection settings.
+        optional bool use = 6;
+    }
+
+    /// Phase filter settings.
+    message PhaseFilter
+    {
+        /**
+        * @brief The filter kernel radius.
+        *
+        * A neighboring value must be within this radius to be included in the filter.
+        * If the kernel radius is set to zero, the phase filtering is disabled.
+        */
+        optional int32 kernelRadius = 2;
+
+        /**
+        * @brief The standard deviation of the spatial weights.
+        *
+        * The weight of a neighboring value is \f$ exp(-(r/s)^2) \f$  where \f$ r \f$
+        * is the distance to the central value and \f$ s \f$ is the spatial weight
+        * standard deviation.
+        *
+        * If the spatial weight standard deviation is set to zero, all the spatial
+        * weights are uniformly set to 1.
+        */
+        optional float spatialWeightStdDev = 3;
+
+        /// Use the phase filter settings.
+        optional bool use = 4;
+    }
+
+    /**
+    * @brief Adaptive sampling settings
+    *
+    * Adaptive sampling will downsample points in regions of low detail
+    * and keep points in regions of high detail.
+    */
+    message AdaptiveSampling
+    {
+        /// Sampling type.
+        optional Scan.Processing.AdaptiveSampling.Type type = 1;
+
+        /// The sample rate [0..1] for the regions of low detail.
+        float rate = 2;
+
+        /// Use the adaptive sampling settings.
+        optional bool use = 3;
+    }
+
+    /// Point32 clipping settings.
+    message PointClipping
+    {
+        /// Point32 clipping type.
+        optional Scan.Processing.PointClipping.Type type = 1;
+
+        /// 4x4 transform mapping 3D points to the canonical point32 clipping coordinates.
+        repeated double transform = 2;
+
+        /// Use the point32 clipping settings.
+        optional bool use = 3;
+    }
+
+    /// Normal estimation settings.
+    message NormalEstimation
+    {
+        /// Normal estimation method.
+        optional Scan.Processing.NormalEstimation.Method method = 1;
+
+        /**
+        * Maximum number of nearest neighbors used to compute the normal.
+        * This value is only used with the NORMAL_OPEN3D method.
+        */
+        optional int32 maximumNeighbourCount = 2;
+
+        /// Maximum radius for a point32 to be considered a neighbour.
+        optional float maximumNeighbourRadius = 3;
+
+        optional bool useMaximumNeighbourCount  = 4;
+        optional bool useMaximumNeighbourRadius = 5;
+
+        /// Use the normal estimation settings.
+        optional bool use = 6;
+    }
+
+    /// Radius outlier removal settings.
+    message OutlierRemoval
+    {
+        /// The minimum number of points within the radius for a point32 to be retained.
+        optional int32 neighbourCount = 1;
+
+        /// The neighbour search radius.
+        optional float neighbourRadius = 2;
+
+        /// Use the outlier removal settings.
+        optional bool use = 3;
+    }
+
+    /// Remesh settings.
+    message Remesh
+    {
+        /// Remesh quality preset.
+        optional Quality quality = 1;
+
+        /// Voxel size.
+        optional float voxelSize = 2;
+
+        /// Depth.
+        optional int32 depth = 3;
+
+        /// Scale.
+        optional float scale = 4;
+
+        /// Linear Interpolation.
+        optional bool linearInterpolation = 5;
+
+        /// Use the remesh settings.
+        optional bool use = 6;
+    }
+
+    /// Capture settings.
+    optional Capture capture = 1;
+
+    /// Sampling settings.
+    optional Sampling sampling = 2;
+
+    /// Edge detection settings.
+    optional EdgeDetection edgeDetection = 3;
+
+    /// Phase filter settings.
+    optional PhaseFilter phaseFilter = 4;
+
+    /// Adaptive sampling settings.
+    optional AdaptiveSampling adaptiveSampling = 5;
+
+    /// Normal estimation settings.
+    optional NormalEstimation normalEstimation = 6;
+
+    /// Radius outlier removal settings.
+    optional OutlierRemoval outlierRemoval = 7;
+
+    /// Remesh settings.
+    optional Remesh remesh = 8;
+}

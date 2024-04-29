@@ -1,0 +1,269 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/Scan.proto";
+
+package MF.V3.Descriptors.Settings;
+
+message Advanced
+{
+    message Use
+    {
+        bool value = 1;
+        bool default = 2;
+    }
+
+    message Capture
+    {
+        message HorizontalFrequencies
+        {
+            repeated int32 value = 1;
+            repeated int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
+        message VerticalFrequencies
+        {
+            repeated int32 value = 1;
+            repeated int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
+        Use use = 1;
+        HorizontalFrequencies horizontalFrequencies = 2;
+        VerticalFrequencies verticalFrequencies = 3;
+    }
+
+    message Sampling
+    {
+        message ProjectorSampleRate
+        {
+            float value = 1;
+            float default = 2;
+            float min = 3;
+            float max = 4;
+        }
+
+        message ImageSampleRate
+        {
+            float value = 1;
+            float default = 2;
+            float min = 3;
+            float max = 4;
+        }
+
+        Use use = 1;
+        ProjectorSampleRate projectorSampleRate = 2;
+        ImageSampleRate imageSampleRate = 3;
+    }
+
+    message EdgeDetection
+    {
+        message Threshold
+        {
+            float value = 1;
+            float default = 2;
+            float min = 3;
+            float max = 4;
+        }
+
+        message LaplacianKernelRadius
+        {
+            int32 value = 1;
+            int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
+        message GaussianBlurRadius
+        {
+            int32 value = 1;
+            int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
+        message GaussianBlurStdDev
+        {
+            float value = 1;
+            float default = 2;
+            float min = 3;
+            float max = 4;
+        }
+
+        message MaximumWidthForProcessing
+        {
+            int32 value = 1;
+            int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
+        Use use = 1;
+        Threshold threshold = 2;
+        LaplacianKernelRadius laplacianKernelRadius = 3;
+        GaussianBlurRadius gaussianBlurRadius = 4;
+        GaussianBlurStdDev gaussianBlurStdDev = 5;
+        MaximumWidthForProcessing maximumWidthForProcessing = 6;
+    }
+
+    message PhaseFilter
+    {
+        message KernelRadius
+        {
+            int32 value = 1;
+            int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
+        message SpatialWeightStdDev
+        {
+            float value = 1;
+            float default = 2;
+            float min = 3;
+            float max = 4;
+        }
+
+        Use use = 1;
+        KernelRadius kernelRadius = 2;
+        SpatialWeightStdDev spatialWeightStdDev = 3;
+    }
+
+    message AdaptiveSampling
+    {
+        message Type
+        {
+            V3.Settings.Scan.Processing.AdaptiveSampling.Type value = 1;
+            V3.Settings.Scan.Processing.AdaptiveSampling.Type default = 2;
+        }
+
+        message Rate
+        {
+            float value = 1;
+            float default = 2;
+            float min = 3;
+            float max = 4;
+        }
+
+        Use use = 1;
+        Type type = 2;
+        Rate rate = 3;
+    }
+
+    message NormalEstimation
+    {
+        message Method
+        {
+            V3.Settings.Scan.Processing.NormalEstimation.Method value = 1;
+            V3.Settings.Scan.Processing.NormalEstimation.Method default = 2;
+        }
+
+        message MaximumNeighbourCount
+        {
+            int32 value = 1;
+            int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
+        message MaximumNeighbourRadius
+        {
+            float value = 1;
+            float default = 2;
+            float min = 3;
+            float max = 4;
+        }
+
+        message UseMaximumNeighbourCount
+        {
+            bool value = 1;
+            bool default = 2;
+        }
+
+        message UseMaximumNeighbourRadius
+        {
+            bool value = 1;
+            bool default = 2;
+        }
+
+        Use use = 1;
+        Method method = 2;
+        MaximumNeighbourCount maximumNeighbourCount = 3;
+        MaximumNeighbourRadius maximumNeighbourRadius = 4;
+        UseMaximumNeighbourCount useMaximumNeighbourCount = 5;
+        UseMaximumNeighbourRadius useMaximumNeighbourRadius = 6;
+    }
+    
+    message OutlierRemoval
+    {
+        message NeighbourCount
+        {
+            int32 value = 1;
+            int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
+        message NeighbourRadius
+        {
+            float value = 1;
+            float default = 2;
+            float min = 3;
+            float max = 4;
+        }
+
+        Use use = 1;
+        NeighbourCount neighbourCount = 2;
+        NeighbourRadius neighbourRadius = 3;
+    }
+
+    message Remesh
+    {
+        message VoxelSize
+        {
+            float value = 1;
+            float default = 2;
+            float min = 3;
+            float max = 4;
+        }
+
+        message Depth
+        {
+            int32 value = 1;
+            int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
+        message Scale
+        {
+            float value = 1;
+            float default = 2;
+            float min = 3;
+            float max = 4;
+        }
+
+        message LinearInterpolation
+        {
+            bool value = 1;
+            bool default = 2;
+        }
+
+        Use use = 1;
+        VoxelSize voxelSize = 2;
+        Depth depth = 3;
+        Scale scale = 4;
+        LinearInterpolation linearInterpolation = 5;
+    }
+
+    Capture capture = 1;
+    Sampling sampling = 2;
+    EdgeDetection edgeDetection = 3;
+    PhaseFilter phaseFilter = 4;
+    AdaptiveSampling adaptiveSampling = 5;
+    NormalEstimation normalEstimation = 6;
+    OutlierRemoval outlierRemoval = 7;
+    Remesh remesh = 8;
+}

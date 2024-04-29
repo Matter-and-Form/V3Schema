@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/Rectangle.proto";
+
+package MF.V3.Descriptors.Settings;
+
+message Camera
+{
+    message AnalogGain
+    {
+        float value = 1;
+        float default = 2;
+        float min = 3;
+        float max = 4;
+    }
+
+    message DigitalGain
+    {
+        int32 value = 1;
+        int32 default = 2;
+        int32 min = 3;
+        int32 max = 4;
+    }
+
+    message Exposure
+    {
+        int32 value = 1;
+        int32 default = 2;
+        int32 min = 3;
+        int32 max = 4;
+    }
+
+    message Focus
+    {
+        message Value
+        {
+            repeated int32 value = 1;
+            repeated int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
+        message Box
+        {
+            repeated V3.Settings.Rectangle value = 1;
+            repeated V3.Settings.Rectangle default = 2;
+        }
+
+        Value value = 1;
+        Box box = 2;
+    }
+
+    AnalogGain analogGain = 1;
+    DigitalGain digitalGain = 2;
+    Exposure exposure = 3;
+    Focus focus = 4;
+}

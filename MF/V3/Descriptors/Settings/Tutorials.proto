@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors.Settings;
+
+message Tutorials
+{
+    message Show
+    {
+        bool value = 1;
+        bool default = 2;
+    }
+
+    message Viewed
+    {
+        message Pages
+        {
+            repeated string value = 1;
+            repeated string default = 2;
+        }
+        
+        Pages pages = 1;
+    }
+
+    Show show = 1;
+    Viewed viewed = 2;
+}

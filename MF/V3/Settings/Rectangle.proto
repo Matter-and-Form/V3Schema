@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+/// Rectangle settings.
+message Rectangle
+{
+    /// Rectangle x offset.
+    int32 x = 1;
+
+    /// Rectangle y offset.
+    int32 y = 2;
+
+    /// Rectangle width.
+    int32 width = 3;
+
+    /// Rectangle height.
+    int32 height = 4;
+}

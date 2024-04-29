@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/ScanSelection.proto";
+import "MF/V3/Settings/Quality.proto";
+
+package MF.V3.Settings;
+
+/// Scan merge settings.
+message Merge
+{
+    /// Remesh settings.
+    message Remesh
+    {
+        /// Remesh quality preset.
+        optional Quality quality = 1;
+
+        /// Voxel size.
+        optional float voxelSize = 2;
+
+        /// Depth.
+        optional int32 depth = 3;
+
+        /// Scale.
+        optional float scale = 4;
+
+        /// Linear Interpolation.
+        optional bool linearInterpolation = 5;
+    }
+
+    /// Simplify settings.
+    message Simplify
+    {
+        /// Target triangle count.
+        int32 triangleCount = 1;
+    }
+
+    /// The scan selection.
+    optional ScanSelection selection = 1;
+
+    /// Remesh settings.
+    optional Remesh remesh = 2;
+
+    /// Simplify settings.
+    optional Simplify simplify = 3;
+
+    /// If \c true, apply textures to the merged mesh.
+    optional bool texturize = 4;
+}

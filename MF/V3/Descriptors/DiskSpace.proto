@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+/// V3 disk space descriptor.
+message DiskSpace
+{
+    /// Disk space capacity in bytes.
+    uint64 capacity = 1;
+
+    /// Available disk space in bytes.
+    uint64 available = 2;
+}

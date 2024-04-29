@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/Quality.proto";
+
+package MF.V3.Descriptors.Settings;
+
+message Capture
+{
+    message Quality
+    {
+        V3.Settings.Quality value = 1;
+        V3.Settings.Quality default = 2;
+    }
+
+    message Texture
+    {
+        bool value = 1;
+        bool default = 2;
+    }
+
+    Quality quality = 1;
+    Texture texture = 2;
+}

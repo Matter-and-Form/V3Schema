@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/ScanSelection.proto";
+
+package MF.V3.Settings;
+
+/// Export settings.
+message Export
+{
+    /// 3D asset formats.
+    enum Format
+    {
+        /// Polygon format.
+        ply = 0;
+        /// Digital asset exchange format.
+        dae = 1;
+        /// Autodesk format.
+        fbx = 2;
+        /// GL transmission format.
+        glb = 3;
+        /// Wavefront format.
+        obj = 4;
+        /// Stereolithography format.
+        stl = 5;
+        /// Chemical format.
+        xyz = 6;
+    }
+
+    /// The scan selection.
+    ScanSelection selection = 1;
+
+    /// Export textures.
+    bool texture = 2;
+
+    /// Merge the scans into a single file.
+    bool merge = 3;
+
+    /// The export format.
+    Format format = 4;
+}

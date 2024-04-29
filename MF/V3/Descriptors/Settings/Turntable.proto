@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors.Settings;
+
+message Turntable
+{
+    message Steps
+    {
+        int32 value = 1;
+        int32 default = 2;
+        int32 min = 3;
+        int32 max = 4;
+    }
+
+    message Sweep
+    {
+        int32 value = 1;
+        int32 default = 2;
+        int32 min = 3;
+        int32 max = 4;
+    }
+
+    message Use
+    {
+        bool value = 1;
+        bool default = 2;
+    }
+
+    Steps steps = 1;
+    Sweep sweep = 2;
+    Use use = 3;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+/// Quality settings.
+enum Quality
+{
+    /// Low quality.
+    Low = 0;
+    /// Medium quality.
+    Medium = 1;
+    /// High quality.
+    High = 2;
+}

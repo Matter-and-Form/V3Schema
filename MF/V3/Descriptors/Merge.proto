@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+/// Merge descriptor.
+message Merge
+{
+    /// Mesh descriptor.
+    message Mesh
+    {
+        /// The mesh name.
+        string name = 1;
+
+        /// Number of mesh triangles.
+        uint64 triangles = 2;
+
+        /// Number of vertex positions.
+        uint64 positions = 3;
+
+        /// Number of vertex normals.
+        uint64 normals = 4;
+
+        /// Number of UV coordinates.
+        uint64 uvs = 5;
+
+        /// Total mesh size in bytes.
+        uint64 size = 6;
+    }
+
+    /// The number of input scans.
+    int32 scans = 1;
+
+    /// The number of input textures.
+    int32 textures = 2;
+
+    /// The set of merged mesh descriptors.
+    repeated Mesh meshes = 3;
+}

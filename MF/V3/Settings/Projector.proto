@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/Rectangle.proto";
+import "MF/V3/Settings/Video.proto";
+
+package MF.V3.Settings;
+
+/// Projector settings.
+message Projector
+{
+    /// Pattern orientation.
+    enum Orientation
+    {
+        /// Horizontal pattern.  Image columns are identical.
+        Horizontal = 0;
+        /// Vertical pattern.  Image rows are identical.
+        Vertical = 1;
+    }
+
+    /// Structured light pattern.
+    message Pattern
+    {
+        /// Pattern orientation.
+        Orientation orientation = 1;
+
+        /// Pattern frequency index.  [0 - 8]
+        int32 frequency = 2;
+
+        /// Pattern phase.  [0 - 2]
+        int32 phase = 3;
+    }
+
+    /// Projector image settings
+    message Image
+    {
+        /// Image source.
+        message Source
+        {
+            /// Source image format
+            Video.Format format = 1;
+
+            /// Source image width.
+            int32 width = 2;
+
+            /// Source image height.
+            int32 height = 3;
+
+            /// Source image step in bytes.
+            int32 step = 4;
+
+            /// If \c true, the source aspect ratio is fixed within the target rectangle.
+            bool fixAspectRatio = 5;
+        }
+
+        /// Image source.
+        Source source = 1;
+
+        /// Image target rectangle.
+        Rectangle target = 2;
+    }
+
+    /// Projector on/off.
+    optional bool on = 1;
+
+    /// Projector brightness.
+    optional float brightness = 2;
+
+    /// Structured light pattern.
+    optional Pattern pattern = 3;
+
+    /// Image to project
+    optional Image image = 4;
+
+    /// Solid color
+    repeated float color = 5;
+}

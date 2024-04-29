@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/Advanced.proto";
+import "MF/V3/Settings/Camera.proto";
+import "MF/V3/Settings/Capture.proto";
+import "MF/V3/Settings/I18n.proto";
+import "MF/V3/Settings/Style.proto";
+import "MF/V3/Settings/Projector.proto";
+import "MF/V3/Settings/Turntable.proto";
+import "MF/V3/Settings/Tutorials.proto";
+import "MF/V3/Settings/Viewer.proto";
+
+package MF.V3.Settings;
+
+/// Scanner settings.
+message Scanner
+{
+    /// Advanced settings.
+    optional Advanced advanced = 1;
+
+    /// Camera settings.
+    optional Camera camera = 2;
+
+    /// Capture settings.
+    optional Capture capture = 3;
+
+    /// I18n settings.
+    optional I18n i18n = 4;
+
+    /// Projector settings.
+    optional Projector projector = 5;
+
+    /// Style settings.
+    optional Style style = 6;
+
+    /// Turntable settings.
+    optional Turntable turntable = 7;
+
+    /// Tutorials settings.
+    optional Tutorials tutorials = 8;
+
+    /// Viewer settings.
+    optional Viewer viewer = 9;
+}

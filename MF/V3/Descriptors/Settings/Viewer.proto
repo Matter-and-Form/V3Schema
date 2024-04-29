@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors.Settings;
+
+message Viewer
+{
+    message TextureOpacity
+    {
+        float value = 1;
+        float default = 2;
+        float min = 3;
+        float max = 4;
+    }
+    TextureOpacity textureOpacity = 1;
+}

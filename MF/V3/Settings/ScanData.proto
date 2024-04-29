@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+/// Scan data request.
+message ScanData
+{
+    /// Scan buffer type.
+    enum Buffer
+    {
+        /// Vertex position.
+        Position = 0;
+        /// Vertex normal.
+        Normal = 1;
+        /// Vertex color.
+        Color = 2;
+        /// Vertex UVs
+        UV = 3;
+        /// Triangle index.
+        Triangle = 4;
+        /// Texture.
+        Texture = 5;
+        /// All buffer types.
+        All = 6;
+    }
+
+    /// Scan metadata type.
+    enum Metadata
+    {
+        /// The mean (centroid) of the vertex positions.
+        Mean = 0;
+        /// The standard deviation of the vertex positions.
+        StdDev = 1;
+        /// The axis-aligned bounding box of the vertex positions.
+        AxisAlignedBoundingBox = 2;
+    }
+
+    /// The merge processing step.
+    enum MergeStep
+    {
+        /// The scan meshes are simply combined into a single mesh.
+        Combined = 0;
+        /// The combined mesh is remeshed to give a single geometric surface.
+        Remeshed = 1;
+        /// The combined or remeshed mesh is simplified to a reduced number of triangles.
+        Simplified = 2;
+        /// The merged mesh has been textured.
+        Textured = 3;
+    }
+
+    /// Requested scan index.
+    int32 index = 1;
+
+    /// The merge process step if requesting merge data.
+    optional MergeStep mergeStep = 2;
+
+    /// Requested scan buffers.
+    repeated Buffer buffers = 3;
+
+    /// Requested scan metadata.
+    repeated Metadata metadata = 4;
+}
