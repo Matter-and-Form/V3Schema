@@ -27,14 +27,14 @@ message Export
     }
 
     /// The scan selection.
-    ScanSelection selection = 1;
+    optional ScanSelection selection = 1;
 
     /// Export textures.
-    bool texture = 2;
+    optional bool texture = 2;
 
     /// Merge the scans into a single file.
-    bool merge = 3;
+    optional bool merge = 3;
 
     /// The export format.
-    Format format = 4;
+    optional Format format = 4;
 }
