@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package MF.V3.Descriptors.Network;
 
-/// Network interface struct.
+/// Network interface descriptor.
 message Interface
 {
     /// The name of the interface.
@@ -11,6 +11,7 @@ message Interface
     /// The address associated with the interface.
     string ip = 2;
 
-    // The ssid or name of the network
+    // The ssid or name of the network.
     string ssid = 3;
 }
+
