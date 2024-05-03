@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+/// V3 software settings.
+message Software
+{
+    enum Package
+    {
+        server = 0;
+        frontend = 1;
+    }
+    
+    repeated Package installed = 1;
+    repeated Package available = 2;
+}
