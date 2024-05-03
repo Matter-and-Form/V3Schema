@@ -21,14 +21,9 @@ message Software
 
     }
     
-    message Package
-    {
-        MF.V3.Settings.Software.Package name = 1;
-        Version version = 2;
-    }
+    /// Installed software versions.
+    map<MF.V3.Settings.Software.Package, Version> installed = 1;
     
-    //map<MF.V3.Settings.Software.Package, Version> installed = 1;
-    //map<MF.V3.Settings.Software.Package, Version> available = 2;
-    repeated Package installed = 1;
-    repeated Package available = 2;
+    /// Available software versions.
+    map<MF.V3.Settings.Software.Package, Version> available = 2;
 }
