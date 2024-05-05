@@ -18,6 +18,12 @@ message Software
 
         /// The patch version.
         int32 patch = 3;
+        
+        /// The alphanumeric suffix. e.g. "rc0"
+        string suffix = 4;
+        
+        /// The version string. e.g. "1.2.3-rc0"
+        string string = 5;
 
     }
     
