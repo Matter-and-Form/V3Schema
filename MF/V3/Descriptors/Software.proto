@@ -4,10 +4,10 @@ import "MF/V3/Settings/Software.proto";
 
 package MF.V3.Descriptors;
 
-/// The wifi descriptor.
+/// V3 software descriptor.
 message Software
 {
-    /// The wifi network descriptor.
+    /// Software version descriptor.
     message Version
     {
         /// The major version.
@@ -27,9 +27,19 @@ message Software
 
     }
     
+    /// Software package descriptor.
+    message Package
+    {
+        // The package name.
+        MF.V3.Settings.Software.Package name = 1;
+        
+        /// The package version.
+        Version version = 2;
+    }
+    
     /// Installed software versions.
-    map<MF.V3.Settings.Software.Package, Version> installed = 1;
+    repeated Package installed = 1;
     
     /// Available software versions.
-    map<MF.V3.Settings.Software.Package, Version> available = 2;
+    repeated Package available = 2;
 }
