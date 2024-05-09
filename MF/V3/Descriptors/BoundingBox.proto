@@ -2,13 +2,13 @@ syntax = "proto3";
 
 package MF.V3.Descriptors;
 
-/// BoundingBox descriptor.
+// BoundingBox descriptor.
 message BoundingBox
 {
-    /// The center of the bounding box.
+    // The center of the bounding box.
     repeated double center = 1;
 
-    /// The size of the bounding box.
+    // The size of the bounding box.
     repeated double size = 2;
 
     /**

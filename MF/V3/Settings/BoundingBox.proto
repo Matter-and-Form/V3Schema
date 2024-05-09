@@ -4,10 +4,10 @@ import "MF/V3/Settings/ScanSelection.proto";
 
 package MF.V3.Settings;
 
-/// Bounding box settings.
+// Bounding box settings.
 message BoundingBox
 {
-    /// The scan selection.
+    // The scan selection.
     ScanSelection selection = 1;
 
     /**

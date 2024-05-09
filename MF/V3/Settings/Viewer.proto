@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-/// 3D Viewer settings.
+// 3D Viewer settings.
 message Viewer
 {
-    /// Texture opacity.
+    // Texture opacity.
     optional float textureOpacity = 1;
 }

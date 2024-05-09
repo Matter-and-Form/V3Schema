@@ -4,23 +4,23 @@ import "MF/V3/Descriptors/Project.proto";
 
 package MF.V3.Descriptors;
 
-/// Descriptor for a project undo/redo action.
+// Descriptor for a project undo/redo action.
 message ProjectAction
 {
-    /// Scan vertices removal/insertion metadata.
+    // Scan vertices removal/insertion metadata.
     message Scan
     {
-        /// The scan index.
+        // The scan index.
         int32 index = 1;
         
-        /// The number of vertices after undo or redo.
+        // The number of vertices after undo or redo.
         int32 vertices = 2;
 
-        /// The number of triangles after undo or redo.
+        // The number of triangles after undo or redo.
         int32 triangles = 3;
     }
 
-    /// The original websocket task that the action is undoing or redoing.
+    // The original websocket task that the action is undoing or redoing.
     string task = 1;
 
     /**
@@ -29,16 +29,16 @@ message ProjectAction
      */
     optional Project project = 2;
 
-    /// The list of scans whose vertex/triangle elements were changed by the undo/redo action.
+    // The list of scans whose vertex/triangle elements were changed by the undo/redo action.
     repeated Scan scans = 3;
 }
 
-/// Project undo and redo action descriptors.
+// Project undo and redo action descriptors.
 message ProjectActions
 {
-    /// Project undo action descriptors.
+    // Project undo action descriptors.
     repeated string undo = 1;
 
-    /// Project redo action descriptors.
+    // Project redo action descriptors.
     repeated string redo = 2;
 }

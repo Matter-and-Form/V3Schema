@@ -4,20 +4,20 @@ import "MF/V3/Settings/Rectangle.proto";
 
 package MF.V3.Settings;
 
-/// V3 auto focus settings.
+// V3 auto focus settings.
 message AutoFocus
 {
-    /// Auto focus camera settings.
+    // Auto focus camera settings.
     message Camera
     {
-        /// The index of the camera on which to apply auto focus.
+        // The index of the camera on which to apply auto focus.
         int32 index = 1;
 
-        /// The image rectangle in video image pixels on which to apply auto focus.
+        // The image rectangle in video image pixels on which to apply auto focus.
         optional Rectangle box = 2;
     }
 
-    /// The set of cameras on which to apply auto focus.
+    // The set of cameras on which to apply auto focus.
     repeated Camera cameras = 1;
 
     /**

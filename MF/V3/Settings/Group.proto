@@ -2,22 +2,22 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-/// Group settings.
+// Group settings.
 message Group
 {
-    /// The unique group index that identifies the group within the group tree.
+    // The unique group index that identifies the group within the group tree.
     int32 index = 1;
 
-    /// Group name.
+    // Group name.
     optional string name = 2;
 
-    /// Color in the renderer.
+    // Color in the renderer.
     repeated float color = 3;
 
-    /// Visibility in the renderer.
+    // Visibility in the renderer.
     optional bool visible = 4;
 
-    /// Collapsed state in the group tree.
+    // Collapsed state in the group tree.
     optional bool collapsed = 5;
 
     /**
@@ -28,6 +28,6 @@ message Group
      */
     repeated double rotation = 6;
 
-    /// Translation vector.
+    // Translation vector.
     repeated double translation = 7;
 }

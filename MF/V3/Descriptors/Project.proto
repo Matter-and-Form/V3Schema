@@ -2,41 +2,41 @@ syntax = "proto3";
 
 package MF.V3.Descriptors;
 
-/// V3 project descriptor.
+// V3 project descriptor.
 message Project
 {
-    /// V3 project brief descriptor.
+    // V3 project brief descriptor.
     message Brief
     {
-        /// Project index.
+        // Project index.
         int32 index = 1;
 
-        /// Project name.
+        // Project name.
         string name = 2;
 
-        /// Size in bytes.
+        // Size in bytes.
         uint64 size = 3;
 
-        /// Project last modified date and time [year, month, day, hour, minute, second].
+        // Project last modified date and time [year, month, day, hour, minute, second].
         repeated int32 modified = 4;
     }
 
-    /// V3 project scan group tree descriptor.
+    // V3 project scan group tree descriptor.
     message Group
     {
-        /// Group index.
+        // Group index.
         int32 index = 1;
 
-        /// Group name.
+        // Group name.
         string name = 2;
 
-        /// Color in the renderer.
+        // Color in the renderer.
         repeated float color = 3;
 
-        /// Visibility in the renderer.
+        // Visibility in the renderer.
         bool visible = 4;
 
-        /// Collapsed state in the group tree.
+        // Collapsed state in the group tree.
         bool collapsed = 5;
 
         /**
@@ -47,7 +47,7 @@ message Project
         */
         repeated double rotation = 6;
 
-        /// Translation vector.
+        // Translation vector.
         repeated double translation = 7;
 
         /**
@@ -64,10 +64,10 @@ message Project
         repeated Group groups = 9;
     }
     
-    /// Project index.
+    // Project index.
     int32 index = 1;
 
-    /// Project name.
+    // Project name.
     string name = 2;
 
     Group groups = 3;

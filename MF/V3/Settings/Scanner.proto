@@ -12,33 +12,33 @@ import "MF/V3/Settings/Viewer.proto";
 
 package MF.V3.Settings;
 
-/// Scanner settings.
+// Scanner settings.
 message Scanner
 {
-    /// Advanced settings.
+    // Advanced settings.
     optional Advanced advanced = 1;
 
-    /// Camera settings.
+    // Camera settings.
     optional Camera camera = 2;
 
-    /// Capture settings.
+    // Capture settings.
     optional Capture capture = 3;
 
-    /// I18n settings.
+    // I18n settings.
     optional I18n i18n = 4;
 
-    /// Projector settings.
+    // Projector settings.
     optional Projector projector = 5;
 
-    /// Style settings.
+    // Style settings.
     optional Style style = 6;
 
-    /// Turntable settings.
+    // Turntable settings.
     optional Turntable turntable = 7;
 
-    /// Tutorials settings.
+    // Tutorials settings.
     optional Tutorials tutorials = 8;
 
-    /// Viewer settings.
+    // Viewer settings.
     optional Viewer viewer = 9;
 }

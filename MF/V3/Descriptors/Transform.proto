@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package MF.V3.Descriptors;
 
-/// V3 transform descriptor.
+// V3 transform descriptor.
 message Transform
 {
     /**
@@ -13,6 +13,6 @@ message Transform
     */
     repeated double rotation = 1;
 
-    /// Translation vector.
+    // Translation vector.
     repeated double translation = 2;
 }

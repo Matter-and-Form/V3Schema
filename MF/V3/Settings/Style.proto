@@ -2,19 +2,19 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-/// Style settings.
+// Style settings.
 message Style
 {
-    /// Theme types.
+    // Theme types.
     enum Theme
     {
-        /// Light mode.
+        // Light mode.
         Light = 0;
 
-        /// Dark mode.
+        // Dark mode.
         Dark = 1;
     }
 
-    /// Theme setting.
+    // Theme setting.
     optional Theme theme = 1;
 }
