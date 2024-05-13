@@ -2,46 +2,46 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-/// Video settings.
+// Video settings.
 message Video
 {
-    /// Video codecs.
+    // Video codecs.
     enum Codec
     {
-        /// No codec specified.
+        // No codec specified.
         NoCodec = 0;
-        /// Raw encoding.
+        // Raw encoding.
         RAW = 1;
-        /// JPEG encoding.
+        // JPEG encoding.
         JPEG = 2;
-        /// H264 encoding.
+        // H264 encoding.
         H264 = 3;
     }
 
-    /// Pixel formats.
+    // Pixel formats.
     enum Format
     {
-        /// No format specified.
+        // No format specified.
         NoFormat = 0;
-        /// RGB565 16-bit
+        // RGB565 16-bit
         RGB565 = 1;
-        /// RGB888 24-bit.
+        // RGB888 24-bit.
         RGB888 = 2;
-        /// BGR888 24-bit.
+        // BGR888 24-bit.
         BGR888 = 3;
-        /// YUV 420 planar.
+        // YUV 420 planar.
         YUV420 = 4;
     }
 
-    /// Video codec.
+    // Video codec.
     Codec codec = 1;
 
-    /// Pixel format.
+    // Pixel format.
     Format format = 2;
 
-    /// Image width.
+    // Image width.
     int32 width = 3;
 
-    /// Image height.
+    // Image height.
     int32 height = 4;
 }

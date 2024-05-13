@@ -5,45 +5,45 @@ import "MF/V3/Settings/Quality.proto";
 
 package MF.V3.Settings;
 
-/// Advanced settings.
+// Advanced settings.
 message Advanced
 {
-    /// Capture settings.
+    // Capture settings.
     message Capture
     {
-        /// Projector sample rate.
+        // Projector sample rate.
         repeated int32 horizontalFrequencies = 1;
 
-        /// Image sample rate.
+        // Image sample rate.
         repeated int32 verticalFrequencies = 2;
 
-        /// Use the capture settings.
+        // Use the capture settings.
         optional bool use = 3;
     }
 
-    /// Sampling settings.
+    // Sampling settings.
     message Sampling
     {
-        /// Projector sample rate.
+        // Projector sample rate.
         optional float projectorSampleRate = 1;
 
-        /// Image sample rate.
+        // Image sample rate.
         optional float imageSampleRate = 2;
 
-        /// Use the sampling settings.
+        // Use the sampling settings.
         optional bool use = 3;
     }
 
-    /// Edge detection settings.
+    // Edge detection settings.
     message EdgeDetection
     {
-        /// The edge detection threshold.
+        // The edge detection threshold.
         optional float threshold = 1;
 
-        /// The Laplacian kernel radius.  This must be in the range [1..5].
+        // The Laplacian kernel radius.  This must be in the range [1..5].
         optional int32 laplacianKernelRadius = 2;
 
-        /**
+        /*
         * @brief Gaussian blur kernel radius. (Optional)  To disable, set to 0.
         *
         * @details The phase images can optionally blurred before taking the Laplacian to reduce noise.
@@ -51,13 +51,13 @@ message Advanced
         */
         optional int32 gaussianBlurRadius = 3;
 
-        /**
+        /*
         * @brief Gaussian blur kernel standard deviation.  This parameter is ignored if
         * \p gaussianBlurSize is zero.
         */
         optional float gaussianBlurStdDev = 4;
 
-        /**
+        /*
         * @brief The maximum image width for processing. (Optional) To disable, set to 0.
         *
         * @details If this value is greater than zero, the phase images are resized to the maximum
@@ -68,14 +68,14 @@ message Advanced
         */
         optional int32 maximumWidthForProcessing = 5;
 
-        /// Use the edge detection settings.
+        // Use the edge detection settings.
         optional bool use = 6;
     }
 
-    /// Phase filter settings.
+    // Phase filter settings.
     message PhaseFilter
     {
-        /**
+        /*
         * @brief The filter kernel radius.
         *
         * A neighboring value must be within this radius to be included in the filter.
@@ -83,7 +83,7 @@ message Advanced
         */
         optional int32 kernelRadius = 2;
 
-        /**
+        /*
         * @brief The standard deviation of the spatial weights.
         *
         * The weight of a neighboring value is \f$ exp(-(r/s)^2) \f$  where \f$ r \f$
@@ -95,11 +95,11 @@ message Advanced
         */
         optional float spatialWeightStdDev = 3;
 
-        /// Use the phase filter settings.
+        // Use the phase filter settings.
         optional bool use = 4;
     }
 
-    /**
+    /*
     * @brief Adaptive sampling settings
     *
     * Adaptive sampling will downsample points in regions of low detail
@@ -107,107 +107,107 @@ message Advanced
     */
     message AdaptiveSampling
     {
-        /// Sampling type.
+        // Sampling type.
         optional Scan.Processing.AdaptiveSampling.Type type = 1;
 
-        /// The sample rate [0..1] for the regions of low detail.
+        // The sample rate [0..1] for the regions of low detail.
         float rate = 2;
 
-        /// Use the adaptive sampling settings.
+        // Use the adaptive sampling settings.
         optional bool use = 3;
     }
 
-    /// Point32 clipping settings.
+    // Point32 clipping settings.
     message PointClipping
     {
-        /// Point32 clipping type.
+        // Point32 clipping type.
         optional Scan.Processing.PointClipping.Type type = 1;
 
-        /// 4x4 transform mapping 3D points to the canonical point32 clipping coordinates.
+        // 4x4 transform mapping 3D points to the canonical point32 clipping coordinates.
         repeated double transform = 2;
 
-        /// Use the point32 clipping settings.
+        // Use the point32 clipping settings.
         optional bool use = 3;
     }
 
-    /// Normal estimation settings.
+    // Normal estimation settings.
     message NormalEstimation
     {
-        /// Normal estimation method.
+        // Normal estimation method.
         optional Scan.Processing.NormalEstimation.Method method = 1;
 
-        /**
+        /*
         * Maximum number of nearest neighbors used to compute the normal.
         * This value is only used with the NORMAL_OPEN3D method.
         */
         optional int32 maximumNeighbourCount = 2;
 
-        /// Maximum radius for a point32 to be considered a neighbour.
+        // Maximum radius for a point32 to be considered a neighbour.
         optional float maximumNeighbourRadius = 3;
 
         optional bool useMaximumNeighbourCount  = 4;
         optional bool useMaximumNeighbourRadius = 5;
 
-        /// Use the normal estimation settings.
+        // Use the normal estimation settings.
         optional bool use = 6;
     }
 
-    /// Radius outlier removal settings.
+    // Radius outlier removal settings.
     message OutlierRemoval
     {
-        /// The minimum number of points within the radius for a point32 to be retained.
+        // The minimum number of points within the radius for a point32 to be retained.
         optional int32 neighbourCount = 1;
 
-        /// The neighbour search radius.
+        // The neighbour search radius.
         optional float neighbourRadius = 2;
 
-        /// Use the outlier removal settings.
+        // Use the outlier removal settings.
         optional bool use = 3;
     }
 
-    /// Remesh settings.
+    // Remesh settings.
     message Remesh
     {
-        /// Remesh quality preset.
+        // Remesh quality preset.
         optional Quality quality = 1;
 
-        /// Voxel size.
+        // Voxel size.
         optional float voxelSize = 2;
 
-        /// Depth.
+        // Depth.
         optional int32 depth = 3;
 
-        /// Scale.
+        // Scale.
         optional float scale = 4;
 
-        /// Linear Interpolation.
+        // Linear Interpolation.
         optional bool linearInterpolation = 5;
 
-        /// Use the remesh settings.
+        // Use the remesh settings.
         optional bool use = 6;
     }
 
-    /// Capture settings.
+    // Capture settings.
     optional Capture capture = 1;
 
-    /// Sampling settings.
+    // Sampling settings.
     optional Sampling sampling = 2;
 
-    /// Edge detection settings.
+    // Edge detection settings.
     optional EdgeDetection edgeDetection = 3;
 
-    /// Phase filter settings.
+    // Phase filter settings.
     optional PhaseFilter phaseFilter = 4;
 
-    /// Adaptive sampling settings.
+    // Adaptive sampling settings.
     optional AdaptiveSampling adaptiveSampling = 5;
 
-    /// Normal estimation settings.
+    // Normal estimation settings.
     optional NormalEstimation normalEstimation = 6;
 
-    /// Radius outlier removal settings.
+    // Radius outlier removal settings.
     optional OutlierRemoval outlierRemoval = 7;
 
-    /// Remesh settings.
+    // Remesh settings.
     optional Remesh remesh = 8;
 }

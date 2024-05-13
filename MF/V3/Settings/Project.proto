@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-/// Project settings.
+// Project settings.
 message Project
 {
-    /// Project name.
+    // Project name.
     optional string name = 1;
 }

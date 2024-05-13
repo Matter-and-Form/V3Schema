@@ -2,20 +2,20 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-/// Alignment settings.
+// Alignment settings.
 message Align
 {
-    /// Point pair alignment settings.
+    // Point pair alignment settings.
     message Points
     {
-        /// The set of corresponding point pairs.
+        // The set of corresponding point pairs.
         repeated float points = 1;
 
-        /// The maximum error for a point pair to be an inlier to the model.
+        // The maximum error for a point pair to be an inlier to the model.
         optional float maximumError = 2;
     }
 
-    /// Ransac alignment settings.
+    // Ransac alignment settings.
     message Ransac
     {
         optional float downsampleVoxelSize = 1;
@@ -26,33 +26,33 @@ message Align
         optional bool mutualFilter = 6;
     }
 
-    /// Iterative closest point alignment settings.
+    // Iterative closest point alignment settings.
     message ICP
     {
-        /// The maximum distance for two points to be considered a match.
+        // The maximum distance for two points to be considered a match.
         float matchDistance = 1;
     }
 
-    /// Rough alignment settings.
+    // Rough alignment settings.
     message Rough
     {
-        /// Rough alignment methods.
+        // Rough alignment methods.
         enum Method
         {
-            /// No rough alignment.
+            // No rough alignment.
             None = 0;
 
-            /// Fast global alignment.
+            // Fast global alignment.
             FastGlobal = 1;
 
-            /// Ransac alignment.
+            // Ransac alignment.
             Ransac = 2;
 
-            /// Point pair alignment.
+            // Point pair alignment.
             Points = 3;
         }
 
-        /// Rough alignment method.
+        // Rough alignment method.
         Method method = 1;
 
         // FastGlobal fastGlobal;
@@ -62,16 +62,16 @@ message Align
         optional Align.Points points = 3;
     }
 
-    /// Fine alignment settings.
+    // Fine alignment settings.
     message Fine
     {
-        /// Fine alignment methods.
+        // Fine alignment methods.
         enum Method
         {
-            /// No fine alignment.
+            // No fine alignment.
             None = 0;
 
-            /// Iterative closest point alignment.
+            // Iterative closest point alignment.
             ICP = 1;
         }
 
@@ -81,25 +81,25 @@ message Align
             repeated double translation = 2;
         }
 
-        /// Fine alignment method.
+        // Fine alignment method.
         Method method = 1;
 
-        /// Iterative closest point settings.
+        // Iterative closest point settings.
         optional Align.ICP icp = 2;
 
-        /// The initial transform for fine alignment.
+        // The initial transform for fine alignment.
         optional Transform initialTransform = 3;
     }
 
-    /// Index of the scan or group to align.
+    // Index of the scan or group to align.
     int32 source = 1;
 
-    /// Index of the scan or group to align to.
+    // Index of the scan or group to align to.
     int32 target = 2;
 
-    /// Rough alignment settings.
+    // Rough alignment settings.
     optional Rough rough = 3;
 
-    /// Fine alignment settings.
+    // Fine alignment settings.
     optional Fine fine = 4;
 }

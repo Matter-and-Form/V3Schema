@@ -4,42 +4,42 @@ import "MF/V3/Settings/Software.proto";
 
 package MF.V3.Descriptors;
 
-/// V3 software descriptor.
+// V3 software descriptor.
 message Software
 {
-    /// Software version descriptor.
+    // Software version descriptor.
     message Version
     {
-        /// The major version.
+        // The major version.
         int32 major = 1;
 
-        /// The minor version.
+        // The minor version.
         int32 minor = 2;
 
-        /// The patch version.
+        // The patch version.
         int32 patch = 3;
         
-        /// The alphanumeric suffix. e.g. "rc0"
+        // The alphanumeric suffix. e.g. "rc0"
         string suffix = 4;
         
-        /// The version string. e.g. "1.2.3-rc0"
+        // The version string. e.g. "1.2.3-rc0"
         string string = 5;
 
     }
     
-    /// Software package descriptor.
+    // Software package descriptor.
     message Package
     {
         // The package name.
         MF.V3.Settings.Software.Package name = 1;
         
-        /// The package version.
+        // The package version.
         Version version = 2;
     }
     
-    /// Installed software versions.
+    // Installed software versions.
     repeated Package installed = 1;
     
-    /// Available software versions.
+    // Available software versions.
     repeated Package available = 2;
 }

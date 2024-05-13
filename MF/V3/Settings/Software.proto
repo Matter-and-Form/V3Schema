@@ -2,21 +2,21 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-/// V3 software settings.
+// V3 software settings.
 message Software
 {
     // Software package types.
     enum Package
     {
-        /// The server software package.
+        // The server software package.
         server = 0;
-        /// The frontend software package.
+        // The frontend software package.
         frontend = 1;
     }
     
-    /// Request installed software packages.  If undefined all installed packages are returned.
+    // Request installed software packages.  If undefined all installed packages are returned.
     repeated Package installed = 1;
     
-    /// Request avaible software packages.  If undefined all available packages are returned.
+    // Request avaible software packages.  If undefined all available packages are returned.
     repeated Package available = 2;
 }

@@ -2,67 +2,67 @@ syntax = "proto3";
 
 package MF.V3.Descriptors.Calibration;
 
-/// Calibration quality.
+// Calibration quality.
 enum Quality
 {
-    /// The calibration does not exist.
+    // The calibration does not exist.
     None = 0;
-    /// Poor calibration quality.
+    // Poor calibration quality.
     Poor = 1;
-    /// Fair calibration quality.
+    // Fair calibration quality.
     Fair = 2;
-    /// Good calibration quality.
+    // Good calibration quality.
     Good = 3;
-    /// Excellent calibration quality.
+    // Excellent calibration quality.
     Excellent = 4;
 }
 
-/// The calibration descriptor summarizes the calibration results.
+// The calibration descriptor summarizes the calibration results.
 message Camera
 {
-    /// Calibration quality.
+    // Calibration quality.
     Quality quality = 1;
 
-    /// Calibration date and time [year, month, day, hour, minute, second].
+    // Calibration date and time [year, month, day, hour, minute, second].
     repeated int32 date = 2;
 }
 
-/// The calibration descriptor summarizes the calibration results.
+// The calibration descriptor summarizes the calibration results.
 message Turntable
 {
-    /// Calibration quality.
+    // Calibration quality.
     Calibration.Quality quality = 1;
 
-    /// Calibration date and time [year, month, day, hour, minute, second].
+    // Calibration date and time [year, month, day, hour, minute, second].
     repeated int32 date = 2;
 
-    /// Focus values of each camera during calibration.
+    // Focus values of each camera during calibration.
     repeated int32 focus = 3;
 }
 
-/// Calibration capture target.
+// Calibration capture target.
 message CaptureTarget
 {
-    /// Index of the camera that is displayed to the user for this capture.
+    // Index of the camera that is displayed to the user for this capture.
     int32 camera = 1;
 
-    /// The target quad for each camera.
+    // The target quad for each camera.
     repeated float quads = 2;
 }
 
-/// Detected calibration card descriptor.
+// Detected calibration card descriptor.
 message DetectedCard
 {
-    /// Calibration capture target properties.
+    // Calibration capture target properties.
     message Target
     {
-        /**
+        /*
          * A normalized value indicating how closely the calibration card matches the target
          * overlay. 0 indicates a poor match.  1 indicates a good match.
          */
         float match = 1;
 
-        /**
+        /*
          * A normalized value indicating how long the user has held the calibration card steady over
          * the target overlay. When the value reaches 1, the user has held the calibration card
          * steady for the complete required duration.
@@ -70,15 +70,15 @@ message DetectedCard
         float hold = 2;
     }
 
-    /// The calibration card columns and rows.
+    // The calibration card columns and rows.
     repeated int32 size = 1;
 
-    /// The calibration card bounding quadrilateral.
+    // The calibration card bounding quadrilateral.
     repeated float quad = 2;
 
-    /// The detected corners of the calibration card.
+    // The detected corners of the calibration card.
     repeated float corners = 3;
 
-    /// The capture target properties, if a capture target is specified.
+    // The capture target properties, if a capture target is specified.
     optional Target target = 4;
 }

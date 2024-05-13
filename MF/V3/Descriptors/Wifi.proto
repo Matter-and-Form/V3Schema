@@ -2,31 +2,31 @@ syntax = "proto3";
 
 package MF.V3.Descriptors;
 
-/// The wifi descriptor.
+// The wifi descriptor.
 message Wifi
 {
-    /// The wifi network descriptor.
+    // The wifi network descriptor.
     message Network
     {
-        /// The service set identifier.
+        // The service set identifier.
         string ssid = 1;
 
-        /// Is the network public?
+        // Is the network public?
         bool isPublic = 2;
 
-        /// Is the network active?
+        // Is the network active?
         bool isActive = 3;
 
-        /// The network password.
+        // The network password.
         optional string password = 4;
 
-        /// Signal quality [0 ; 100].
+        // Signal quality [0 ; 100].
         optional int32 quality = 5;
     }
     
-    /// The wifi ssid.
+    // The wifi ssid.
     string ssid = 1;
     
-    /// The list of wifi networks.
+    // The list of wifi networks.
     repeated Network networks = 2;
 }

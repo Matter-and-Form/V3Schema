@@ -5,44 +5,44 @@ import "MF/V3/Settings/Quality.proto";
 
 package MF.V3.Settings;
 
-/// Scan merge settings.
+// Scan merge settings.
 message Merge
 {
-    /// Remesh settings.
+    // Remesh settings.
     message Remesh
     {
-        /// Remesh quality preset.
+        // Remesh quality preset.
         optional Quality quality = 1;
 
-        /// Voxel size.
+        // Voxel size.
         optional float voxelSize = 2;
 
-        /// Depth.
+        // Depth.
         optional int32 depth = 3;
 
-        /// Scale.
+        // Scale.
         optional float scale = 4;
 
-        /// Linear Interpolation.
+        // Linear Interpolation.
         optional bool linearInterpolation = 5;
     }
 
-    /// Simplify settings.
+    // Simplify settings.
     message Simplify
     {
-        /// Target triangle count.
+        // Target triangle count.
         int32 triangleCount = 1;
     }
 
-    /// The scan selection.
+    // The scan selection.
     optional ScanSelection selection = 1;
 
-    /// Remesh settings.
+    // Remesh settings.
     optional Remesh remesh = 2;
 
-    /// Simplify settings.
+    // Simplify settings.
     optional Simplify simplify = 3;
 
-    /// If \c true, apply textures to the merged mesh.
+    // If \c true, apply textures to the merged mesh.
     optional bool texturize = 4;
 }

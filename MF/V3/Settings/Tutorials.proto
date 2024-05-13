@@ -2,19 +2,19 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-/// Tutorials settings.
+// Tutorials settings.
 message Tutorials
 {
-    /// The list of viewed pages.
+    // The list of viewed pages.
     message Viewed
     {
-        /// The list of viewed pages.
+        // The list of viewed pages.
         repeated string pages = 1;
     }
 
-    /// The list of viewed pages.
+    // The list of viewed pages.
     optional bool show = 1;
 
-    /// The list of viewed pages.
+    // The list of viewed pages.
     optional Viewed viewed = 2;
 }

@@ -2,70 +2,70 @@ syntax = "proto3";
 
 package MF.V3.Descriptors;
 
-/// Scan data descriptor.
+// Scan data descriptor.
 message Scan
 {
-    /// Scan buffer descriptor.
+    // Scan buffer descriptor.
     message Buffer
     {
-        /// Scan buffer component descriptor.
+        // Scan buffer component descriptor.
         message Component
         {
-            /// Scan buffer component types.
+            // Scan buffer component types.
             enum Type
             {
-                /// Vertex position.
+                // Vertex position.
                 Position = 0;
-                /// Vertex normal.
+                // Vertex normal.
                 Normal = 1;
-                /// Vertex color.
+                // Vertex color.
                 Color = 2;
-                /// Vertex texture coordinate.
+                // Vertex texture coordinate.
                 UV = 3;
-                /// Triangle index.
+                // Triangle index.
                 Triangle = 4;
-                /// Texture.
+                // Texture.
                 Texture = 5;
             }
 
-            /// Scan buffer component type.
+            // Scan buffer component type.
             Type type = 1;
 
-            /// Scan buffer component size (ie. the number of elements).
+            // Scan buffer component size (ie. the number of elements).
             int32 size = 2;
 
-            /**
+            /*
              * Scan buffer component offset.
              * This is the starting element for this component at every stride of the buffer.
              */
             int32 offset = 3;
 
-            /// Indicates if the data is normalized.
+            // Indicates if the data is normalized.
             bool normalized = 4;
         }
 
-        /// Scan buffer components.
+        // Scan buffer components.
         repeated Component components = 1;
 
-        /// Scan buffer stride.  This should be greater or equal to the sum of the component sizes.
+        // Scan buffer stride.  This should be greater or equal to the sum of the component sizes.
         int32 stride = 2;
     }
 
-    /// Scan index.
+    // Scan index.
     int32 index = 1;
 
-    /// Scan name.
+    // Scan name.
     string name = 2;
 
-    /// Scan buffer descriptors.
+    // Scan buffer descriptors.
     repeated Buffer buffers = 3;
 
-    /// The mean (centroid) of the vertex positions.
+    // The mean (centroid) of the vertex positions.
     repeated float mean = 4;
 
-    /// The standard deviation of the vertex positions.
+    // The standard deviation of the vertex positions.
     repeated float stddev = 5;
     
-    /// The axis-aligned bounding box of the vertex positions.
+    // The axis-aligned bounding box of the vertex positions.
     repeated float axisAlignedBoundingBox = 6;
 }

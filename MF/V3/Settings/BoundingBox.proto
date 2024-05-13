@@ -4,13 +4,13 @@ import "MF/V3/Settings/ScanSelection.proto";
 
 package MF.V3.Settings;
 
-/// Bounding box settings.
+// Bounding box settings.
 message BoundingBox
 {
-    /// The scan selection.
+    // The scan selection.
     ScanSelection selection = 1;
 
-    /**
+    /*
      * If \c true, align the bounding box with the world axes.
      * Otherwise orient the bounding box with the scans.
      */

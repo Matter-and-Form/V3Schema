@@ -4,21 +4,21 @@ import "MF/V3/Settings/Quality.proto";
 
 package MF.V3.Settings;
 
-/// Capture settings.
+// Capture settings.
 message Capture
 {
-    /// Capture quality preset.
+    // Capture quality preset.
     optional Quality quality = 1;
 
-    /// Capture texture.
+    // Capture texture.
     optional bool texture = 2;
 
-    /// Detect the calibration card.
+    // Detect the calibration card.
     optional bool calibrationCard = 3;
 
-    /// Horizontal pattern frequencies.
+    // Horizontal pattern frequencies.
     repeated int32 horizontalFrequencies = 4;
 
-    /// Vertical pattern frequencies.
+    // Vertical pattern frequencies.
     repeated int32 verticalFrequencies = 5;
 }
