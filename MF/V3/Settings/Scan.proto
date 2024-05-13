@@ -7,12 +7,12 @@ import "MF/V3/Settings/Turntable.proto";
 
 package MF.V3.Settings;
 
-/// Scan settings.
+// Scan settings.
 message Scan
 {
     message Processing
     {
-        /**
+        /*
         * @brief Phase edge detection settings.
         *
         * Phase edge detection produces a binary mask indicating the edges of a
@@ -26,13 +26,13 @@ message Scan
         */
         message PhaseEdgeDetection
         {
-            /// The edge detection threshold.
+            // The edge detection threshold.
             double threshold = 1;
 
-            /// The Laplacian kernel radius.  This must be in the range [1..5].
+            // The Laplacian kernel radius.  This must be in the range [1..5].
             int32 laplacianKernelRadius = 2;
 
-            /**
+            /*
             * @brief Gaussian blur kernel radius. (Optional)  To disable, set to 0.
             *
             * @details The phase images can optionally blurred before taking the Laplacian to reduce noise.
@@ -40,13 +40,13 @@ message Scan
             */
             int32 gaussianBlurRadius = 3;
 
-            /**
+            /*
             * @brief Gaussian blur kernel standard deviation.  This parameter is ignored if
             * \p gaussianBlurSize is zero.
             */
             double gaussianBlurStdDev = 4;
 
-            /**
+            /*
             * @brief The maximum image width for processing. (Optional) To disable, set to 0.
             *
             * @details If this value is greater than zero, the phase images are resized to the maximum
@@ -58,10 +58,10 @@ message Scan
             int32 maximumWidthForProcessing = 5;
         }
 
-        /// Phase filter settings.
+        // Phase filter settings.
         message PhaseFilter
         {
-            /**
+            /*
             * @brief The filter kernel radius.
             *
             * A neighboring value must be within this radius to be included in the filter.
@@ -69,7 +69,7 @@ message Scan
             */
             int32 kernelRadius = 2;
 
-            /**
+            /*
             * @brief The standard deviation of the spatial weights.
             *
             * The weight of a neighboring value is \f$ exp(-(r/s)^2) \f$  where \f$ r \f$
@@ -82,7 +82,7 @@ message Scan
             double spatialWeightStdDev = 3;
         }
 
-        /**
+        /*
         * @brief Adaptive sampling settings
         *
         * Adaptive sampling will downsample points in regions of low detail
@@ -92,122 +92,122 @@ message Scan
         {
             enum Type
             {
-                /// Do not use adaptive sampling.
+                // Do not use adaptive sampling.
                 NONE = 0;
-                /// Use a regular sampling mask in regions of low detail.
+                // Use a regular sampling mask in regions of low detail.
                 REGULAR = 1;
-                /// Use a random sampling mask in regions of low detail.
+                // Use a random sampling mask in regions of low detail.
                 RANDOM = 2;
             }
 
-            /// Sampling type.
+            // Sampling type.
             Type type = 1;
 
-            /// The sample rate [0..1] for the regions of low detail.
+            // The sample rate [0..1] for the regions of low detail.
             double rate = 2;
         }
 
-        /// Point clipping settings.
+        // Point clipping settings.
         message PointClipping
         {
-            /// Point clipping type.
+            // Point clipping type.
             enum Type
             {
-                /// Clip points outside a unit cube.
+                // Clip points outside a unit cube.
                 OutsideCube = 0;
-                /// Clip points outside a unit cylinder.
+                // Clip points outside a unit cylinder.
                 OutsideCylinder = 1;
-                /// Clip points outside a unit sphere.
+                // Clip points outside a unit sphere.
                 OutsideSphere = 2;
-                /// Clip points inside a unit cube.
+                // Clip points inside a unit cube.
                 InsideCube = 3;
-                /// Clip points inside a unit cylinder.
+                // Clip points inside a unit cylinder.
                 InsideCylinder = 4;
-                /// Clip points inside a unit sphere.
+                // Clip points inside a unit sphere.
                 InsideSphere = 5;
             }
 
-            /// Point clipping type.
+            // Point clipping type.
             Type type = 1;
 
-            /// 4x4 transform mapping 3D points to the canonical point clipping coordinates.
+            // 4x4 transform mapping 3D points to the canonical point clipping coordinates.
             repeated double transform = 2;
         }
 
-        /// Normal estimation settings.
+        // Normal estimation settings.
         message NormalEstimation
         {
             enum Method
             {
-                /// Linear least squares method
+                // Linear least squares method
                 NORMAL_LLS = 0;
-                /// Open3D method using KD tree search for nearest neighbors
+                // Open3D method using KD tree search for nearest neighbors
                 NORMAL_OPEN3D = 1;
             }
 
-            /// Normal estimation method.
+            // Normal estimation method.
             Method method = 1;
 
-            /**
+            /*
             * @brief Maximum number of nearest neighbors used to compute the normal.
             * This value is only used with the NORMAL_OPEN3D method.
             */
             int32 maximumNeighbourCount = 2;
 
-            ///Maximum radius for a point to be considered a neighbour.
+            //Maximum radius for a point to be considered a neighbour.
             float maximumNeighbourRadius = 3;
 
             bool useMaximumNeighbourCount  = 4;
             bool useMaximumNeighbourRadius = 5;
         }
 
-        /// Outlier removal settings.
+        // Outlier removal settings.
         message OutlierRemoval
         {
-            /// The minimum number of points within the radius for a point to be retained.
+            // The minimum number of points within the radius for a point to be retained.
             int32 neighbourCount = 1;
 
-            /// The neighbour search radius.
+            // The neighbour search radius.
             float neighbourRadius = 2;
         }
 
-        /// Projector sample rate.
+        // Projector sample rate.
         optional float projectorSampleRate = 1;
 
-        /// Image sample rate.
+        // Image sample rate.
         optional float imageSampleRate = 2;
 
-        /// Phase edge detection settings.
+        // Phase edge detection settings.
         optional PhaseEdgeDetection edgeDetection = 3;
 
-        /// Phase filter settings.
+        // Phase filter settings.
         optional PhaseFilter phaseFilter = 4;
 
-        /// Adaptive sampling settings.
+        // Adaptive sampling settings.
         optional AdaptiveSampling adaptiveSampling = 5;
 
-        /// Point clipping settings.
+        // Point clipping settings.
         repeated PointClipping pointClipping = 6;
 
-        /// Normal estimation settings.
+        // Normal estimation settings.
         optional NormalEstimation normalEstimation = 7;
 
-        /// Outlier removal settings.
+        // Outlier removal settings.
         optional OutlierRemoval outlierRemoval = 8;
     }
 
-    /// Camera settings.
+    // Camera settings.
     Camera camera = 1;
 
-    /// Projector settings.
+    // Projector settings.
     Projector projector = 2;
 
-    /// Turntable settings.
+    // Turntable settings.
     optional Turntable turntable = 3;
 
-    /// Capture settings.
+    // Capture settings.
     Capture capture = 4;
 
-    /// Processing settings.
+    // Processing settings.
     optional Processing processing = 5;
 }

@@ -4,37 +4,37 @@ import "MF/V3/Settings/ScanSelection.proto";
 
 package MF.V3.Settings;
 
-/// Export settings.
+// Export settings.
 message Export
 {
-    /// 3D asset formats.
+    // 3D asset formats.
     enum Format
     {
-        /// Polygon format.
+        // Polygon format.
         ply = 0;
-        /// Digital asset exchange format.
+        // Digital asset exchange format.
         dae = 1;
-        /// Autodesk format.
+        // Autodesk format.
         fbx = 2;
-        /// GL transmission format.
+        // GL transmission format.
         glb = 3;
-        /// Wavefront format.
+        // Wavefront format.
         obj = 4;
-        /// Stereolithography format.
+        // Stereolithography format.
         stl = 5;
-        /// Chemical format.
+        // Chemical format.
         xyz = 6;
     }
 
-    /// The scan selection.
+    // The scan selection.
     optional ScanSelection selection = 1;
 
-    /// Export textures.
+    // Export textures.
     optional bool texture = 2;
 
-    /// Merge the scans into a single file.
+    // Merge the scans into a single file.
     optional bool merge = 3;
 
-    /// The export format.
+    // The export format.
     optional Format format = 4;
 }
