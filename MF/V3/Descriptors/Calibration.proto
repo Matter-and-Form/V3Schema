@@ -56,13 +56,13 @@ message DetectedCard
     // Calibration capture target properties.
     message Target
     {
-        /**
+        /*
          * A normalized value indicating how closely the calibration card matches the target
          * overlay. 0 indicates a poor match.  1 indicates a good match.
          */
         float match = 1;
 
-        /**
+        /*
          * A normalized value indicating how long the user has held the calibration card steady over
          * the target overlay. When the value reaches 1, the user has held the calibration card
          * steady for the complete required duration.

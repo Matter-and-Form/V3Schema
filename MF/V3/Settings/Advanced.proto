@@ -43,7 +43,7 @@ message Advanced
         // The Laplacian kernel radius.  This must be in the range [1..5].
         optional int32 laplacianKernelRadius = 2;
 
-        /**
+        /*
         * @brief Gaussian blur kernel radius. (Optional)  To disable, set to 0.
         *
         * @details The phase images can optionally blurred before taking the Laplacian to reduce noise.
@@ -51,13 +51,13 @@ message Advanced
         */
         optional int32 gaussianBlurRadius = 3;
 
-        /**
+        /*
         * @brief Gaussian blur kernel standard deviation.  This parameter is ignored if
         * \p gaussianBlurSize is zero.
         */
         optional float gaussianBlurStdDev = 4;
 
-        /**
+        /*
         * @brief The maximum image width for processing. (Optional) To disable, set to 0.
         *
         * @details If this value is greater than zero, the phase images are resized to the maximum
@@ -75,7 +75,7 @@ message Advanced
     // Phase filter settings.
     message PhaseFilter
     {
-        /**
+        /*
         * @brief The filter kernel radius.
         *
         * A neighboring value must be within this radius to be included in the filter.
@@ -83,7 +83,7 @@ message Advanced
         */
         optional int32 kernelRadius = 2;
 
-        /**
+        /*
         * @brief The standard deviation of the spatial weights.
         *
         * The weight of a neighboring value is \f$ exp(-(r/s)^2) \f$  where \f$ r \f$
@@ -99,7 +99,7 @@ message Advanced
         optional bool use = 4;
     }
 
-    /**
+    /*
     * @brief Adaptive sampling settings
     *
     * Adaptive sampling will downsample points in regions of low detail
@@ -136,7 +136,7 @@ message Advanced
         // Normal estimation method.
         optional Scan.Processing.NormalEstimation.Method method = 1;
 
-        /**
+        /*
         * Maximum number of nearest neighbors used to compute the normal.
         * This value is only used with the NORMAL_OPEN3D method.
         */

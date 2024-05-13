@@ -12,7 +12,7 @@ message Scan
 {
     message Processing
     {
-        /**
+        /*
         * @brief Phase edge detection settings.
         *
         * Phase edge detection produces a binary mask indicating the edges of a
@@ -32,7 +32,7 @@ message Scan
             // The Laplacian kernel radius.  This must be in the range [1..5].
             int32 laplacianKernelRadius = 2;
 
-            /**
+            /*
             * @brief Gaussian blur kernel radius. (Optional)  To disable, set to 0.
             *
             * @details The phase images can optionally blurred before taking the Laplacian to reduce noise.
@@ -40,13 +40,13 @@ message Scan
             */
             int32 gaussianBlurRadius = 3;
 
-            /**
+            /*
             * @brief Gaussian blur kernel standard deviation.  This parameter is ignored if
             * \p gaussianBlurSize is zero.
             */
             double gaussianBlurStdDev = 4;
 
-            /**
+            /*
             * @brief The maximum image width for processing. (Optional) To disable, set to 0.
             *
             * @details If this value is greater than zero, the phase images are resized to the maximum
@@ -61,7 +61,7 @@ message Scan
         // Phase filter settings.
         message PhaseFilter
         {
-            /**
+            /*
             * @brief The filter kernel radius.
             *
             * A neighboring value must be within this radius to be included in the filter.
@@ -69,7 +69,7 @@ message Scan
             */
             int32 kernelRadius = 2;
 
-            /**
+            /*
             * @brief The standard deviation of the spatial weights.
             *
             * The weight of a neighboring value is \f$ exp(-(r/s)^2) \f$  where \f$ r \f$
@@ -82,7 +82,7 @@ message Scan
             double spatialWeightStdDev = 3;
         }
 
-        /**
+        /*
         * @brief Adaptive sampling settings
         *
         * Adaptive sampling will downsample points in regions of low detail
@@ -148,7 +148,7 @@ message Scan
             // Normal estimation method.
             Method method = 1;
 
-            /**
+            /*
             * @brief Maximum number of nearest neighbors used to compute the normal.
             * This value is only used with the NORMAL_OPEN3D method.
             */

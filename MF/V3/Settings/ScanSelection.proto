@@ -21,7 +21,7 @@ message ScanSelection
     // The scan selection mode.
     Mode mode = 1;
 
-    /**
+    /*
      * The set of user-selected groups.
      * These are only used if the selection mode is 'selected'.
      */

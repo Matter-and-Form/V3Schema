@@ -20,7 +20,7 @@ message Group
     // Collapsed state in the group tree.
     optional bool collapsed = 5;
 
-    /**
+    /*
      * @brief Axis-angle rotation vector.
      *
      * The direction of the vector is the rotation axis.

@@ -34,7 +34,7 @@ message Scan
             // Scan buffer component size (ie. the number of elements).
             int32 size = 2;
 
-            /**
+            /*
              * Scan buffer component offset.
              * This is the starting element for this component at every stride of the buffer.
              */

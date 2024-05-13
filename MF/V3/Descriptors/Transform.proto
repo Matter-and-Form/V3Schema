@@ -5,7 +5,7 @@ package MF.V3.Descriptors;
 // V3 transform descriptor.
 message Transform
 {
-    /**
+    /*
     * @brief Axis-angle rotation vector.
     *
     * The direction of the vector is the rotation axis.

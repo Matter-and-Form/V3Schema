@@ -10,7 +10,7 @@ message BoundingBox
     // The scan selection.
     ScanSelection selection = 1;
 
-    /**
+    /*
      * If \c true, align the bounding box with the world axes.
      * Otherwise orient the bounding box with the scans.
      */

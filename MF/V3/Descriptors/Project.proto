@@ -39,7 +39,7 @@ message Project
         // Collapsed state in the group tree.
         bool collapsed = 5;
 
-        /**
+        /*
         * @brief Axis-angle rotation vector.
         *
         * The direction of the vector is the rotation axis.
@@ -50,14 +50,14 @@ message Project
         // Translation vector.
         repeated double translation = 7;
 
-        /**
+        /*
          * The scan index.
          * If defined this group is a scan and cannot have subgroups.
          * If undefined then this group is not a scan and can have subgroups.
          */
         optional int32 scan = 8;
 
-        /**
+        /*
          * Subgroups.
          * Note that a scan group (group with positive scan index) cannot have subgroups.
          */

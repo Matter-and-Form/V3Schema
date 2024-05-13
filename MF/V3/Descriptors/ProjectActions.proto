@@ -23,7 +23,7 @@ message ProjectAction
     // The original websocket task that the action is undoing or redoing.
     string task = 1;
 
-    /**
+    /*
      * The updated project data after undo or redo.
      * If undefined, then there was no change to the project.
      */
