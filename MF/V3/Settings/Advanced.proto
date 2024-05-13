@@ -44,23 +44,23 @@ message Advanced
         optional int32 laplacianKernelRadius = 2;
 
         /*
-        * @brief Gaussian blur kernel radius. (Optional)  To disable, set to 0.
+        * Gaussian blur kernel radius. (Optional)  To disable, set to 0.
         *
-        * @details The phase images can optionally blurred before taking the Laplacian to reduce noise.
+        * The phase images can optionally blurred before taking the Laplacian to reduce noise.
         * However as a result, the detected edges are wider.
         */
         optional int32 gaussianBlurRadius = 3;
 
         /*
-        * @brief Gaussian blur kernel standard deviation.  This parameter is ignored if
+        * Gaussian blur kernel standard deviation.  This parameter is ignored if
         * \p gaussianBlurSize is zero.
         */
         optional float gaussianBlurStdDev = 4;
 
         /*
-        * @brief The maximum image width for processing. (Optional) To disable, set to 0.
+        * The maximum image width for processing. (Optional) To disable, set to 0.
         *
-        * @details If this value is greater than zero, the phase images are resized to the maximum
+        * If this value is greater than zero, the phase images are resized to the maximum
         * width prior to computing the Laplacian and the the detected edges are then upsampled to the
         * original size.
         *
@@ -76,7 +76,7 @@ message Advanced
     message PhaseFilter
     {
         /*
-        * @brief The filter kernel radius.
+        * The filter kernel radius.
         *
         * A neighboring value must be within this radius to be included in the filter.
         * If the kernel radius is set to zero, the phase filtering is disabled.
@@ -84,7 +84,7 @@ message Advanced
         optional int32 kernelRadius = 2;
 
         /*
-        * @brief The standard deviation of the spatial weights.
+        * The standard deviation of the spatial weights.
         *
         * The weight of a neighboring value is \f$ exp(-(r/s)^2) \f$  where \f$ r \f$
         * is the distance to the central value and \f$ s \f$ is the spatial weight
@@ -100,7 +100,7 @@ message Advanced
     }
 
     /*
-    * @brief Adaptive sampling settings
+    * Adaptive sampling settings
     *
     * Adaptive sampling will downsample points in regions of low detail
     * and keep points in regions of high detail.

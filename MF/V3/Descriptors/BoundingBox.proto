@@ -12,15 +12,15 @@ message BoundingBox
     repeated double size = 2;
 
     /*
-     * @brief The 3x3 rotation matrix of the bounding box.
+     * The 3x3 rotation matrix of the bounding box.
      * The first, second and third column vectors are the x, y and z axes of the bounding box.
      */
     repeated double rotation = 3;
 
     /*
-     * @brief The 4x4 matrix that transforms the canonical cube with corners [±1, ±1, ±1] to the
+     * The 4x4 matrix that transforms the canonical cube with corners [±1, ±1, ±1] to the
      * bounding box in world coordinates.
-     * @note The transform can be used as the model matrix for rendering the bounding box with an
+     * The transform can be used as the model matrix for rendering the bounding box with an
      * OpenGL shader.
      */
     repeated double transform = 4;

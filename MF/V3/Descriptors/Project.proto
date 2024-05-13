@@ -40,7 +40,7 @@ message Project
         bool collapsed = 5;
 
         /*
-        * @brief Axis-angle rotation vector.
+        * Axis-angle rotation vector.
         *
         * The direction of the vector is the rotation axis.
         * The magnitude of the vector is rotation angle in radians.
