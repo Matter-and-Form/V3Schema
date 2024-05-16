@@ -11,6 +11,13 @@ message Projector
         float min = 3;
         float max = 4;
     }
+
+    message On
+    {
+        bool value = 1;
+        bool default = 2;
+    }
     
     Brightness brightness = 1;
+    On on = 2;
 }
