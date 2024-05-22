@@ -6,6 +6,20 @@ package MF.V3.Descriptors.Settings;
 
 message Camera
 {
+    message AutoExposure
+    {
+        bool value = 1;
+        bool default = 2;
+    }
+
+    message Exposure
+    {
+        int32 value = 1;
+        int32 default = 2;
+        int32 min = 3;
+        int32 max = 4;
+    }
+
     message AnalogGain
     {
         float value = 1;
@@ -15,14 +29,6 @@ message Camera
     }
 
     message DigitalGain
-    {
-        int32 value = 1;
-        int32 default = 2;
-        int32 min = 3;
-        int32 max = 4;
-    }
-
-    message Exposure
     {
         int32 value = 1;
         int32 default = 2;
@@ -50,8 +56,9 @@ message Camera
         Box box = 2;
     }
 
-    AnalogGain analogGain = 1;
-    DigitalGain digitalGain = 2;
-    Exposure exposure = 3;
-    Focus focus = 4;
+    AutoExposure autoExposure = 1;
+    Exposure exposure = 2;
+    AnalogGain analogGain = 3;
+    DigitalGain digitalGain = 4;
+    Focus focus = 5;
 }
