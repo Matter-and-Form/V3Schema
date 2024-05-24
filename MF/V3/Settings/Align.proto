@@ -16,6 +16,9 @@ message Align
         
         // The maximum error relative to the size of the aligned scans for a point pair to be an inlier to the model.
         optional float relativeError = 3;
+        
+        // Ignore alignment errors and use all selected points for alignment.
+        optional bool useAllPoints = 4;
     }
 
     // Ransac alignment settings.
