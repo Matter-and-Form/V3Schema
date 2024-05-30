@@ -48,12 +48,15 @@ const exec = command =>
         );
     }
 
+    await exec('npm run transpile');
+    await exec('rm -rf MF');
+
     const dirs = [...new Set(Object.keys(pbIndex).map(dir => dir.split('/').at(0)))];
 
     // Move generated proto definitions to root dir
     for (const dir of dirs)
     {
-        await exec(`mv ${SCHEMA_ROOT_DIR}/${dir} .`);
+        await exec(`mv build/${SCHEMA_ROOT_DIR}/${dir} .`);
     }
-    await exec(`rm -rf MF`);
+    await exec(`rm -rf build`);
 })();
