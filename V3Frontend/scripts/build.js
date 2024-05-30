@@ -25,12 +25,12 @@ const exec = command =>
     await exec(`npx buf generate ..`);
 
     // Generate export definitions
-    const pbIndex = glob.sync(`${SCHEMA_ROOT_DIR}/**/*_pb.js`)
+    const pbIndex = glob.sync(`${SCHEMA_ROOT_DIR}/**/*_pb.ts`)
         .reduce((map, pb) =>
         {
             const [_, pathname] = pb.split(`${SCHEMA_ROOT_DIR}/`);
             const components = pathname.split('/');
-            const [exportName] = components.at(-1).split('.js');
+            const [exportName] = components.at(-1).split('.ts');
             const exportPath = `export * from './${exportName}';`;
             const exportDir = components.slice(0, -1).join('/');
 
@@ -43,7 +43,7 @@ const exec = command =>
     for (const dir in pbIndex)
     {
         fs.writeFileSync(
-            `${SCHEMA_ROOT_DIR}/${dir}/index.js`,
+            `${SCHEMA_ROOT_DIR}/${dir}/index.ts`,
             `${pbIndex[dir].join('\n')}\n`
         );
     }
