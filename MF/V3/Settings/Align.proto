@@ -11,8 +11,14 @@ message Align
         // The set of corresponding point pairs.
         repeated float points = 1;
 
-        // The maximum error for a point pair to be an inlier to the model.
-        optional float maximumError = 2;
+        // The maximum absolute error for a point pair to be an inlier to the model.
+        optional float absoluteError = 2;
+        
+        // The maximum error relative to the size of the aligned scans for a point pair to be an inlier to the model.
+        optional float relativeError = 3;
+        
+        // Ignore alignment errors and use all selected points for alignment.
+        optional bool useAllPoints = 4;
     }
 
     // Ransac alignment settings.

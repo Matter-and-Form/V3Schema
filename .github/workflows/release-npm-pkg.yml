@@ -1,0 +1,26 @@
+name: Build and release NPM package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: https://npm.pkg.github.com/
+      - name: Publish NPM packages
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.REGISTRY_TOKEN}}
+        run: |
+          cd V3Frontend
+          npm install
+          npm run build
+          npm publish

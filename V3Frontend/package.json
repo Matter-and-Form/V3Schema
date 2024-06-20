@@ -1,0 +1,23 @@
+{
+  "name": "@matter-and-form/v3schema",
+  "version": "2.0.0",
+  "description": "Message schema files for the Three Scanner",
+  "main": "V3Frontend/scripts/build.js",
+  "scripts": {
+    "build": "node ./scripts/build",
+    "generate": "npx buf generate ..",
+    "transpile": "tsc"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "dependencies": {
+    "@bufbuild/buf": "^1.32.0",
+    "@bufbuild/protobuf": "^1.9.0",
+    "@bufbuild/protoc-gen-es": "^1.9.0"
+  },
+  "devDependencies": {
+    "glob": "^10.4.1",
+    "typescript": "^5.4.5"
+  }
+}
