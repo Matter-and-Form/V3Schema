@@ -14,21 +14,21 @@ message Merge
         // Remesh method.
         enum Method
         {
-            // Field aligned remesh to triangle mesh.
-            FieldAlignedTriangles = 0;
+            // Fast remesh as triangles.
+            FastTriangles = 0;
             
-            // Field aligned remesh to quad mesh.
-            FieldAlignedQuads = 1;
+            // Fast remesh as quads.
+            FastQuads = 1;
             
-            // Field aligned remesh to quad-dominant mesh.
-            FieldAlignedQuadDominant = 2;
+            // Fast remesh as quad-dominant mesh.
+            FastQuadDominant = 2;
             
-            // Poisson remesh to triangle mesh.
+            // Poisson remesh as triangles.
             PoissonTriangles = 3;
         }
         
-        // Field aligned remesh settings
-        message FieldAligned
+        // Fast remesh settings
+        message Fast
         {            
             // Output resolution scale.  Smaller means more faces.
             optional float scale = 3;
@@ -79,10 +79,10 @@ message Merge
         // Remesh quality.
         optional Quality quality = 2;
         
-        // Field algined remesh options (Ignored if method is not 'fieldAligned').
-        optional FieldAligned fieldAligned = 3;
+        // Fast remesh options (Ignored if method is 'Poison').
+        optional Fast fast = 3;
         
-        // Field algined remesh options (Ignored if method is not 'poisson').
+        // Poisson remesh options (Ignored if method is not 'Poisson').
         optional Poisson poisson = 4;
         
         // Temporary for backwards compatibility
