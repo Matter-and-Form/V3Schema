@@ -39,28 +39,16 @@ message Project
         // Collapsed state in the group tree.
         bool collapsed = 5;
 
-        /*
-        * Axis-angle rotation vector.
-        *
-        * The direction of the vector is the rotation axis.
-        * The magnitude of the vector is rotation angle in radians.
-        */
+        // Axis-angle rotation vector.  The direction of the vector is the rotation axis.  The magnitude of the vector is rotation angle in radians.
         repeated double rotation = 6;
 
         // Translation vector.
         repeated double translation = 7;
 
-        /*
-         * The scan index.
-         * If defined this group is a scan and cannot have subgroups.
-         * If undefined then this group is not a scan and can have subgroups.
-         */
+        // The scan index. If defined this group is a scan and cannot have subgroups.
         optional int32 scan = 8;
 
-        /*
-         * Subgroups.
-         * Note that a scan group (group with positive scan index) cannot have subgroups.
-         */
+        // Subgroups.
         repeated Group groups = 9;
     }
     

@@ -17,7 +17,7 @@ enum Quality
     Excellent = 4;
 }
 
-// The calibration descriptor summarizes the calibration results.
+// Camera calibration descriptor.
 message Camera
 {
     // Calibration quality.
@@ -27,7 +27,7 @@ message Camera
     repeated int32 date = 2;
 }
 
-// The calibration descriptor summarizes the calibration results.
+// Turntable calibration descriptor.
 message Turntable
 {
     // Calibration quality.
@@ -40,13 +40,22 @@ message Turntable
     repeated int32 focus = 3;
 }
 
-// Calibration capture target.
+/*
+ * Calibration capture target.
+ *
+ * The camera calibration capture targets are used to draw quad overlays on the video stream to guide a user as to where to position the calibration card for each capture during camera calibration.
+ */
 message CaptureTarget
 {
     // Index of the camera that is displayed to the user for this capture.
     int32 camera = 1;
 
-    // The target quad for each camera.
+    /*
+     * The target quad for each camera.
+     * This is a set of 16 numbers defining the quad coordinates on the left and right camera.
+     * The first 4 pairs of numbers define the quad on the left camera.
+     * The last 4 pairs of numbers define the quad on the right camera.
+     */
     repeated float quads = 2;
 }
 
