@@ -12,30 +12,33 @@ message Merge
         string name = 1;
 
         // Number of mesh triangle faces.
-        uint64 triangles = 2;
+        uint32 triangles = 2;
         
         // Number of quad faces.
-        uint64 quads = 3;
+        uint32 quads = 3;
 
         // Number of vertex positions.
-        uint64 positions = 4;
+        uint32 positions = 4;
 
         // Number of vertex normals.
-        uint64 normals = 5;
+        uint32 normals = 5;
 
         // Number of UV coordinates.
-        uint64 uvs = 6;
+        uint32 uvs = 6;
 
         // Total mesh size in bytes.
-        uint64 size = 7;
+        uint32 size = 7;
     }
 
     // The number of input scans.
-    int32 scans = 1;
+    uint32 scans = 1;
 
     // The number of input textures.
-    int32 textures = 2;
+    uint32 textures = 2;
+    
+    // The maximum number of faces for the simplify merge step.
+    uint32 maxSimplifyCount = 3;
 
     // The set of merged mesh descriptors.
-    repeated Mesh meshes = 3;
+    repeated Mesh meshes = 4;
 }
