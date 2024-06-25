@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+// Scan data descriptor.
+message Export
+{
+    // Scan export formats.
+    enum Format
+    {
+        // Polygon format.
+        ply = 0;
+        // Digital asset exchange format.
+        dae = 1;
+        // Autodesk format.
+        fbx = 2;
+        // GL transmission format.
+        glb = 3;
+        // Wavefront format.
+        obj = 4;
+        // Stereolithography format.
+        stl = 5;
+        // Chemical format.
+        xyz = 6;
+    }
+
+    // Geometry face types.
+    enum Face
+    {
+        // No faces.
+        NoFace = 0;
+        // Point faces.
+        Point = 1;
+        // Line faces.
+        Line = 2;
+        // Triangle faces.
+        Triangle = 3;
+        // Quad faces.
+        Quad = 4;
+    }
+
+    // Texture support types.
+    enum Texture
+    {
+        // The format does not support textures.
+        None = 0;
+        // The format supports a single texture only.
+        Single = 1;
+        // The format supports multiple textures.
+        Multiple = 2;
+    }
+    
+    // Export format.
+    Format format = 1;
+
+    // Export file extension. e.g. ".ply"
+    string extension = 2;
+
+    // Export format description. e.g. "Polygon format"
+    string description = 3;
+
+    // Types of supported faces.
+    repeated Face faces = 4;
+
+    // Vertex normal support.
+    bool normals = 5;
+    
+    // Vertex color support.
+    bool colors = 6;
+
+    // Texture (UV) support.
+    Texture textures = 7;
+}
