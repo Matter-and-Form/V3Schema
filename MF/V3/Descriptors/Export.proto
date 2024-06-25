@@ -1,29 +1,12 @@
 syntax = "proto3";
 
+import "MF/V3/Settings/Export.proto";
+
 package MF.V3.Descriptors;
 
 // Scan data descriptor.
 message Export
 {
-    // Scan export formats.
-    enum Format
-    {
-        // Polygon format.
-        ply = 0;
-        // Digital asset exchange format.
-        dae = 1;
-        // Autodesk format.
-        fbx = 2;
-        // GL transmission format.
-        glb = 3;
-        // Wavefront format.
-        obj = 4;
-        // Stereolithography format.
-        stl = 5;
-        // Chemical format.
-        xyz = 6;
-    }
-
     // Geometry face types.
     enum Face
     {
@@ -51,7 +34,7 @@ message Export
     }
     
     // Export format.
-    Format format = 1;
+    V3.Settings.Export.Format format = 1;
 
     // Export file extension. e.g. ".ply"
     string extension = 2;

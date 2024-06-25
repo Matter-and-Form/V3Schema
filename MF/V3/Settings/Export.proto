@@ -7,7 +7,7 @@ package MF.V3.Settings;
 // Export settings.
 message Export
 {
-    // 3D asset formats.
+    // Scan export formats.
     enum Format
     {
         // Polygon format.
