@@ -23,6 +23,14 @@ for file in $(find ${files} -type f -name *.proto); do
     protoFiles="${protoFiles} $(realpath -s --relative-to=${protoPath} ${file})"
 done
 
+# Pull the pseudomuto/protoc-gen-doc docker image.
+docker pull pseudomuto/protoc-gen-doc >/dev/null
+
+if [ $? -ne 0 ]; then
+    #echo "docker pull failed."
+    exit 1
+fi
+
 # Generate markdown documentation with pseudomuto/protoc-gen-doc.
 docker run --rm -v ${docPath}:/out -v ${protoPath}:/protos pseudomuto/protoc-gen-doc --doc_opt=markdown,${docName} ${protoFiles}
 
