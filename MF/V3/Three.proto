@@ -36,6 +36,8 @@ import "MF/V3/Tasks/NewGroup.proto";
 import "MF/V3/Tasks/NewProject.proto";
 import "MF/V3/Tasks/NewScan.proto";
 import "MF/V3/Tasks/OpenProject.proto";
+import "MF/V3/Tasks/PopSettings.proto";
+import "MF/V3/Tasks/PushSettings.proto";
 import "MF/V3/Tasks/Reboot.proto";
 import "MF/V3/Tasks/RemoveGroups.proto";
 import "MF/V3/Tasks/RemoveProjects.proto";
@@ -53,6 +55,7 @@ import "MF/V3/Tasks/StartVideo.proto";
 import "MF/V3/Tasks/StopVideo.proto";
 import "MF/V3/Tasks/TransformGroup.proto";
 import "MF/V3/Tasks/TurntableCalibration.proto";
+import "MF/V3/Tasks/UpdateSettings.proto";
 import "MF/V3/Tasks/UploadProject.proto";
 
 package MF.V3;
@@ -78,6 +81,15 @@ rpc DiskSpace (DiskSpace.Request) returns (DiskSpace.Response);
 
 // Get scanner settings.
 rpc ListSettings(ListSettings.Request) returns (ListSettings.Response);
+
+// Push the current scanner settings to the settings stack.
+rpc PushSettings(PushSettings.Request) returns (PushSettings.Response);
+
+//  Pop and restore scanner settings from the settings stack.
+rpc PopSettings(PopSettings.Request) returns (PopSettings.Response);
+
+// Update scanner settings.
+rpc UpdateSettings(UpdateSettings.Request) returns (UpdateSettings.Response);
 
 // List all projects.
 rpc ListProjects(ListProjects.Request) returns (ListProjects.Response);

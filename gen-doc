@@ -14,6 +14,9 @@ docPath=${scriptPath}/doc
 # The generated documentation name.
 docName=three.md
 
+# Remove the previously generated documentation.
+rm -f ${docPath}/${docName}
+
 # Find all the *.proto files in the source path.
 files=$(find ${protoPath} -type f -name *.proto)
 for file in $(find ${files} -type f -name *.proto); do
@@ -22,6 +25,11 @@ done
 
 # Generate markdown documentation with pseudomuto/protoc-gen-doc.
 docker run --rm -v ${docPath}:/out -v ${protoPath}:/protos pseudomuto/protoc-gen-doc --doc_opt=markdown,${docName} ${protoFiles}
+
+if [ $? -ne 0 ]; then
+    #echo "Documentation generation failed."
+    exit 1
+fi
 
 # Post-processing
 
