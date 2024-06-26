@@ -2,25 +2,33 @@ syntax = "proto3";
 
 package MF.V3.Descriptors.Settings;
 
+// Tutorials settings descriptor.
 message Tutorials
 {
+    // Tutorials to show.
     message Show
     {
         bool value = 1;
         bool default = 2;
     }
 
+    // Viewed tutorials.
     message Viewed
     {
+        // Viewed tutorials pages.
         message Pages
         {
             repeated string value = 1;
             repeated string default = 2;
         }
         
+        // Viewed tutorials pages.
         Pages pages = 1;
     }
 
+    // Show tutorials.
     Show show = 1;
+
+    // Viewed tutorials.
     Viewed viewed = 2;
 }

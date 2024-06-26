@@ -4,14 +4,17 @@ import "MF/V3/Settings/Rectangle.proto";
 
 package MF.V3.Descriptors.Settings;
 
+// Camera settings descriptor.
 message Camera
 {
+    // Auto exposure.
     message AutoExposure
     {
         bool value = 1;
         bool default = 2;
     }
 
+    // Exposure.
     message Exposure
     {
         int32 value = 1;
@@ -20,6 +23,7 @@ message Camera
         int32 max = 4;
     }
 
+    // Analog gain.
     message AnalogGain
     {
         float value = 1;
@@ -28,6 +32,7 @@ message Camera
         float max = 4;
     }
 
+    // Digital gain.
     message DigitalGain
     {
         int32 value = 1;
@@ -36,8 +41,10 @@ message Camera
         int32 max = 4;
     }
 
+    // Focus settings descriptor.
     message Focus
     {
+        // Focus value.
         message Value
         {
             repeated int32 value = 1;
@@ -46,19 +53,32 @@ message Camera
             int32 max = 4;
         }
 
+        // Auto focus box.
         message Box
         {
             repeated V3.Settings.Rectangle value = 1;
             repeated V3.Settings.Rectangle default = 2;
         }
 
+        // Focus value.
         Value value = 1;
+
+        // Auto focus box.
         Box box = 2;
     }
 
+    // Auto exposure.
     AutoExposure autoExposure = 1;
+
+    // Exposure.
     Exposure exposure = 2;
+
+    // Analog gain.
     AnalogGain analogGain = 3;
+
+    // Digital gain.
     DigitalGain digitalGain = 4;
+
+    // Focus settings descriptor.
     Focus focus = 5;
 }

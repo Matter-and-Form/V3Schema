@@ -4,14 +4,17 @@ import "MF/V3/Settings/Scan.proto";
 
 package MF.V3.Descriptors.Settings;
 
+// Advanced settings descriptor.
 message Advanced
 {
+    // Use advanced settings.
     message Use
     {
         bool value = 1;
         bool default = 2;
     }
 
+    // Capture settings descriptor.
     message Capture
     {
         message HorizontalFrequencies
@@ -35,6 +38,7 @@ message Advanced
         VerticalFrequencies verticalFrequencies = 3;
     }
 
+    // Sampling settings descriptor.
     message Sampling
     {
         message ProjectorSampleRate
@@ -53,11 +57,13 @@ message Advanced
             float max = 4;
         }
 
+        // Use sampling settings.
         Use use = 1;
         ProjectorSampleRate projectorSampleRate = 2;
         ImageSampleRate imageSampleRate = 3;
     }
 
+    // Edge detection settings descriptor.
     message EdgeDetection
     {
         message Threshold
@@ -108,6 +114,7 @@ message Advanced
         MaximumWidthForProcessing maximumWidthForProcessing = 6;
     }
 
+    // Phase filter settings descriptor.
     message PhaseFilter
     {
         message KernelRadius
@@ -131,6 +138,7 @@ message Advanced
         SpatialWeightStdDev spatialWeightStdDev = 3;
     }
 
+    // Adaptive sampling settings descriptor.
     message AdaptiveSampling
     {
         message Type
@@ -152,6 +160,7 @@ message Advanced
         Rate rate = 3;
     }
 
+    // Normal estimation settings descriptor.
     message NormalEstimation
     {
         message Method
@@ -196,6 +205,7 @@ message Advanced
         UseMaximumNeighbourRadius useMaximumNeighbourRadius = 6;
     }
     
+    // Outlier removal settings descriptor.
     message OutlierRemoval
     {
         message NeighbourCount
@@ -219,6 +229,7 @@ message Advanced
         NeighbourRadius neighbourRadius = 3;
     }
 
+    // Remesh settings descriptor.
     message Remesh
     {
         message VoxelSize
@@ -258,12 +269,27 @@ message Advanced
         LinearInterpolation linearInterpolation = 5;
     }
 
+    // Capture settings descriptor.
     Capture capture = 1;
+
+    // Sampling settings descriptor.
     Sampling sampling = 2;
+
+    // Edge detection settings descriptor.
     EdgeDetection edgeDetection = 3;
+
+    // Phase filter settings descriptor.
     PhaseFilter phaseFilter = 4;
+
+    // Adaptive sampling settings descriptor.
     AdaptiveSampling adaptiveSampling = 5;
+
+    // Normal estimation settings descriptor.
     NormalEstimation normalEstimation = 6;
+
+    // Outlier removal settings descriptor.
     OutlierRemoval outlierRemoval = 7;
+
+    // Remesh settings descriptor.
     Remesh remesh = 8;
 }

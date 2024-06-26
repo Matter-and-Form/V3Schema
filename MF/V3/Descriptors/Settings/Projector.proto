@@ -2,8 +2,10 @@ syntax = "proto3";
 
 package MF.V3.Descriptors.Settings;
 
+// Projector settings descriptor.
 message Projector
 {
+    // Projector brightness.
     message Brightness
     {
         float value = 1;
@@ -12,12 +14,16 @@ message Projector
         float max = 4;
     }
 
+    // Projector on/off.
     message On
     {
         bool value = 1;
         bool default = 2;
     }
     
+    // Projector brightness.
     Brightness brightness = 1;
+
+    // Projector on/off.
     On on = 2;
 }

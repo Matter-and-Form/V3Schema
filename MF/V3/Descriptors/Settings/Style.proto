@@ -4,13 +4,16 @@ import "MF/V3/Settings/Style.proto";
 
 package MF.V3.Descriptors.Settings;
 
+// Style settings descriptor.
 message Style
 {
+    // Theme settings descriptor.
     message Theme
     {
         V3.Settings.Style.Theme value = 1;
         V3.Settings.Style.Theme default = 2;
     }
 
+    // Theme settings descriptor.
     Theme theme = 1;
 }
