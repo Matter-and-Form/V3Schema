@@ -48,7 +48,7 @@ message ScanData
         Textured = 3;
     }
 
-    // Requested scan index.
+    // Requested index of the scan in the current open project.
     int32 index = 1;
 
     // The merge process step if requesting merge data.

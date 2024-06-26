@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "MF/V3/Settings/ScanSelection.proto";
-
 package MF.V3.Settings;
 
 // Field aligned remesh settings.

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Generate Protobuf schema documentation with pseudomuto/protoc-gen-doc.
+
+# Get the absolute script path.
+scriptPath="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && pwd 2> /dev/null; )";
+
+# The protobug source path is the V3Schema repository path.
+protoPath=${scriptPath}
+
+# The generated documentation path.
+docPath=${scriptPath}/doc
+
+# The generated documentation name.
+docName=three.md
+
+# Find all the *.proto files in the source path.
+files=$(find ${protoPath} -type f -name *.proto)
+for file in $(find ${files} -type f -name *.proto); do
+    protoFiles="${protoFiles} $(realpath -s --relative-to=${protoPath} ${file})"
+done
+
+# Generate markdown documentation with pseudomuto/protoc-gen-doc.
+docker run --rm -v ${docPath}:/out -v ${protoPath}:/protos pseudomuto/protoc-gen-doc --doc_opt=markdown,${docName} ${protoFiles}
+
+# Post-processing
+
+# pseudomuto/protoc-gen-doc replaces spaces with '/&#34' in code blocks.
+# Switch these back to spaces.
+sed -i 's/&#34;/"/g' ${docPath}/${docName}
+
+exit $?

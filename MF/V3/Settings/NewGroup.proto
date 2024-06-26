@@ -6,7 +6,7 @@ package MF.V3.Settings;
 message NewGroup
 {
     /* 
-     * The unique group index that identifies the group within the group tree.
+     * The index of the parent group in which the new group is created.
      * If unspecified the new group is added to the root of the group tree.
      */
     optional int32 parentIndex = 1;
@@ -17,22 +17,22 @@ message NewGroup
      */
     optional string baseName = 2;
 
-    // Color in the renderer.
+    // Group color.
     repeated float color = 4;
 
-    // Visibility in the renderer.
+    // Group visibility.
     optional bool visible = 5;
 
     // Collapsed state in the group tree.
     optional bool collapsed = 6;
 
     /*
-     * Axis-angle rotation vector.
+     * Group axis-angle rotation vector.
      * The direction of the vector is the rotation axis.
      * The magnitude of the vector is rotation angle in radians.
      */
     repeated double rotation = 7;
 
-    // Translation vector.
+    // Group translation vector.
     repeated double translation = 8;
 }

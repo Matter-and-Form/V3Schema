@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "MF/V3/Task.proto";
+
+package MF.V3;
+
+/**
+ * Generic buffer message for the Three Scanner.
+ * 
+ * Some tasks require the server and/or client to transfer binary data.  In such cases the _buffer message_ is sent to inform the server/client what the data is and what task it belongs to.  The binary data it refers to is sent immediately following the buffer message.
+ * 
+ * For example, `DownloadProject` requires the server to transfer a ZIP file containing the project data to the client.
+ *
+ * First, the client sends the task request to the server:
+ * ```
+ * {
+ *     "Task":{
+ *         "Index":1,
+ *         "Type":"DownloadProject",
+ *         "Input":5
+ *     }
+ * }
+ * ```
+ * The server sends the buffer message telling the client to expect a binary data transfer and what to do with it.  Note that the buffer message `Task` field echoes the task request, making it clear which request this data is a response to.
+ * ```
+ * {
+ *     "Buffer":{
+ *         "Descriptor":"Project-5.zip",
+ *         "Index":0,
+ *         "Size":15682096,
+ *         "Task":{
+ *             "Index":1,
+ *             "Type":"DownloadProject",
+ *             "Input":5
+ *         }
+ *     }
+ * }
+ * ```
+ * The server then sends the 15682096 byte data buffer of the project ZIP file.
+ * Finally, the server sends a task completion message.
+ * ```
+ * {
+ *     "Task":{
+ *         "Index":1,
+ *         "Type":"DownloadProject"
+ *         "Input":5,
+ *         "State":"Completed"
+ *     }
+ * }
+ * ```
+ */
+message Buffer
+{
+    // The zero-based index identifying the data buffer.
+    int32 Index = 1;
+
+    // The size of the incoming data buffer in bytes.
+    uint64 Size = 2;
+
+    // The task associated with the data buffer.  This informs the client which request this data buffer corresponds to.
+    Task Task = 3;
+
+    // Optional data buffer descriptor.  See each task definition for details.
+    optional google.protobuf.Any Descriptor = 4; 
+}
