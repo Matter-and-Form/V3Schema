@@ -37,4 +37,7 @@ fi
 # Switch these back to spaces.
 sed -i 's/&#34;/"/g' ${docPath}/${docName}
 
+# Remove the '.proto' name extensions.
+sed -i 's/.proto//g' ${docPath}/${docName}
+
 exit $?
