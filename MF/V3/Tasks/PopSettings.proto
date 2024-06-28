@@ -8,8 +8,9 @@ package MF.V3;
 /**
  * Pop and restore scanner settings from the stack and optionally apply the popped settings.
  *
- * Request example:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -18,8 +19,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response example:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

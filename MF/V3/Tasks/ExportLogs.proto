@@ -7,9 +7,9 @@ package MF.V3;
 /**
  * Export scanner logs.
  * 
- * Example:
- * Request from client:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -19,8 +19,9 @@ package MF.V3;
  * }
  * ```
  *
- * Export file buffer message from server.
- * ```
+ * > Export file buffer message from server.
+ *
+ * ```json
  * {
  *     "Buffer":{
  *         "Index":0,
@@ -33,10 +34,12 @@ package MF.V3;
  *     }
  * }
  * ```
- * Export file binary data transfer from server [41337 bytes].
  *
- * Response from server:
- * ```
+ * > Export file binary data transfer from server [41337 bytes].
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

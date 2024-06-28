@@ -40,8 +40,10 @@ enum TaskState
  * The task message is the generic message used for requesting a task of the Three Scanner and receiving updates and results.
  * 
  * Example: Apply camera settings with the "SetCameras" task.
- * Request from client:
- * ```
+ *
+ * > Example request:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -54,8 +56,10 @@ enum TaskState
  *     }
  * }
  * ```
- * Response from server:
- * ```
+ *
+ * > Example response:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

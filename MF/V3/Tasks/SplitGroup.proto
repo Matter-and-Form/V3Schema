@@ -8,9 +8,9 @@ package MF.V3;
 /**
  * Split a scan group (ie. move its subgroups to its parent group).
  * 
- * Example:
- * Request from client:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -19,8 +19,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response from server:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

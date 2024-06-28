@@ -9,9 +9,9 @@ package MF.V3;
 /**
  * Capture a new scan.
  * 
- * Example:
- * Request from client:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -24,8 +24,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response from server:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
