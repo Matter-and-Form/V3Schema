@@ -17,6 +17,6 @@ message Software
     // Request installed software packages.  If undefined all installed packages are returned.
     repeated Package installed = 1;
     
-    // Request avaible software packages.  If undefined all available packages are returned.
+    // Request available software packages.  If undefined all available packages are returned.
     repeated Package available = 2;
 }

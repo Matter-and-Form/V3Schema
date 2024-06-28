@@ -4,13 +4,16 @@ import "MF/V3/Settings/I18n.proto";
 
 package MF.V3.Descriptors.Settings;
 
+// I18n language settings descriptor.
 message I18n
 {
+    // Language settings descriptor.
     message Language
     {
         V3.Settings.I18n.Language value = 1;
         V3.Settings.I18n.Language default = 2;
     }
 
+    // Language settings descriptor.
     Language language = 1;
 }

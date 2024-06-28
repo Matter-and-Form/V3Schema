@@ -3,7 +3,7 @@ syntax = "proto3";
 package MF.V3.Descriptors;
 
 // Scan data descriptor.
-message Scan
+message ScanData
 {
     // Scan buffer descriptor.
     message Buffer

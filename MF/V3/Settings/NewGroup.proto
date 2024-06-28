@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Scan group settings.
+message NewGroup
+{
+    /* 
+     * The index of the parent group in which the new group is created.
+     * If unspecified the new group is added to the root of the group tree.
+     */
+    optional int32 parentIndex = 1;
+    
+    /*
+     * Group base name.
+     * The new group name will start with the base name followed by a unique index number chosen by the backend.
+     */
+    optional string baseName = 2;
+
+    // Group color.
+    repeated float color = 4;
+
+    // Group visibility.
+    optional bool visible = 5;
+
+    // Collapsed state in the group tree.
+    optional bool collapsed = 6;
+
+    /*
+     * Group axis-angle rotation vector.
+     * The direction of the vector is the rotation axis.
+     * The magnitude of the vector is rotation angle in radians.
+     */
+    repeated double rotation = 7;
+
+    // Group translation vector.
+    repeated double translation = 8;
+}

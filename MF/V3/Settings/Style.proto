@@ -5,7 +5,7 @@ package MF.V3.Settings;
 // Style settings.
 message Style
 {
-    // Theme types.
+    // Themes.
     enum Theme
     {
         // Light mode.

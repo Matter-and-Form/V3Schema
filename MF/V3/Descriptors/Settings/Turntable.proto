@@ -2,8 +2,10 @@ syntax = "proto3";
 
 package MF.V3.Descriptors.Settings;
 
+// Turntable settings descriptor.
 message Turntable
 {
+    // The number of turntable steps.
     message Steps
     {
         int32 value = 1;
@@ -12,6 +14,7 @@ message Turntable
         int32 max = 4;
     }
 
+    // Turntable angle sweep in degrees.
     message Sweep
     {
         int32 value = 1;
@@ -20,13 +23,19 @@ message Turntable
         int32 max = 4;
     }
 
+    // Use the turntable.
     message Use
     {
         bool value = 1;
         bool default = 2;
     }
 
+    // The number of turntable steps.
     Steps steps = 1;
+
+    // Turntable angle sweep in degrees.
     Sweep sweep = 2;
+
+    // Use the turntable.
     Use use = 3;
 }

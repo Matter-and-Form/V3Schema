@@ -5,16 +5,16 @@ package MF.V3.Settings;
 // Tutorials settings.
 message Tutorials
 {
-    // The list of viewed pages.
+    // Viewed tutorials.
     message Viewed
     {
-        // The list of viewed pages.
+        // Viewed tutorials pages.
         repeated string pages = 1;
     }
 
-    // The list of viewed pages.
+    // Show tutorials.
     optional bool show = 1;
 
-    // The list of viewed pages.
+    // Viewed tutorials.
     optional Viewed viewed = 2;
 }

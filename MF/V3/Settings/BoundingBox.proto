@@ -11,7 +11,7 @@ message BoundingBox
     ScanSelection selection = 1;
 
     /*
-     * If \c true, align the bounding box with the world axes.
+     * If `true`, align the bounding box with the world axes.
      * Otherwise orient the bounding box with the scans.
      */
     bool axisAligned = 2;

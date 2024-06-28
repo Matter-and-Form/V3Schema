@@ -4,7 +4,7 @@ import "MF/V3/Settings/Software.proto";
 
 package MF.V3.Descriptors;
 
-// V3 software descriptor.
+// Software descriptor.
 message Software
 {
     // Software version descriptor.

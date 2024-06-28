@@ -2,9 +2,10 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-// I18n settings.
+// I18n language settings.
 message I18n
 {
+    // Available languages.
     enum Language
     {
         en = 0;

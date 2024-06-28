@@ -4,20 +4,26 @@ import "MF/V3/Settings/Quality.proto";
 
 package MF.V3.Descriptors.Settings;
 
+// Capture settings descriptor.
 message Capture
 {
+    // Capture quality preset.
     message Quality
     {
         V3.Settings.Quality value = 1;
         V3.Settings.Quality default = 2;
     }
 
+    // Capture texture.
     message Texture
     {
         bool value = 1;
         bool default = 2;
     }
 
+    // Capture quality preset.
     Quality quality = 1;
+
+    // Capture texture.
     Texture texture = 2;
 }

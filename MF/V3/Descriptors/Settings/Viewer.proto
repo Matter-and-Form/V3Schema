@@ -2,8 +2,10 @@ syntax = "proto3";
 
 package MF.V3.Descriptors.Settings;
 
+// 3D Viewer settings descriptor.
 message Viewer
 {
+    // Texture opacity.
     message TextureOpacity
     {
         float value = 1;
@@ -11,5 +13,7 @@ message Viewer
         float min = 3;
         float max = 4;
     }
+
+    // Texture opacity.
     TextureOpacity textureOpacity = 1;
 }

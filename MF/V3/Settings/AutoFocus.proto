@@ -4,7 +4,7 @@ import "MF/V3/Settings/Rectangle.proto";
 
 package MF.V3.Settings;
 
-// V3 auto focus settings.
+// Auto focus settings.
 message AutoFocus
 {
     // Auto focus camera settings.
@@ -21,7 +21,7 @@ message AutoFocus
     repeated Camera cameras = 1;
 
     /*
-     * If \c true, apply the final focus value to both cameras.
+     * Apply the final focus value to both cameras.
      * This setting is ignored if more than one camera is selected.
      */
     bool applyAll = 2;

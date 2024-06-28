@@ -1,0 +1,238 @@
+syntax = "proto3";
+
+import "MF/V3/Tasks/AddMergeToProject.proto";
+import "MF/V3/Tasks/Align.proto";
+import "MF/V3/Tasks/AutoFocus.proto";
+import "MF/V3/Tasks/BoundingBox.proto";
+import "MF/V3/Tasks/CalibrationCaptureTargets.proto";
+import "MF/V3/Tasks/CalibrateCameras.proto";
+import "MF/V3/Tasks/CalibrateTurntable.proto";
+import "MF/V3/Tasks/CameraCalibration.proto";
+import "MF/V3/Tasks/CloseProject.proto";
+import "MF/V3/Tasks/ConnectWifi.proto";
+import "MF/V3/Tasks/DepthMap.proto";
+import "MF/V3/Tasks/DetectCalibrationCard.proto";
+import "MF/V3/Tasks/DiskSpace.proto";
+import "MF/V3/Tasks/DownloadProject.proto";
+import "MF/V3/Tasks/Export.proto";
+import "MF/V3/Tasks/ExportLogs.proto";
+import "MF/V3/Tasks/ExportMerge.proto";
+import "MF/V3/Tasks/FlattenGroup.proto";
+import "MF/V3/Tasks/ForgetWifi.proto";
+import "MF/V3/Tasks/HasCameras.proto";
+import "MF/V3/Tasks/HasProjector.proto";
+import "MF/V3/Tasks/HasTurntable.proto";
+import "MF/V3/Tasks/ListExportFormats.proto";
+import "MF/V3/Tasks/ListGroups.proto";
+import "MF/V3/Tasks/ListNetworkInterfaces.proto";
+import "MF/V3/Tasks/ListProjects.proto";
+import "MF/V3/Tasks/ListScans.proto";
+import "MF/V3/Tasks/ListSettings.proto";
+import "MF/V3/Tasks/ListWifi.proto";
+import "MF/V3/Tasks/Merge.proto";
+import "MF/V3/Tasks/MergeData.proto";
+import "MF/V3/Tasks/MoveGroup.proto";
+import "MF/V3/Tasks/NewGroup.proto";
+import "MF/V3/Tasks/NewProject.proto";
+import "MF/V3/Tasks/NewScan.proto";
+import "MF/V3/Tasks/OpenProject.proto";
+import "MF/V3/Tasks/PopSettings.proto";
+import "MF/V3/Tasks/PushSettings.proto";
+import "MF/V3/Tasks/Reboot.proto";
+import "MF/V3/Tasks/RemoveGroups.proto";
+import "MF/V3/Tasks/RemoveProjects.proto";
+import "MF/V3/Tasks/RestoreFactoryCalibration.proto";
+import "MF/V3/Tasks/RotateTurntable.proto";
+import "MF/V3/Tasks/ScanData.proto";
+import "MF/V3/Tasks/SetCameras.proto";
+import "MF/V3/Tasks/SetGroup.proto";
+import "MF/V3/Tasks/SetProject.proto";
+import "MF/V3/Tasks/SetProjector.proto";
+import "MF/V3/Tasks/Shutdown.proto";
+import "MF/V3/Tasks/SoftwareVersion.proto";
+import "MF/V3/Tasks/SplitGroup.proto";
+import "MF/V3/Tasks/StartVideo.proto";
+import "MF/V3/Tasks/StopVideo.proto";
+import "MF/V3/Tasks/TransformGroup.proto";
+import "MF/V3/Tasks/TurntableCalibration.proto";
+import "MF/V3/Tasks/UpdateSettings.proto";
+import "MF/V3/Tasks/UploadProject.proto";
+
+package MF.V3;
+
+// Three scanner API.
+service Three
+{
+
+// List available wifi networks.
+rpc ListNetworkInterfaces(ListNetworkInterfaces.Request) returns (ListNetworkInterfaces.Response);
+
+// List available wifi networks.
+rpc ListWifi(ListWifi.Request) returns (ListWifi.Response);
+
+// Connect to a wifi network.
+rpc ConnectWifi(ConnectWifi.Request) returns (ConnectWifi.Response);
+
+// Forget all wifi connections.
+rpc ForgetWifi(ForgetWifi.Request) returns (ForgetWifi.Response);
+
+// Get the scanner disk space.
+rpc DiskSpace (DiskSpace.Request) returns (DiskSpace.Response);
+
+// Get scanner settings.
+rpc ListSettings(ListSettings.Request) returns (ListSettings.Response);
+
+// Push the current scanner settings to the settings stack.
+rpc PushSettings(PushSettings.Request) returns (PushSettings.Response);
+
+//  Pop and restore scanner settings from the settings stack.
+rpc PopSettings(PopSettings.Request) returns (PopSettings.Response);
+
+// Update scanner settings.
+rpc UpdateSettings(UpdateSettings.Request) returns (UpdateSettings.Response);
+
+// List all projects.
+rpc ListProjects(ListProjects.Request) returns (ListProjects.Response);
+
+// Download a project from the scanner.
+rpc DownloadProject(DownloadProject.Request) returns (DownloadProject.Response);
+
+// Upload a project to the scanner.
+rpc UploadProject(UploadProject.Request) returns (UploadProject.Response);
+
+// Create a new project.
+rpc NewProject(NewProject.Request) returns (NewProject.Response);
+
+// Open an existing project.
+rpc OpenProject(OpenProject.Request) returns (OpenProject.Response);
+
+// Close the current open project.
+rpc CloseProject(CloseProject.Request) returns (CloseProject.Response);
+
+// Remove selected projects.
+rpc RemoveProjects(RemoveProjects.Request) returns (RemoveProjects.Response);
+
+// List the scan groups in the current open project.
+rpc ListGroups(ListGroups.Request) returns (ListGroups.Response);
+
+// List the scans in the current open project.
+rpc ListScans(ListScans.Request) returns (ListScans.Response);
+
+// Download the raw scan data for a scan in the current open project.
+rpc ScanData(ScanData.Request) returns (ScanData.Response);
+
+// Apply settings to the current open project.
+rpc SetProject(SetProject.Request) returns (SetProject.Response);
+
+// Set scan group properties.
+rpc SetGroup(SetGroup.Request) returns (SetGroup.Response);
+
+// Create a new scan group.
+rpc NewGroup(NewGroup.Request) returns (NewGroup.Response);
+
+// Move a scan group.
+rpc MoveGroup(MoveGroup.Request) returns (MoveGroup.Response);
+
+// Flatten a scan group such that it only consists of single scans.
+rpc FlattenGroup(FlattenGroup.Request) returns (FlattenGroup.Response);
+
+// Split a scan group (ie. move its subgroups to its parent group).
+rpc SplitGroup(SplitGroup.Request) returns (SplitGroup.Response);
+
+// Apply a rigid transformation to a group.
+rpc TransformGroup(TransformGroup.Request) returns (TransformGroup.Response);
+
+// Remove selected scan groups.
+rpc RemoveGroups(RemoveGroups.Request) returns (RemoveGroups.Response);
+
+// Get the bounding box of a set of scan groups.
+rpc BoundingBox(BoundingBox.Request) returns (BoundingBox.Response);
+
+// Align two scan groups.
+rpc Align(Align.Request) returns (Align.Response);
+
+// Merge two or more scan groups.
+rpc Merge(Merge.Request) returns (Merge.Response);
+
+// Download the raw scan data for the current merge process.
+rpc MergeData(MergeData.Request) returns (MergeData.Response);
+
+// Add a merged scan to the current project.
+rpc AddMergeToProject(AddMergeToProject.Request) returns (AddMergeToProject.Response);
+
+// List all export formats.
+rpc ListExportFormats(ListExportFormats.Request) returns (ListExportFormats.Response);
+
+// Export a group of scans.
+rpc Export(Export.Request) returns (Export.Response);
+
+// Export a merged scan.
+rpc ExportMerge(ExportMerge.Request) returns (ExportMerge.Response);
+
+// Export scanner logs.
+rpc ExportLogs(ExportLogs.Request) returns (ExportLogs.Response);
+
+// Check if the scanner has working cameras.
+rpc HasCameras(HasCameras.Request) returns (HasCameras.Response);
+
+// Check if the scanner has a working projector.
+rpc HasProjector(HasProjector.Request) returns (HasProjector.Response);
+
+// Check if the scanner is connected to a working turntable.
+rpc HasTurntable(HasTurntable.Request) returns (HasTurntable.Response);
+
+// Get installed and available software versions.
+rpc SoftwareVersion(SoftwareVersion.Request) returns (SoftwareVersion.Response);
+
+// Get the camera calibration descriptor.
+rpc CameraCalibration(CameraCalibration.Request) returns (CameraCalibration.Response);
+
+// Get the turntable calibration descriptor.
+rpc TurntableCalibration(TurntableCalibration.Request) returns (TurntableCalibration.Response);
+
+// Get the calibration capture target for each camera calibration capture.
+rpc CalibrationCaptureTargets(CalibrationCaptureTargets.Request) returns (CalibrationCaptureTargets.Response);
+
+// Calibrate the cameras.
+rpc CalibrateCameras(CalibrateCameras.Request) returns (CalibrateCameras.Response);
+
+// Calibrate the turntable.
+rpc CalibrateTurntable(CalibrateTurntable.Request) returns (CalibrateTurntable.Response);
+
+// Detect the calibration card on one or both cameras.
+rpc DetectCalibrationCard (DetectCalibrationCard.Request) returns (DetectCalibrationCard.Response);
+
+// Restore factory calibration.
+rpc RestoreFactoryCalibration(RestoreFactoryCalibration.Request) returns (RestoreFactoryCalibration.Response);
+
+// Start the video stream.
+rpc StartVideo(StartVideo.Request) returns (StartVideo.Response);
+
+// Stop the video stream.
+rpc StopVideo(StopVideo.Request) returns (StopVideo.Response);
+
+// Apply camera settings to one or both cameras.
+rpc SetCameras(SetCameras.Request) returns (SetCameras.Response);
+
+// Apply projector settings.
+rpc SetProjector(SetProjector.Request) returns (SetProjector.Response);
+
+// Auto focus one or both cameras.
+rpc AutoFocus(AutoFocus.Request) returns (AutoFocus.Response);
+
+// Rotate the turntable.
+rpc RotateTurntable(RotateTurntable.Request) returns (RotateTurntable.Response);
+
+// Capture a new scan.
+rpc NewScan(NewScan.Request) returns (NewScan.Response);
+
+// Capture a depth map.
+rpc DepthMap(DepthMap.Request) returns (DepthMap.Response);
+
+// Reboot the scanner.
+rpc Reboot(Reboot.Request) returns (Reboot.Response);
+
+// Shutdown the scanner.
+rpc Shutdown(Shutdown.Request) returns (Shutdown.Response);
+
+}

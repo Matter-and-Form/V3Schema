@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+// Image descriptor.
+message Image
+{
+    // Image width.
+    int32 width = 1;
+    
+    // Image height.
+    int32 height = 2;
+    
+    // Image row step in bytes.
+    int32 step = 3;
+    
+    // OpenCV image [type](https://gist.github.com/yangcha/38f2fa630e223a8546f9b48ebbb3e61a).
+    int32 type = 4;
+}

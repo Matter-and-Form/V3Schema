@@ -48,7 +48,7 @@ message Projector
             // Source image step in bytes.
             int32 step = 4;
 
-            // If \c true, the source aspect ratio is fixed within the target rectangle.
+            // Fix the source aspect ratio to the target rectangle.
             bool fixAspectRatio = 5;
         }
 

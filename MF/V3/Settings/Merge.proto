@@ -115,6 +115,6 @@ message Merge
     // Simplify settings.
     optional Simplify simplify = 3;
 
-    // If \c true, apply textures to the merged mesh.
+    // Apply textures to the merged mesh.
     optional bool texturize = 4;
 }

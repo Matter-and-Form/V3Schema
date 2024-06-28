@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Wifi connection settings.
+message Wifi
+{
+    // The wifi ssid.
+    string ssid = 1;
+    
+    // The wifi password.
+    string password = 2;
+}

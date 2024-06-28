@@ -1,0 +1,249 @@
+syntax = "proto3";
+
+import "MF/V3/Task.proto";
+import "MF/V3/Settings/ScanData.proto";
+import "MF/V3/Descriptors/ScanData.proto";
+
+package MF.V3;
+
+/**
+ * Download the raw scan data for a scan in the current open project.
+ * 
+ * Example:
+ * Request from client:
+ * ```
+ * {
+ *     "Task":{
+ *         "Index":1,
+ *         "Type":"ScanData",
+ *         "Input":{
+ *             "index":1,
+ *             "buffers":["All"]
+ *         }
+ *     }
+ * }
+ * ```
+ *
+ * Vertex position buffer message from server.
+ * ```
+ * {
+ *     "Buffer":{
+ *         "Index":0,
+ *         "Size":1558188,
+ *         "Descriptor":{
+ *             "components":[{
+ *                 "type":"Position"
+ *                 "size":3,
+ *                 "offset":0,
+ *                 "normalized":false,
+ *             }],
+ *             "stride":3
+ *         },
+ *         "Task":{
+ *             "Index":1,
+ *             "Type":"ScanData",
+ *             "Input":{
+ *                 "index":1,
+ *                 "buffers":["All"]
+ *             }
+ *         }
+ *     }
+ * }
+ * ```
+ *
+ * Vertex position binary data transfer from server [1558188 bytes].
+ *
+ * Vertex normal buffer message from server..
+ * ```
+ * {
+ *     "Buffer":{
+ *         "Index":1,
+ *         "Size":1558188,
+ *         "Descriptor":{
+ *             "components":[{
+ *                 "type":"Normal"
+ *                 "size":3,
+ *                 "offset":0,
+ *                 "normalized":false,
+ *             }],
+ *             "stride":3
+ *         },
+ *         "Task":{
+ *             "Index":1,
+ *             "Type":"ScanData",
+ *             "Input":{
+ *                 "index":1,
+ *                 "buffers":["All"]
+ *             }
+ *         }
+ *     }
+ * }
+ * ```
+ *
+ * Vertex normal binary data transfer from server [1558188 bytes].
+ *
+ * Vertex texture coordinate buffer message from server.
+ * ```
+ * {
+ *     "Buffer":{
+ *         "Index":2,
+ *         "Size":1038792,
+ *         "Descriptor":{
+ *             "components":[{
+ *                 "type":"UV"
+ *                 "size":2,
+ *                 "offset":0,
+ *                 "normalized":false,
+ *             }],
+ *             "stride":2
+ *         },
+ *         "Task":{
+ *             "Index":1,
+ *             "Type":"ScanData",
+ *             "Input":{
+ *                 "index":1,
+ *                 "buffers":["All"]
+ *             }
+ *         }
+ *     }
+ * }
+ * ```
+ *
+ * Vertex texture coordinate binary data transfer from server [1038792 bytes].
+ *
+ * Texture image buffer message from server.
+ * ```
+ * {
+ *     "Buffer":{
+ *         "Index":3,
+ *         "Size":3504494,
+ *         "Descriptor":{
+ *             "components":[{
+ *                 "type":"Texture"
+ *                 "size":0,
+ *                 "offset":0,
+ *                 "normalized":false,
+ *             }],
+ *             "stride":0
+ *         },
+ *         "Task":{
+ *             "Index":1,
+ *             "Type":"ScanData",
+ *             "Input":{
+ *                 "index":1,
+ *                 "buffers":["All"]
+ *             }
+ *         }
+ *     }
+ * }
+ * ```
+ *
+ * Texture binary data transfer from server [3504494 bytes].
+ *
+ * Triangle index buffer message from server.
+ * ```
+ * {
+ *     "Buffer":{
+ *         "Index":4,
+ *         "Size":1996356,
+ *         "Descriptor":{
+ *             "components":[{
+ *                 "type":"Triangle"
+ *                 "size":1,
+ *                 "offset":0,
+ *                 "normalized":false,
+ *             }],
+ *             "stride":1
+ *         },
+ *         "Task":{
+ *             "Index":1,
+ *             "Type":"ScanData",
+ *             "Input":{
+ *                 "index":1,
+ *                 "buffers":["All"]
+ *             }
+ *         }
+ *     }
+ * }
+ * ```
+ *
+ * Triangle index binary data transfer from server [1996356 bytes].
+ *
+ * Response from server:
+ * ```
+ * {
+ *     "Task":{
+ *         "Index":1,
+ *         "Type":"ScanData",
+ *         "Input":{"buffers":["All"],"index":1},
+ *         "Output":{
+ *             "buffers":[
+ *                 {"components":[{"normalized":false,"offset":0,"size":3,"type":"Position"}],"stride":3},
+ *                 {"components":[{"normalized":false,"offset":0,"size":3,"type":"Normal"}],"stride":3},
+ *                 {"components":[{"normalized":false,"offset":0,"size":2,"type":"UV"}],"stride":2},
+ *                 {"components":[{"normalized":false,"offset":0,"size":0,"type":"Texture"}],"stride":0},
+ *                 {"components":[{"normalized":false,"offset":0,"size":1,"type":"Triangle"}],"stride":1}
+ *             ],
+ *             "index":1,
+ *             "name":"Scan-1"
+ *         },
+ *         "State":"Completed"
+ *     }
+ * }
+ * ```
+ */
+message ScanData
+{
+
+// Client request for the `ScanData` task.
+message Request
+{
+    // A unique identifier generated by the client.
+    int32 Index = 1;
+
+    // "ScanData"
+    string Type = 2;
+
+    // Requested scan data.
+    Settings.ScanData Input = 3;
+}
+
+// Server response for the `ScanData` task.
+message Response
+{
+    // The unique identifier generated by the client.
+    int32 Index = 1;
+
+    // "ScanData"
+    string Type = 2;
+
+    // The scan data requested by the client.
+    Settings.ScanData Input = 3;
+
+    // The scan data sent from the server.
+    Descriptors.ScanData Output = 4;
+
+    // The current state of the task.
+    optional TaskState State = 5;
+
+    // A string describing the error if the task has failed.
+    optional string Error = 6;
+}
+
+// Server buffer message for the `ScanData` task.
+message Buffer
+{
+    // The zero-based index identifying the data buffer.
+    int32 Index = 1;
+
+    // The size of the incoming data buffer in bytes.
+    uint64 Size = 2;
+
+    // The requested ScanData task.
+    Task Task = 3;
+
+    // The scan data buffer descriptor.
+    Descriptors.ScanData.Buffer Descriptor = 4; 
+}
+
+}
