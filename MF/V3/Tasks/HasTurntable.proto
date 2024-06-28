@@ -7,8 +7,9 @@ package MF.V3;
 /**
  * Check if the scanner is connected to a working turntable.
  *
- * Request example:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -16,8 +17,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response example:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
