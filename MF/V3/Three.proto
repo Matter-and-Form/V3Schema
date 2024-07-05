@@ -12,7 +12,6 @@ import "MF/V3/Tasks/CloseProject.proto";
 import "MF/V3/Tasks/ConnectWifi.proto";
 import "MF/V3/Tasks/DepthMap.proto";
 import "MF/V3/Tasks/DetectCalibrationCard.proto";
-import "MF/V3/Tasks/DiskSpace.proto";
 import "MF/V3/Tasks/DownloadProject.proto";
 import "MF/V3/Tasks/Export.proto";
 import "MF/V3/Tasks/ExportLogs.proto";
@@ -49,7 +48,7 @@ import "MF/V3/Tasks/SetGroup.proto";
 import "MF/V3/Tasks/SetProject.proto";
 import "MF/V3/Tasks/SetProjector.proto";
 import "MF/V3/Tasks/Shutdown.proto";
-import "MF/V3/Tasks/SoftwareVersion.proto";
+import "MF/V3/Tasks/SystemInfo.proto";
 import "MF/V3/Tasks/SplitGroup.proto";
 import "MF/V3/Tasks/StartVideo.proto";
 import "MF/V3/Tasks/StopVideo.proto";
@@ -75,9 +74,6 @@ rpc ConnectWifi(ConnectWifi.Request) returns (ConnectWifi.Response);
 
 // Forget all wifi connections.
 rpc ForgetWifi(ForgetWifi.Request) returns (ForgetWifi.Response);
-
-// Get the scanner disk space.
-rpc DiskSpace (DiskSpace.Request) returns (DiskSpace.Response);
 
 // Get scanner settings.
 rpc ListSettings(ListSettings.Request) returns (ListSettings.Response);
@@ -182,7 +178,7 @@ rpc HasProjector(HasProjector.Request) returns (HasProjector.Response);
 rpc HasTurntable(HasTurntable.Request) returns (HasTurntable.Response);
 
 // Get installed and available software versions.
-rpc SoftwareVersion(SoftwareVersion.Request) returns (SoftwareVersion.Response);
+rpc SystemInfo(SystemInfo.Request) returns (SystemInfo.Response);
 
 // Get the camera calibration descriptor.
 rpc CameraCalibration(CameraCalibration.Request) returns (CameraCalibration.Response);
