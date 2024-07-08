@@ -10,8 +10,9 @@ message I18n
     {
         en = 0;
         fr = 1;
+        de = 2;
     }
 
-    // The language setting.  Supported languages are ["en", "fr"].
+    // The language setting.  Supported languages are ["en", "fr", "de"].
     optional Language language = 1;
 }
