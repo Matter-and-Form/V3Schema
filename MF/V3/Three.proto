@@ -177,7 +177,7 @@ rpc HasProjector(HasProjector.Request) returns (HasProjector.Response);
 // Check if the scanner is connected to a working turntable.
 rpc HasTurntable(HasTurntable.Request) returns (HasTurntable.Response);
 
-// Get installed and available software versions.
+// Get system information.
 rpc SystemInfo(SystemInfo.Request) returns (SystemInfo.Response);
 
 // Get the camera calibration descriptor.
