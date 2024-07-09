@@ -7,6 +7,16 @@ package MF.V3.Descriptors;
 // System descriptor.
 message System
 {
+    // Disk space descriptor.
+    message DiskSpace
+    {
+        // Disk space capacity in bytes.
+        uint64 capacity = 1;
+
+        // Available disk space in bytes.
+        uint64 available = 2;
+    }
+    
     // Software descriptor.
     message Software
     {
@@ -46,23 +56,13 @@ message System
         // Available software versions.
         repeated Package available = 2;
     }
-
-    // Disk space descriptor.
-    message DiskSpace
-    {
-        // Disk space capacity in bytes.
-        uint64 capacity = 1;
-
-        // Available disk space in bytes.
-        uint64 available = 2;
-    }
     
     // Serial number;
     string serialNumber = 1;
     
-    // Software descriptor.
-    Software software = 2;
-
     // Used and available disk space.
-    DiskSpace diskSpace = 3;
+    DiskSpace diskSpace = 2;
+    
+    // Software descriptor.
+    Software software = 3;
 }
