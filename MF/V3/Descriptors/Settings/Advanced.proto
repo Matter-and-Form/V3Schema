@@ -268,6 +268,23 @@ message Advanced
         Scale scale = 4;
         LinearInterpolation linearInterpolation = 5;
     }
+    
+    // Camera settings descriptor.
+    message Camera
+    {
+        // Use continuous exposure values settings descriptor.
+        message UseContinuousExposureValues
+        {
+            bool value = 1;
+            bool default = 2;
+        }
+        
+        // Use sampling settings.
+        Use use = 1;
+        
+        // Use continuous exposure values settings descriptor.
+        UseContinuousExposureValues useContinuousExposureValues = 2;
+    }
 
     // Capture settings descriptor.
     Capture capture = 1;
@@ -292,4 +309,7 @@ message Advanced
 
     // Remesh settings descriptor.
     Remesh remesh = 8;
+    
+    // Camera settings descriptor.
+    Camera camera = 9;
 }
