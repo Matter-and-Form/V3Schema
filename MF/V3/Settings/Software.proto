@@ -19,4 +19,13 @@ message Software
     
     // Request available software packages.  If undefined all available packages are returned.
     repeated Package available = 2;
+
+    // Request upgrade to latest minor version.
+    optional bool minorUpgrade = 3;
+
+    // Request upgrade to latest major version.
+    optional bool majorUpgrade = 4;
+
+    // Permit nightly release upgrades.
+    optional bool enableNightly = 5;
 }
