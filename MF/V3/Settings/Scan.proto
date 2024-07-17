@@ -188,16 +188,16 @@ message Scan
     }
 
     // Camera settings.
-    Camera camera = 1;
+    optional Camera camera = 1;
 
     // Projector settings.
-    Projector projector = 2;
+    optional Projector projector = 2;
 
     // Turntable settings.
     optional Turntable turntable = 3;
 
     // Capture settings.
-    Capture capture = 4;
+    optional Capture capture = 4;
 
     // Processing settings.
     optional Processing processing = 5;
