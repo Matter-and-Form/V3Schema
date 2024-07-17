@@ -50,5 +50,5 @@ message Capture
     BlendFrequency horizontalBlendFrequency = 4;
     
     // Starting vertical blend frequency.
-    BlendFrequency verticallBlendFrequency = 5;
+    BlendFrequency verticalBlendFrequency = 5;
 }
