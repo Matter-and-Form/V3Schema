@@ -21,6 +21,7 @@ message Capture
         bool default = 2;
     }
     
+    // Capture image blend count for noise reduction.
     message BlendCount
     {
         int32 value = 1;
@@ -29,6 +30,7 @@ message Capture
         int32 max = 4;
     }
     
+    // The starting frequency for which multiple capture images are blended.
     message BlendFrequency
     {
         int32 value = 1;
