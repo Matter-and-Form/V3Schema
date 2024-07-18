@@ -20,10 +20,37 @@ message Capture
         bool value = 1;
         bool default = 2;
     }
+    
+    // Capture image blend count for noise reduction.
+    message BlendCount
+    {
+        int32 value = 1;
+        int32 default = 2;
+        int32 min = 3;
+        int32 max = 4;
+    }
+    
+    // The starting frequency for which multiple capture images are blended.
+    message BlendFrequency
+    {
+        int32 value = 1;
+        int32 default = 2;
+        int32 min = 3;
+        int32 max = 4;
+    }
 
     // Capture quality preset.
     Quality quality = 1;
 
     // Capture texture.
     Texture texture = 2;
+    
+    // Capture blend count.
+    BlendCount blendCount = 3;
+    
+    // Starting horizontal blend frequency.
+    BlendFrequency horizontalBlendFrequency = 4;
+    
+    // Starting vertical blend frequency.
+    BlendFrequency verticalBlendFrequency = 5;
 }
