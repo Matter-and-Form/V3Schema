@@ -19,7 +19,7 @@ package MF.V3;
  *         "Input":{
  *             "selection":{"mode":"visible"},
  *             "remesh":{
- *                 "method": "FastTriangles",
+ *                 "method": "FlowTriangles",
  *                 "quality": "Medium"
  *             },
  *             "simplify":{"triangleCount": 20000 }
@@ -36,7 +36,7 @@ package MF.V3;
  *         "Input":{
  *             "selection":{"mode":"visible"},
  *             "remesh":{
- *                 "method": "FastTriangles",
+ *                 "method": "FlowTriangles",
  *                 "quality": "Medium"
  *             },
  *             "simplify":{"triangleCount": 20000 }
