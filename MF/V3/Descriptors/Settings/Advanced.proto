@@ -279,11 +279,8 @@ message Advanced
             bool default = 2;
         }
         
-        // Use sampling settings.
-        Use use = 1;
-        
         // Use continuous exposure values settings descriptor.
-        UseContinuousExposureValues useContinuousExposureValues = 2;
+        UseContinuousExposureValues useContinuousExposureValues = 1;
     }
 
     // Capture settings descriptor.
