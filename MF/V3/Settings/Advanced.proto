@@ -186,6 +186,12 @@ message Advanced
         // Use the remesh settings.
         optional bool use = 6;
     }
+    
+    // Camera settings.
+    message Camera
+    {
+        optional bool useContinuousExposureValues = 1;
+    }
 
     // Capture settings.
     optional Capture capture = 1;
@@ -210,4 +216,7 @@ message Advanced
 
     // Remesh settings.
     optional Remesh remesh = 8;
+    
+    // Camera settings
+    optional Camera camera = 9;
 }
