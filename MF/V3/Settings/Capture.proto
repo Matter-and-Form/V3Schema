@@ -21,4 +21,13 @@ message Capture
 
     // Vertical pattern frequencies.
     repeated int32 verticalFrequencies = 5;
+    
+    // The number of capture images blended together for noise reduction.
+    optional int32 blendCount = 6;
+    
+    // The starting horizontal frequency for blending capture images for noise reduction.
+    optional int32 horizontalBlendFrequency = 7;
+    
+    // The starting vertical frequency for blending capture images for noise reduction.
+    optional int32 verticalBlendFrequency = 8;
 }
