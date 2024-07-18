@@ -2,12 +2,12 @@ syntax = "proto3";
 
 import "MF/V3/Task.proto";
 import "MF/V3/Settings/Software.proto";
-import "MF/V3/Descriptors/Software.proto";
+import "MF/V3/Descriptors/System.proto";
 
 package MF.V3;
 
 /**
- * Get installed and available software versions.
+ * Get system information including the serial number, disk space and installed and available software versions.
  * 
  * Request example:
  * ```
@@ -33,25 +33,29 @@ package MF.V3;
  *             "available":["server","frontend"]
  *         }
  *         "Output":{
- *             "installed":[
- *                 {
- *                     "name":"server",
- *                     "version":{
- *                         "major":2,
- *                         "minor":21,
- *                         "patch":119,
- *                         "string":"2.21.119"
+ *             "serialNumber":"1000000012345678",
+ *             "diskSpace":{"available":8523210752,"capacity":15082610688},
+ *             "software:{
+ *                 "installed":[
+ *                     {
+ *                         "name":"server",
+ *                         "version":{
+ *                             "major":2,
+ *                             "minor":21,
+ *                             "patch":119,
+ *                             "string":"2.21.119"
+ *                         }
+ *                     },
+ *                     {
+ *                         "name":"frontend",
+ *                         "version":{
+ *                             "major":2,
+ *                             "minor":14,
+ *                             "patch":39,
+ *                             "string":"2.14.39"
+ *                         }
  *                     }
  *                 },
- *                 {
- *                     "name":"frontend",
- *                     "version":{
- *                         "major":2,
- *                         "minor":14,
- *                         "patch":39,
- *                         "string":"2.14.39"
- *                     }
- *                 }
  *             ]
  *         },
  *         "State":"Completed"
@@ -83,14 +87,17 @@ message Response
 
     // "SystemInfo"
     string Type = 2;
+    
+    // The requested software settings.
+    optional Settings.Software Input = 3;
 
-    // The disk space descriptor.
-    optional Descriptors.Software Output = 3;
+    // The system descriptor.
+    Descriptors.System Output = 4;
 
     // The current state of the task.
-    optional TaskState State = 4;
+    optional TaskState State = 5;
 
     // A string describing the error if the task has failed.
-    optional string Error = 5;
+    optional string Error = 6;
 }
 }
