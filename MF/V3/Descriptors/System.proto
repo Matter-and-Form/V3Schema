@@ -55,8 +55,8 @@ message System
         // Available software versions.
         repeated Package available = 2;
 
-        // Nightly release upgrades are permitted.
-        optional bool enableNightly = 3;
+        // Nightly releases are included.
+        optional bool nightlyIncluded = 3;
     }
     
     // Serial number;

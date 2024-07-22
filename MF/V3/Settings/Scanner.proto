@@ -5,6 +5,7 @@ import "MF/V3/Settings/Camera.proto";
 import "MF/V3/Settings/Capture.proto";
 import "MF/V3/Settings/I18n.proto";
 import "MF/V3/Settings/Style.proto";
+import "MF/V3/Settings/Software.proto";
 import "MF/V3/Settings/Projector.proto";
 import "MF/V3/Settings/Turntable.proto";
 import "MF/V3/Settings/Tutorials.proto";
@@ -33,12 +34,15 @@ message Scanner
     // Style settings.
     optional Style style = 6;
 
+    // Software settings.
+    optional Software software = 7;
+
     // Turntable settings.
-    optional Turntable turntable = 7;
+    optional Turntable turntable = 8;
 
     // Tutorials settings.
-    optional Tutorials tutorials = 8;
+    optional Tutorials tutorials = 9;
 
     // Viewer settings.
-    optional Viewer viewer = 9;
+    optional Viewer viewer = 10;
 }
