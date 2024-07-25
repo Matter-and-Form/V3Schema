@@ -67,4 +67,7 @@ message System
     
     // Software descriptor.
     Software software = 3;
+    
+    // GPG public key.
+    string publicKey = 4;
 }
