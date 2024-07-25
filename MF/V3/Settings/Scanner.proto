@@ -34,15 +34,15 @@ message Scanner
     // Style settings.
     optional Style style = 6;
 
-    // Software settings.
-    optional Software software = 7;
-
     // Turntable settings.
-    optional Turntable turntable = 8;
+    optional Turntable turntable = 7;
 
     // Tutorials settings.
-    optional Tutorials tutorials = 9;
+    optional Tutorials tutorials = 8;
 
     // Viewer settings.
-    optional Viewer viewer = 10;
+    optional Viewer viewer = 9;
+
+    // Software settings.
+    optional Software software = 10;
 }

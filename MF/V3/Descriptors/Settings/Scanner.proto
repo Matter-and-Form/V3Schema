@@ -34,15 +34,15 @@ message Scanner
     // Style settings descriptor.
     Style style = 6;
 
-    // Style settings descriptor.
-    Software software = 7;
-
     // Turntable settings descriptor.
-    Turntable turntable = 8;
+    Turntable turntable = 7;
 
     // Tutorials settings descriptor.
-    Tutorials tutorials = 9;
+    Tutorials tutorials = 8;
 
     // Viewer settings descriptor.
-    Viewer viewer = 10;
+    Viewer viewer = 9;
+
+    // Style settings descriptor.
+    Software software = 10;
 }

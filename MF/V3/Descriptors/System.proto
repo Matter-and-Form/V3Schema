@@ -56,7 +56,7 @@ message System
         repeated Package available = 2;
 
         // Nightly releases are included.
-        optional bool nightlyIncluded = 3;
+        bool nightlyIncluded = 3;
     }
     
     // Serial number;
