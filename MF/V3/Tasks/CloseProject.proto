@@ -7,9 +7,9 @@ package MF.V3;
 /**
  * Close the current open project.
  * 
- * Example:
- * Request from client:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -17,8 +17,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response from server:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

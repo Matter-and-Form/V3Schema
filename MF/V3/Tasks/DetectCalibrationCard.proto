@@ -7,8 +7,9 @@ package MF.V3;
 /**
  * Detect the calibration card on one or both cameras.
  * 
- * Request example:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -17,8 +18,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response example:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

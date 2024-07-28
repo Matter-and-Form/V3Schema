@@ -9,9 +9,9 @@ package MF.V3;
 /**
  * Capture a new scan.
  * 
- * Example:
- * Request from client:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -25,8 +25,9 @@ package MF.V3;
  * }
  * ```
  *
- * Depth map buffer message from server.
- * ```
+ * > Depth map buffer message from server.
+ *
+ * ```json
  * {
  *     "Buffer":{
  *         "Index":0,
@@ -50,10 +51,11 @@ package MF.V3;
  * }
  * ```
  *
- * Depth map binary data transfer from server [13128960 bytes].
+ * > Depth map binary data transfer from server [13128960 bytes].
  *
- * Texture buffer message from server.
- * ```
+ * > Texture buffer message from server.
+ *
+ * ```json
  * {
  *     "Buffer":{
  *         "Index":1,
@@ -77,10 +79,11 @@ package MF.V3;
  * }
  * ```
  *
- * Texture binary data transfer from server [9846720 bytes].
+ * > Texture binary data transfer from server [9846720 bytes].
  *
- * Response from server:
- * ```
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
