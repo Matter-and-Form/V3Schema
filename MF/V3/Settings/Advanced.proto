@@ -192,6 +192,13 @@ message Advanced
     {
         optional bool useContinuousExposureValues = 1;
     }
+    
+    // Turntable settings.
+    message Turntable
+    {
+        // The angle in degrees to slow down the turntable at the end of a rotation.
+        optional int32 rampAngle = 1;
+    }
 
     // Capture settings.
     optional Capture capture = 1;
@@ -217,6 +224,9 @@ message Advanced
     // Remesh settings.
     optional Remesh remesh = 8;
     
-    // Camera settings
+    // Camera settings.
     optional Camera camera = 9;
+    
+    // Turntable settings.
+    optional Turntable turntable = 10;
 }

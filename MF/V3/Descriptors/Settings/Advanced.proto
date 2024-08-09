@@ -282,6 +282,22 @@ message Advanced
         // Use continuous exposure values settings descriptor.
         UseContinuousExposureValues useContinuousExposureValues = 1;
     }
+    
+    // Turntable settings descriptor.
+    message Turntable
+    {
+        // The angle in degrees to slow down the turntable at the end of a rotation.
+        message RampAngle
+        {
+            int32 value = 1;
+            int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+        
+        // The angle in degrees to slow down the turntable at the end of a rotation.
+        RampAngle rampAngle = 1;
+    }
 
     // Capture settings descriptor.
     Capture capture = 1;
@@ -309,4 +325,7 @@ message Advanced
     
     // Camera settings descriptor.
     Camera camera = 9;
+    
+    // Turntable settings descriptor.
+    Turntable turntable = 10;
 }
