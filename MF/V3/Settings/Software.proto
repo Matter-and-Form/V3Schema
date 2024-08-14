@@ -20,9 +20,6 @@ message Software
     // Request available software packages.  If undefined all available packages are returned.
     repeated Package available = 2;
 
-    // Request upgrade to latest major version.
-    optional bool majorUpgrade = 3;
-
     // Permit nightly release upgrades.
-    optional bool nightlyIncluded = 4;
+    optional bool nightlyIncluded = 3;
 }
