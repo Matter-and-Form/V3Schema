@@ -5,6 +5,10 @@ package MF.V3.Settings;
 // Project settings.
 message Project
 {
+    // The index identifying which project the settings applies to.
+    // If undefined the current open project is used.
+    optional int32 index = 1;
+    
     // Project name.
-    optional string name = 1;
+    optional string name = 2;
 }
