@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Upgrade settings.
+message Upgrade
+{
+    // Upgrade major version which can have breaking API changes.
+    optional bool majorVersion = 1;
+}

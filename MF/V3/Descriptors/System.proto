@@ -37,7 +37,6 @@ message System
             
             // The version string. e.g. "1.2.3-rc0"
             string string = 5;
-
         }
         
         // Software package descriptor.
@@ -55,6 +54,9 @@ message System
         
         // Available software versions.
         repeated Package available = 2;
+
+        // Nightly releases are included.
+        bool nightlyIncluded = 3;
     }
     
     // Serial number;
@@ -65,4 +67,7 @@ message System
     
     // Software descriptor.
     Software software = 3;
+    
+    // GPG public key.
+    string publicKey = 4;
 }

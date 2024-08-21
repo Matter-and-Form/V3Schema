@@ -19,4 +19,7 @@ message Software
     
     // Request available software packages.  If undefined all available packages are returned.
     repeated Package available = 2;
+
+    // Permit nightly release upgrades.
+    optional bool nightlyIncluded = 3;
 }
