@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Remove vertices.
+message RemoveVertices
+{
+    // The scans indexes for which vertices are removed.
+    repeated int32 scans = 1;
+}
+

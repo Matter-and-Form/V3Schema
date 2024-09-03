@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "MF/V3/Descriptors/Project.proto";
+
+package MF.V3.Descriptors;
+
+// Descriptor a remove vertices task.
+message RemoveVertices
+{
+    // Scan vertex and triangle removal metadata.
+    message Scan
+    {
+        // The scan index.
+        int32 index = 1;
+        
+        // The number of vertices after the removal.
+        int32 vertices = 2;
+
+        // The number of triangles after the removal.
+        int32 triangles = 3;
+    }
+
+    // The list of scans whose vertices were removed.
+    repeated Scan scans = 1;
+
+    /*
+     * The updated project data after undo or redo.
+     * If undefined, then there was no change to the project.
+     */
+    optional Project.Group groups = 2;
+}
