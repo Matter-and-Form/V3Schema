@@ -8,8 +8,8 @@ message Turntable
     // Use the turntable.
     optional bool use = 1;
 
-    // The number of turntable steps.
-    int32 steps = 2;
+    // The number of turntable scans.
+    int32 scans = 2;
 
     // Turntable angle sweep in degrees.
     int32 sweep = 3;

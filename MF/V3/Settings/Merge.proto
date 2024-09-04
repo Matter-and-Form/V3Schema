@@ -14,21 +14,21 @@ message Merge
         // Remesh method.
         enum Method
         {
-            // Fast remesh as triangles.
-            FastTriangles = 0;
+            // Flow remesh as triangles.
+            FlowTriangles = 0;
             
-            // Fast remesh as quads.
-            FastQuads = 1;
+            // Flow remesh as quads.
+            FlowQuads = 1;
             
-            // Fast remesh as quad-dominant mesh.
-            FastQuadDominant = 2;
+            // Flow remesh as quad-dominant mesh.
+            FlowQuadDominant = 2;
             
             // Poisson remesh as triangles.
             PoissonTriangles = 3;
         }
         
-        // Fast remesh settings
-        message Fast
+        // Flow remesh settings
+        message Flow
         {            
             // Output resolution scale.  Smaller means more faces.
             optional float scale = 3;
@@ -79,8 +79,8 @@ message Merge
         // Remesh quality.
         optional Quality quality = 2;
         
-        // Fast remesh options (Ignored if method is 'Poison').
-        optional Fast fast = 3;
+        // Flow remesh options (Ignored if method is 'Poison').
+        optional Flow flow = 3;
         
         // Poisson remesh options (Ignored if method is not 'Poisson').
         optional Poisson poisson = 4;

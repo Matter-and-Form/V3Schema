@@ -37,7 +37,7 @@ package MF.V3;
  *                 "on":{"default":false,"value":true}
  *             },
  *             "turntable":{
- *                 "steps":{"default":8,"max":24,"min":1,"value":3},
+ *                 "scans":{"default":8,"max":24,"min":1,"value":3},
  *                 "sweep":{"default":360,"max":360,"min":5,"value":90},
  *                 "use":{"default":true,"value":true}
  *              },

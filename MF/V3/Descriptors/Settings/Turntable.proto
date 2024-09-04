@@ -5,8 +5,8 @@ package MF.V3.Descriptors.Settings;
 // Turntable settings descriptor.
 message Turntable
 {
-    // The number of turntable steps.
-    message Steps
+    // The number of turntable scans.
+    message Scans
     {
         int32 value = 1;
         int32 default = 2;
@@ -30,8 +30,8 @@ message Turntable
         bool default = 2;
     }
 
-    // The number of turntable steps.
-    Steps steps = 1;
+    // The number of turntable scans.
+    Scans scans = 1;
 
     // Turntable angle sweep in degrees.
     Sweep sweep = 2;
