@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "MF/V3/Task.proto";
+import "MF/V3/Descriptors/Calibration.proto";
 
 package MF.V3;
 
@@ -22,7 +23,11 @@ package MF.V3;
  *     "Task":{
  *         "Index":1,
  *         "Type":"CalibrateTurntable",
- *         "Output":"Turntable calibration results: ...",
+ *         "Output":{
+ *             "date":[2024,4,27,16,57,35],
+ *             "quality":"Excellent",
+ *             "focus":[300,320]
+ *         },
  *         "State":"Completed"
  *     }
  * }
@@ -50,8 +55,8 @@ message Response
     // "CalibrateTurntable"
     string Type = 2;
 
-    // Turntable calibration results.
-    optional string Output = 3;
+    // The Turntable calibration descriptor.
+    optional Descriptors.Calibration.Turntable Output = 3;
 
     // The current state of the task.
     optional TaskState State = 4;
