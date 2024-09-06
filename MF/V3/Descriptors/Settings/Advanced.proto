@@ -143,8 +143,8 @@ message Advanced
     {
         message Type
         {
-            V3.Settings.Scan.Processing.AdaptiveSampling.Type value = 1;
-            V3.Settings.Scan.Processing.AdaptiveSampling.Type default = 2;
+            MF.V3.Settings.Scan.Processing.AdaptiveSampling.Type value = 1;
+            MF.V3.Settings.Scan.Processing.AdaptiveSampling.Type default = 2;
         }
 
         message Rate
@@ -165,8 +165,8 @@ message Advanced
     {
         message Method
         {
-            V3.Settings.Scan.Processing.NormalEstimation.Method value = 1;
-            V3.Settings.Scan.Processing.NormalEstimation.Method default = 2;
+            MF.V3.Settings.Scan.Processing.NormalEstimation.Method value = 1;
+            MF.V3.Settings.Scan.Processing.NormalEstimation.Method default = 2;
         }
 
         message MaximumNeighbourCount

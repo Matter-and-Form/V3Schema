@@ -9,10 +9,10 @@ package MF.V3.Descriptors;
 message VideoFrame
 {
     // Video codec.
-    V3.Settings.Video.Codec codec = 1;
+    MF.V3.Settings.Video.Codec codec = 1;
 
     // Pixel format.
-    V3.Settings.Video.Format format = 2;
+    MF.V3.Settings.Video.Format format = 2;
 
     // Image width.
     int32 width = 3;

@@ -10,8 +10,8 @@ message I18n
     // Language settings descriptor.
     message Language
     {
-        V3.Settings.I18n.Language value = 1;
-        V3.Settings.I18n.Language default = 2;
+        MF.V3.Settings.I18n.Language value = 1;
+        MF.V3.Settings.I18n.Language default = 2;
     }
 
     // Language settings descriptor.

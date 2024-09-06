@@ -56,8 +56,8 @@ message Camera
         // Auto focus box.
         message Box
         {
-            repeated V3.Settings.Rectangle value = 1;
-            repeated V3.Settings.Rectangle default = 2;
+            repeated MF.V3.Settings.Rectangle value = 1;
+            repeated MF.V3.Settings.Rectangle default = 2;
         }
 
         // Focus value.
