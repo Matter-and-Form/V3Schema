@@ -3,7 +3,7 @@ syntax = "proto3";
 import "MF/V3/Task.proto";
 import "MF/V3/Settings/Export.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Export a merged scan.

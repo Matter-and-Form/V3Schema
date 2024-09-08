@@ -3,7 +3,7 @@ syntax = "proto3";
 import "MF/V3/Task.proto";
 import "MF/V3/Descriptors/Export.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * List all export formats and the geometry elements they support.

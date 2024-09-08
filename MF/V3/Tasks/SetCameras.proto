@@ -4,7 +4,7 @@ import "MF/V3/Task.proto";
 import "MF/V3/Settings/Camera.proto";
 import "MF/V3/Descriptors/Settings/Camera.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Apply camera settings to one or both cameras.
