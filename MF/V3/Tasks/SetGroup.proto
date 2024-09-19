@@ -9,9 +9,9 @@ package MF.V3;
 /**
  * Set scan group properties.
  * 
- * Example:
- * Request from client:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -26,8 +26,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response from server:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
