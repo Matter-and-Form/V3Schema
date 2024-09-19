@@ -3,15 +3,16 @@ syntax = "proto3";
 import "MF/V3/Task.proto";
 import "MF/V3/Settings/Video.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Start the video stream.
  *
  * The video frames are sent as task buffers associated with the reserved video task index -1.  The left and right camera frames are sent in buffer 0 and 1, respectively.
  * 
- * Request example:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -19,8 +20,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response example:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

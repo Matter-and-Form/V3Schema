@@ -4,14 +4,14 @@ import "MF/V3/Task.proto";
 import "MF/V3/Settings/BoundingBox.proto";
 import "MF/V3/Descriptors/BoundingBox.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Get the bounding box of a set of scan groups.
  * 
- * Example:
- * Request from client:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -23,8 +23,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response from server:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

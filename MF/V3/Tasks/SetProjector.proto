@@ -4,13 +4,14 @@ import "MF/V3/Task.proto";
 import "MF/V3/Settings/Projector.proto";
 import "MF/V3/Descriptors/Settings/Projector.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Apply projector settings.
  * 
- * Request example:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -23,8 +24,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response example:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

@@ -3,14 +3,14 @@ syntax = "proto3";
 import "MF/V3/Task.proto";
 import "MF/V3/Settings/Export.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Export a merged scan.
  * 
- * Example:
- * Request from client:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -23,8 +23,9 @@ package MF.V3;
  * }
  * ```
  *
- * Export file buffer message from server.
- * ```
+ * > Export file buffer message from server.
+ *
+ * ```json
  * {
  *     "Buffer":{
  *         "Index":0,
@@ -40,10 +41,12 @@ package MF.V3;
  *     }
  * }
  * ```
- * Export file binary data transfer from server [8413737 bytes].
  *
- * Response from server:
- * ```
+ * > Export file binary data transfer from server [8413737 bytes].
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

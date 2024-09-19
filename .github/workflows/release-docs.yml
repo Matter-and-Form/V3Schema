@@ -1,0 +1,34 @@
+name: Build and release docs
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout base repo
+        uses: actions/checkout@v3
+        with:
+          path: base-code
+
+      - name: Checkout wiki repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{github.repository}}.wiki
+          path: wiki
+      
+      - name: Generate and publish markdown 
+        env:
+          LATEST_MD: THREE-‐-API-${{ github.event.release.tag_name }}
+        run: |
+          scripts/gen-doc/gen-doc
+          mv doc/index.md wiki/$LATEST_MD.md
+          cd wiki
+          sed "s/.*documentation for the latest version.*/Click here to see the \[documentation for the latest version\]\(wiki\/$LATEST_MD.md\)/" Home.md
+          echo "* [$LATEST_MD](wiki/$LATEST_MD.md)" >> Home.md
+          git config --local user.name "CI"
+          git config --local user.email "CI@matterandform.net"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Update wiki" && git push
