@@ -2,13 +2,14 @@ syntax = "proto3";
 
 import "MF/V3/Task.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Restore factory calibration.
  *
- * Request example:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -16,8 +17,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Response example:
- * ```
+ *
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
