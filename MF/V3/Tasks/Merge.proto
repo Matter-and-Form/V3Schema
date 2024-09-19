@@ -4,7 +4,7 @@ import "MF/V3/Task.proto";
 import "MF/V3/Settings/Merge.proto";
 import "MF/V3/Descriptors/Merge.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Merge two or more scan groups.

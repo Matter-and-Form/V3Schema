@@ -4,7 +4,7 @@ import "MF/V3/Task.proto";
 import "MF/V3/Settings/ScanData.proto";
 import "MF/V3/Descriptors/ScanData.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Download the raw scan data for the current merge process.

@@ -4,7 +4,7 @@ import "MF/V3/Task.proto";
 import "MF/V3/Settings/Align.proto";
 import "MF/V3/Descriptors/Transform.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Align two scan groups.

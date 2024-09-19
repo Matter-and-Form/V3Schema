@@ -4,7 +4,7 @@ import "MF/V3/Task.proto";
 import "MF/V3/Settings/BoundingBox.proto";
 import "MF/V3/Descriptors/BoundingBox.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Get the bounding box of a set of scan groups.
