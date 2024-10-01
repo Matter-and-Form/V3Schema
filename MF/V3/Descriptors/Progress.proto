@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+// V3 Task Progress Descriptor
+message Progress
+{
+    // The Scan Progress descriptor
+    message ScanProgress
+    {
+        // The current step of the scan.
+        int32 current = 1;
+
+        // The string description of the current step.
+        string step = 2;
+
+        // The total steps in the progress.
+        int32 total = 3;
+    }    
+    
+    optional ScanProgress ScanProgress = 1;
+}
