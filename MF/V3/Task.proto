@@ -98,4 +98,7 @@ message Task
 
     // A string describing the error if the task has failed.
     optional string Error = 6;
+
+    // A Progress object for tasks that give updates on long running tasks
+    optional google.protobuf.Any Progress = 7;
 }
