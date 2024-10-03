@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Software settings.
+message Software
+{
+    // Allow major version updates which can have breaking API changes.
+    optional bool updateMajorVersion = 1;
+}

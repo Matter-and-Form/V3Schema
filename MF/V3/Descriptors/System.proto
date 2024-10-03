@@ -15,38 +15,12 @@ message System
         uint64 available = 2;
     }
     
-    // Software descriptor.
-    message Software
-    {
-        // Software package descriptor.
-        message Package
-        {
-            // The package installed version.
-            string installed = 1;
-            
-            // The package update version.  Empty if no update is available.
-            string update = 2;
-
-            // The package changelog.
-            string changelog = 3;
-        }
-        
-        // Frontend software package.
-        Package frontend = 1;
-        
-        // Server software package.
-        Package server = 2;
-    }
-    
     // Serial number;
     string serialNumber = 1;
     
     // Used and available disk space.
     DiskSpace diskSpace = 2;
     
-    // Software descriptor.
-    Software software = 3;
-    
     // GPG public key.
-    string publicKey = 4;
+    string publicKey = 3;
 }
