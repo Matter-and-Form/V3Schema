@@ -5,10 +5,10 @@ import "MF/V3/Settings/Camera.proto";
 import "MF/V3/Settings/Capture.proto";
 import "MF/V3/Settings/I18n.proto";
 import "MF/V3/Settings/Style.proto";
-import "MF/V3/Settings/Software.proto";
 import "MF/V3/Settings/Projector.proto";
 import "MF/V3/Settings/Turntable.proto";
 import "MF/V3/Settings/Tutorials.proto";
+import "MF/V3/Settings/Update.proto";
 import "MF/V3/Settings/Viewer.proto";
 
 package MF.V3.Settings;
@@ -43,6 +43,6 @@ message Scanner
     // Viewer settings.
     optional Viewer viewer = 9;
 
-    // Software settings.
-    optional Software software = 10;
+    // Software update settings.
+    optional Update update = 10;
 }

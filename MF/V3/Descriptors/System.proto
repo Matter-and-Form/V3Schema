@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "MF/V3/Settings/Software.proto";
-
 package MF.V3.Descriptors;
 
 // System descriptor.
@@ -20,46 +18,24 @@ message System
     // Software descriptor.
     message Software
     {
-        // Software version descriptor.
-        message Version
-        {
-            // The major version.
-            int32 major = 1;
-
-            // The minor version.
-            int32 minor = 2;
-
-            // The patch version.
-            int32 patch = 3;
-            
-            // The alphanumeric suffix. e.g. "rc0"
-            string suffix = 4;
-            
-            // The version string. e.g. "1.2.3-rc0"
-            string string = 5;
-        }
-        
         // Software package descriptor.
         message Package
         {
-            // The package name.
-            MF.V3.Settings.Software.Package name = 1;
+            // The package installed version.
+            string installed = 1;
             
-            // The package version.
-            Version version = 2;
+            // The package update version.  Empty if no update is available.
+            string update = 2;
 
             // The package changelog.
             string changelog = 3;
         }
         
-        // Installed software versions.
-        repeated Package installed = 1;
+        // Frontend software package.
+        Package frontend = 1;
         
-        // Available software versions.
-        repeated Package available = 2;
-
-        // Nightly releases are included.
-        bool nightlyIncluded = 3;
+        // Server software package.
+        Package server = 2;
     }
     
     // Serial number;

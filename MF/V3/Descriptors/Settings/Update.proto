@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors.Settings;
+
+// Software update settings descriptor.
+message Update
+{
+    // Update major version which can have breaking API changes.
+    message MajorVersion
+    {
+        bool value = 1;
+        bool default = 2;
+    }
+
+    // Update major version which can have breaking API changes.
+    MajorVersion majorVersion = 1;
+}
