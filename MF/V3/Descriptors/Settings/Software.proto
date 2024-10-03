@@ -5,13 +5,13 @@ package MF.V3.Descriptors.Settings;
 // Software settings descriptor.
 message Software
 {
-    // Allow major version updates which can have breaking API changes.
-    message UpdateMajorVersion
+    // Enable major version updates which can have breaking API changes.
+    message UpdateMajor
     {
         bool value = 1;
         bool default = 2;
     }
 
-    // Allow major version updates which can have breaking API changes.
-    UpdateMajorVersion updateMajorVersion = 1;
+    // Enable major version updates which can have breaking API changes.
+    UpdateMajor updateMajor = 1;
 }

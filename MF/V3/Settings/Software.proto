@@ -5,6 +5,9 @@ package MF.V3.Settings;
 // Software settings.
 message Software
 {
-    // Allow major version updates which can have breaking API changes.
-    optional bool updateMajorVersion = 1;
+    // Enable major version updates which can have breaking API changes.
+    optional bool updateMajor = 1;
+    
+    // Enable nightly release candidate updates.
+    optional bool updateNightly = 2;
 }
