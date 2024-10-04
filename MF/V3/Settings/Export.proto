@@ -37,4 +37,7 @@ message Export
 
     // The export format.
     optional Format format = 4;
+    
+    // Scale factor of the exported geometry.
+    optional double scale = 5;
 }
