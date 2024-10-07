@@ -4,14 +4,14 @@ import "MF/V3/Task.proto";
 import "MF/V3/Settings/ScanData.proto";
 import "MF/V3/Descriptors/ScanData.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Download the raw scan data for a scan in the current open project.
  * 
- * Example:
- * Request from client:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -24,8 +24,9 @@ package MF.V3;
  * }
  * ```
  *
- * Vertex position buffer message from server.
- * ```
+ * > Vertex position buffer message from server.
+ *
+ * ```json
  * {
  *     "Buffer":{
  *         "Index":0,
@@ -51,10 +52,11 @@ package MF.V3;
  * }
  * ```
  *
- * Vertex position binary data transfer from server [1558188 bytes].
+ * > Vertex position binary data transfer from server [1558188 bytes].
  *
- * Vertex normal buffer message from server..
- * ```
+ * > Vertex normal buffer message from server.
+ *
+ * ```json
  * {
  *     "Buffer":{
  *         "Index":1,
@@ -80,10 +82,11 @@ package MF.V3;
  * }
  * ```
  *
- * Vertex normal binary data transfer from server [1558188 bytes].
+ * > Vertex normal binary data transfer from server [1558188 bytes].
  *
- * Vertex texture coordinate buffer message from server.
- * ```
+ * > Vertex texture coordinate buffer message from server.
+ *
+ * ```json
  * {
  *     "Buffer":{
  *         "Index":2,
@@ -109,10 +112,11 @@ package MF.V3;
  * }
  * ```
  *
- * Vertex texture coordinate binary data transfer from server [1038792 bytes].
+ * > Vertex texture coordinate binary data transfer from server [1038792 bytes].
  *
- * Texture image buffer message from server.
- * ```
+ * > Texture image buffer message from server.
+ *
+ * ```json
  * {
  *     "Buffer":{
  *         "Index":3,
@@ -138,10 +142,11 @@ package MF.V3;
  * }
  * ```
  *
- * Texture binary data transfer from server [3504494 bytes].
+ * > Texture binary data transfer from server [3504494 bytes].
  *
- * Triangle index buffer message from server.
- * ```
+ * > Triangle index buffer message from server.
+ *
+ * ```json
  * {
  *     "Buffer":{
  *         "Index":4,
@@ -167,10 +172,11 @@ package MF.V3;
  * }
  * ```
  *
- * Triangle index binary data transfer from server [1996356 bytes].
+ * > Triangle index binary data transfer from server [1996356 bytes].
  *
- * Response from server:
- * ```
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,

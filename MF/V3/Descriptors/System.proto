@@ -47,6 +47,9 @@ message System
             
             // The package version.
             Version version = 2;
+
+            // The package changelog.
+            string changelog = 3;
         }
         
         // Installed software versions.

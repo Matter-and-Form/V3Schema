@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Copy project settings.
+message CopyProject
+{
+    // The index of the project to copy.
+    int32 index = 1;
+    
+    // The name of project copy.  If unspecified a default copy name is generated.
+    optional string copyName = 2;
+}

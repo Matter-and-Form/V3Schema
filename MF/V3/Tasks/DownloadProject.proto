@@ -2,14 +2,14 @@ syntax = "proto3";
 
 import "MF/V3/Task.proto";
 
-package MF.V3;
+package MF.V3.Tasks;
 
 /**
  * Download a project from the scanner.
  * 
- * Example:
- * Request from client:
- * ```
+ * > Request example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
@@ -18,8 +18,10 @@ package MF.V3;
  *     }
  * }
  * ```
- * Buffer message from server.
- * ```
+ *
+ * > Buffer message from server.
+ *
+ * ```json
  * {
  *     "Buffer":{
  *         "Descriptor":"Project-5.zip",
@@ -33,9 +35,11 @@ package MF.V3;
  *     }
  * }
  * ```
- * Binary data transfer from server: The project zip file [15682096 bytes].
- * Response from server:
- * ```
+ *
+ * > Binary data transfer from server: The project zip file [15682096 bytes].
+ * > Response example:
+ *
+ * ```json
  * {
  *     "Task":{
  *         "Index":1,
