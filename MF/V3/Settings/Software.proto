@@ -2,24 +2,12 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-// V3 software settings.
+// Software settings.
 message Software
 {
-    // Software package types.
-    enum Package
-    {
-        // The server software package.
-        server = 0;
-        // The frontend software package.
-        frontend = 1;
-    }
+    // Enable major version updates which can have breaking API changes.
+    optional bool updateMajor = 1;
     
-    // Request installed software packages.  If undefined all installed packages are returned.
-    repeated Package installed = 1;
-    
-    // Request available software packages.  If undefined all available packages are returned.
-    repeated Package available = 2;
-
-    // Permit nightly release upgrades.
-    optional bool nightlyIncluded = 3;
+    // Enable nightly release candidate updates.
+    optional bool updateNightly = 2;
 }

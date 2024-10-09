@@ -5,13 +5,13 @@ package MF.V3.Descriptors.Settings;
 // Software settings descriptor.
 message Software
 {
-    // Nightly releases included descriptor.
-    message NightlyIncluded
+    // Enable major version updates which can have breaking API changes.
+    message UpdateMajor
     {
         bool value = 1;
         bool default = 2;
     }
 
-    // Nightly releases included.
-    NightlyIncluded nightlyIncluded = 1;
+    // Enable major version updates which can have breaking API changes.
+    UpdateMajor updateMajor = 1;
 }

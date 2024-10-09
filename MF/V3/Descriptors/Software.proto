@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+// Software descriptor.
+message Software
+{
+    // Software package descriptor.
+    message Package
+    {
+        // The package installed version.
+        string installed = 1;
+        
+        // The package update version.  Empty if no update is available.
+        string update = 2;
+
+        // The package changelog.  Empty if no update is available or the update is a downgrade.
+        string changelog = 3;
+    }
+    
+    // Frontend software package.
+    Package frontend = 1;
+    
+    // Server software package.
+    Package server = 2;
+}
