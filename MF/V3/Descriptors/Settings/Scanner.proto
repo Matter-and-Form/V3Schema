@@ -6,9 +6,9 @@ import "MF/V3/Descriptors/Settings/Capture.proto";
 import "MF/V3/Descriptors/Settings/Projector.proto";
 import "MF/V3/Descriptors/Settings/I18n.proto";
 import "MF/V3/Descriptors/Settings/Style.proto";
-import "MF/V3/Descriptors/Settings/Software.proto";
 import "MF/V3/Descriptors/Settings/Turntable.proto";
 import "MF/V3/Descriptors/Settings/Tutorials.proto";
+import "MF/V3/Descriptors/Settings/Software.proto";
 import "MF/V3/Descriptors/Settings/Viewer.proto";
 
 package MF.V3.Descriptors.Settings;
@@ -43,6 +43,6 @@ message Scanner
     // Viewer settings descriptor.
     Viewer viewer = 9;
 
-    // Style settings descriptor.
+    // Software settings descriptor.
     Software software = 10;
 }
