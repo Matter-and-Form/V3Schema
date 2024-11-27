@@ -11,99 +11,46 @@ message Merge
     // Remesh settings.
     message Remesh
     {
-        // Remesh method.
-        enum Method
-        {
-            // Flow remesh as triangles.
-            FlowTriangles = 0;
-            
-            // Flow remesh as quads.
-            FlowQuads = 1;
-            
-            // Flow remesh as quad-dominant mesh.
-            FlowQuadDominant = 2;
-            
-            // Poisson remesh as triangles.
-            PoissonTriangles = 3;
-        }
-        
-        // Flow remesh settings
-        message Flow
-        {            
-            // Output resolution scale.  Smaller means more faces.
-            optional float scale = 3;
-
-            // The approximate number of remeshed faces.
-            optional int32 faceCount = 4;
-            
-            // The approximate number of remeshed vertices.
-            optional int32 vertexCount = 5;
-            
-            // The crease angle threshold.
-            optional float creaseAngleThreshold = 6;
-            
-            // Use extrinsic smoothness.
-            optional bool extrinsicSmoothness = 7;
-            
-            // Align mesh to boundaries.
-            optional bool alignToBoundaries = 8;
-            
-            // The number of smoothing iterations.
-            optional int32 smoothIterations = 9;
-            
-            // The number of KNN points (point cloud input only).
-            optional int32 knnPoints = 10;
-            
-            // Use deterministic (repeatable) remeshing.
-            optional bool deterministic = 11;
-        }
-        
-        message Poisson
-        {
-            // Voxel size.
-            optional float voxelSize = 2;
-
-            // Depth.
-            optional int32 depth = 3;
-
-            // Scale.
-            optional float scale = 4;
-
-            // Linear Interpolation.
-            optional bool linearInterpolation = 5;
-        }
-        
-        // Remesh method.
-        optional Method method = 1;
-            
         // Remesh quality.
-        optional Quality quality = 2;
+        optional Quality quality = 1;
         
-        // Flow remesh options (Ignored if method is 'Poison').
-        optional Flow flow = 3;
-        
-        // Poisson remesh options (Ignored if method is not 'Poisson').
-        optional Poisson poisson = 4;
-        
-        // Temporary for backwards compatibility
         // Voxel size.
-        optional float voxelSize = 5;
+        optional float voxelSize = 2;
 
         // Depth.
-        optional int32 depth = 6;
+        optional int32 depth = 3;
 
         // Scale.
-        optional float scale = 7;
+        optional float scale = 4;
 
         // Linear Interpolation.
-        optional bool linearInterpolation = 8;
+        optional bool linearInterpolation = 5;
     }
 
     // Simplify settings.
     message Simplify
     {
-        // Target triangle count.
-        int32 triangleCount = 1;
+        // Remesh method.
+        enum Method
+        {
+            // Quadratic decimation.
+            QuadraticDecimation = 0;
+
+            // Flow remesh as triangles.
+            FlowTriangles = 1;
+            
+            // Flow remesh as quads.
+            FlowQuads = 2;
+            
+            // Flow remesh as quad-dominant mesh.
+            FlowQuadDominant = 3;
+        }
+
+        // Simplify method.
+        optional Method method = 1;
+
+        // Target face count.
+        optional int32 faceCount = 2;
     }
 
     // The scan selection.
