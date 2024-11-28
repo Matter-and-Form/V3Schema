@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/CaptureImage.proto";
+
+package MF.V3.Descriptors;
+
+// Capture image descriptor.
+message CaptureImage
+{
+    // Image codec.
+    V3.Settings.CaptureImage.Codec codec = 1;
+
+    // If true, image is 8-bit grayscale.  Otherwise image is BGR888.
+    bool grayscale = 2;
+
+    // Image width.
+    int32 width = 3;
+
+    // Image height.
+    int32 height = 4;
+
+    // Image row step in bytes.
+    int32 step = 5;
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Capture image settings.
+message CaptureImage
+{
+    // Image codecs.
+    enum Codec
+    {
+        // JPEG encoding.
+        jpg = 0;
+        // PNG encoding.
+        png = 1;
+        // Bitmap encoding.
+        bmp = 2;
+        // Raw pixel data (no encoding).
+        raw = 3;
+    }
+    
+    // Camera selection.  Default is all cameras.
+    repeated int32 selection = 1;
+
+    // Image codec.  Default is jpg.
+    optional Codec codec = 2;
+    
+    // Capture 8-bit grayscale image.  Default is false (BGR888).
+    optional bool grayscale = 3;
+}
