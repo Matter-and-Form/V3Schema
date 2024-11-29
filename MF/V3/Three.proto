@@ -64,171 +64,171 @@ service Three
 {
 
 // List available wifi networks.
-rpc ListNetworkInterfaces(ListNetworkInterfaces.Request) returns (ListNetworkInterfaces.Response);
+rpc ListNetworkInterfaces(Tasks.ListNetworkInterfaces.Request) returns (Tasks.ListNetworkInterfaces.Response);
 
 // List available wifi networks.
-rpc ListWifi(ListWifi.Request) returns (ListWifi.Response);
+rpc ListWifi(Tasks.ListWifi.Request) returns (Tasks.ListWifi.Response);
 
 // Connect to a wifi network.
-rpc ConnectWifi(ConnectWifi.Request) returns (ConnectWifi.Response);
+rpc ConnectWifi(Tasks.ConnectWifi.Request) returns (Tasks.ConnectWifi.Response);
 
 // Forget all wifi connections.
-rpc ForgetWifi(ForgetWifi.Request) returns (ForgetWifi.Response);
+rpc ForgetWifi(Tasks.ForgetWifi.Request) returns (Tasks.ForgetWifi.Response);
 
 // Get scanner settings.
-rpc ListSettings(ListSettings.Request) returns (ListSettings.Response);
+rpc ListSettings(Tasks.ListSettings.Request) returns (Tasks.ListSettings.Response);
 
 // Push the current scanner settings to the settings stack.
-rpc PushSettings(PushSettings.Request) returns (PushSettings.Response);
+rpc PushSettings(Tasks.PushSettings.Request) returns (Tasks.PushSettings.Response);
 
 //  Pop and restore scanner settings from the settings stack.
-rpc PopSettings(PopSettings.Request) returns (PopSettings.Response);
+rpc PopSettings(Tasks.PopSettings.Request) returns (Tasks.PopSettings.Response);
 
 // Update scanner settings.
-rpc UpdateSettings(UpdateSettings.Request) returns (UpdateSettings.Response);
+rpc UpdateSettings(Tasks.UpdateSettings.Request) returns (Tasks.UpdateSettings.Response);
 
 // List all projects.
-rpc ListProjects(ListProjects.Request) returns (ListProjects.Response);
+rpc ListProjects(Tasks.ListProjects.Request) returns (Tasks.ListProjects.Response);
 
 // Download a project from the scanner.
-rpc DownloadProject(DownloadProject.Request) returns (DownloadProject.Response);
+rpc DownloadProject(Tasks.DownloadProject.Request) returns (Tasks.DownloadProject.Response);
 
 // Upload a project to the scanner.
-rpc UploadProject(UploadProject.Request) returns (UploadProject.Response);
+rpc UploadProject(Tasks.UploadProject.Request) returns (Tasks.UploadProject.Response);
 
 // Create a new project.
-rpc NewProject(NewProject.Request) returns (NewProject.Response);
+rpc NewProject(Tasks.NewProject.Request) returns (Tasks.NewProject.Response);
 
 // Open an existing project.
-rpc OpenProject(OpenProject.Request) returns (OpenProject.Response);
+rpc OpenProject(Tasks.OpenProject.Request) returns (Tasks.OpenProject.Response);
 
 // Close the current open project.
-rpc CloseProject(CloseProject.Request) returns (CloseProject.Response);
+rpc CloseProject(Tasks.CloseProject.Request) returns (Tasks.CloseProject.Response);
 
 // Remove selected projects.
-rpc RemoveProjects(RemoveProjects.Request) returns (RemoveProjects.Response);
+rpc RemoveProjects(Tasks.RemoveProjects.Request) returns (Tasks.RemoveProjects.Response);
 
 // List the scan groups in the current open project.
-rpc ListGroups(ListGroups.Request) returns (ListGroups.Response);
+rpc ListGroups(Tasks.ListGroups.Request) returns (Tasks.ListGroups.Response);
 
 // List the scans in the current open project.
-rpc ListScans(ListScans.Request) returns (ListScans.Response);
+rpc ListScans(Tasks.ListScans.Request) returns (Tasks.ListScans.Response);
 
 // Download the raw scan data for a scan in the current open project.
-rpc ScanData(ScanData.Request) returns (ScanData.Response);
+rpc ScanData(Tasks.ScanData.Request) returns (Tasks.ScanData.Response);
 
 // Apply settings to the current open project.
-rpc SetProject(SetProject.Request) returns (SetProject.Response);
+rpc SetProject(Tasks.SetProject.Request) returns (Tasks.SetProject.Response);
 
 // Set scan group properties.
-rpc SetGroup(SetGroup.Request) returns (SetGroup.Response);
+rpc SetGroup(Tasks.SetGroup.Request) returns (Tasks.SetGroup.Response);
 
 // Create a new scan group.
-rpc NewGroup(NewGroup.Request) returns (NewGroup.Response);
+rpc NewGroup(Tasks.NewGroup.Request) returns (Tasks.NewGroup.Response);
 
 // Move a scan group.
-rpc MoveGroup(MoveGroup.Request) returns (MoveGroup.Response);
+rpc MoveGroup(Tasks.MoveGroup.Request) returns (Tasks.MoveGroup.Response);
 
 // Flatten a scan group such that it only consists of single scans.
-rpc FlattenGroup(FlattenGroup.Request) returns (FlattenGroup.Response);
+rpc FlattenGroup(Tasks.FlattenGroup.Request) returns (Tasks.FlattenGroup.Response);
 
 // Split a scan group (ie. move its subgroups to its parent group).
-rpc SplitGroup(SplitGroup.Request) returns (SplitGroup.Response);
+rpc SplitGroup(Tasks.SplitGroup.Request) returns (Tasks.SplitGroup.Response);
 
 // Apply a rigid transformation to a group.
-rpc TransformGroup(TransformGroup.Request) returns (TransformGroup.Response);
+rpc TransformGroup(Tasks.TransformGroup.Request) returns (Tasks.TransformGroup.Response);
 
 // Remove selected scan groups.
-rpc RemoveGroups(RemoveGroups.Request) returns (RemoveGroups.Response);
+rpc RemoveGroups(Tasks.RemoveGroups.Request) returns (Tasks.RemoveGroups.Response);
 
 // Get the bounding box of a set of scan groups.
-rpc BoundingBox(BoundingBox.Request) returns (BoundingBox.Response);
+rpc BoundingBox(Tasks.BoundingBox.Request) returns (Tasks.BoundingBox.Response);
 
 // Align two scan groups.
-rpc Align(Align.Request) returns (Align.Response);
+rpc Align(Tasks.Align.Request) returns (Tasks.Align.Response);
 
 // Merge two or more scan groups.
-rpc Merge(Merge.Request) returns (Merge.Response);
+rpc Merge(Tasks.Merge.Request) returns (Tasks.Merge.Response);
 
 // Download the raw scan data for the current merge process.
-rpc MergeData(MergeData.Request) returns (MergeData.Response);
+rpc MergeData(Tasks.MergeData.Request) returns (Tasks.MergeData.Response);
 
 // Add a merged scan to the current project.
-rpc AddMergeToProject(AddMergeToProject.Request) returns (AddMergeToProject.Response);
+rpc AddMergeToProject(Tasks.AddMergeToProject.Request) returns (Tasks.AddMergeToProject.Response);
 
 // List all export formats.
-rpc ListExportFormats(ListExportFormats.Request) returns (ListExportFormats.Response);
+rpc ListExportFormats(Tasks.ListExportFormats.Request) returns (Tasks.ListExportFormats.Response);
 
 // Export a group of scans.
-rpc Export(Export.Request) returns (Export.Response);
+rpc Export(Tasks.Export.Request) returns (Tasks.Export.Response);
 
 // Export a merged scan.
-rpc ExportMerge(ExportMerge.Request) returns (ExportMerge.Response);
+rpc ExportMerge(Tasks.ExportMerge.Request) returns (Tasks.ExportMerge.Response);
 
 // Export scanner logs.
-rpc ExportLogs(ExportLogs.Request) returns (ExportLogs.Response);
+rpc ExportLogs(Tasks.ExportLogs.Request) returns (Tasks.ExportLogs.Response);
 
 // Check if the scanner has working cameras.
-rpc HasCameras(HasCameras.Request) returns (HasCameras.Response);
+rpc HasCameras(Tasks.HasCameras.Request) returns (Tasks.HasCameras.Response);
 
 // Check if the scanner has a working projector.
-rpc HasProjector(HasProjector.Request) returns (HasProjector.Response);
+rpc HasProjector(Tasks.HasProjector.Request) returns (Tasks.HasProjector.Response);
 
 // Check if the scanner is connected to a working turntable.
-rpc HasTurntable(HasTurntable.Request) returns (HasTurntable.Response);
+rpc HasTurntable(Tasks.HasTurntable.Request) returns (Tasks.HasTurntable.Response);
 
 // Get system information.
-rpc SystemInfo(SystemInfo.Request) returns (SystemInfo.Response);
+rpc SystemInfo(Tasks.SystemInfo.Request) returns (Tasks.SystemInfo.Response);
 
 // Get the camera calibration descriptor.
-rpc CameraCalibration(CameraCalibration.Request) returns (CameraCalibration.Response);
+rpc CameraCalibration(Tasks.CameraCalibration.Request) returns (Tasks.CameraCalibration.Response);
 
 // Get the turntable calibration descriptor.
-rpc TurntableCalibration(TurntableCalibration.Request) returns (TurntableCalibration.Response);
+rpc TurntableCalibration(Tasks.TurntableCalibration.Request) returns (Tasks.TurntableCalibration.Response);
 
 // Get the calibration capture target for each camera calibration capture.
-rpc CalibrationCaptureTargets(CalibrationCaptureTargets.Request) returns (CalibrationCaptureTargets.Response);
+rpc CalibrationCaptureTargets(Tasks.CalibrationCaptureTargets.Request) returns (Tasks.CalibrationCaptureTargets.Response);
 
 // Calibrate the cameras.
-rpc CalibrateCameras(CalibrateCameras.Request) returns (CalibrateCameras.Response);
+rpc CalibrateCameras(Tasks.CalibrateCameras.Request) returns (Tasks.CalibrateCameras.Response);
 
 // Calibrate the turntable.
-rpc CalibrateTurntable(CalibrateTurntable.Request) returns (CalibrateTurntable.Response);
+rpc CalibrateTurntable(Tasks.CalibrateTurntable.Request) returns (Tasks.CalibrateTurntable.Response);
 
 // Detect the calibration card on one or both cameras.
-rpc DetectCalibrationCard (DetectCalibrationCard.Request) returns (DetectCalibrationCard.Response);
+rpc DetectCalibrationCard (Tasks.DetectCalibrationCard.Request) returns (Tasks.DetectCalibrationCard.Response);
 
 // Restore factory calibration.
-rpc RestoreFactoryCalibration(RestoreFactoryCalibration.Request) returns (RestoreFactoryCalibration.Response);
+rpc RestoreFactoryCalibration(Tasks.RestoreFactoryCalibration.Request) returns (Tasks.RestoreFactoryCalibration.Response);
 
 // Start the video stream.
-rpc StartVideo(StartVideo.Request) returns (StartVideo.Response);
+rpc StartVideo(Tasks.StartVideo.Request) returns (Tasks.StartVideo.Response);
 
 // Stop the video stream.
-rpc StopVideo(StopVideo.Request) returns (StopVideo.Response);
+rpc StopVideo(Tasks.StopVideo.Request) returns (Tasks.StopVideo.Response);
 
 // Apply camera settings to one or both cameras.
-rpc SetCameras(SetCameras.Request) returns (SetCameras.Response);
+rpc SetCameras(Tasks.SetCameras.Request) returns (Tasks.SetCameras.Response);
 
 // Apply projector settings.
-rpc SetProjector(SetProjector.Request) returns (SetProjector.Response);
+rpc SetProjector(Tasks.SetProjector.Request) returns (Tasks.SetProjector.Response);
 
 // Auto focus one or both cameras.
-rpc AutoFocus(AutoFocus.Request) returns (AutoFocus.Response);
+rpc AutoFocus(Tasks.AutoFocus.Request) returns (Tasks.AutoFocus.Response);
 
 // Rotate the turntable.
-rpc RotateTurntable(RotateTurntable.Request) returns (RotateTurntable.Response);
+rpc RotateTurntable(Tasks.RotateTurntable.Request) returns (Tasks.RotateTurntable.Response);
 
 // Capture a new scan.
-rpc NewScan(NewScan.Request) returns (NewScan.Response);
+rpc NewScan(Tasks.NewScan.Request) returns (Tasks.NewScan.Response);
 
 // Capture a depth map.
-rpc DepthMap(DepthMap.Request) returns (DepthMap.Response);
+rpc DepthMap(Tasks.DepthMap.Request) returns (Tasks.DepthMap.Response);
 
 // Reboot the scanner.
-rpc Reboot(Reboot.Request) returns (Reboot.Response);
+rpc Reboot(Tasks.Reboot.Request) returns (Tasks.Reboot.Response);
 
 // Shutdown the scanner.
-rpc Shutdown(Shutdown.Request) returns (Shutdown.Response);
+rpc Shutdown(Tasks.Shutdown.Request) returns (Tasks.Shutdown.Response);
 
 }
