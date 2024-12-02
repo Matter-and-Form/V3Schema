@@ -201,4 +201,10 @@ message Scan
 
     // Processing settings.
     optional Processing processing = 5;
+    
+    // Align the scan with the scanner.
+    optional bool alignWithScanner = 6;
+    
+    // Center the scan at the origin.
+    optional bool centerAtOrigin = 7;
 }
