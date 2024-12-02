@@ -8,6 +8,7 @@ import "MF/V3/Tasks/CalibrationCaptureTargets.proto";
 import "MF/V3/Tasks/CalibrateCameras.proto";
 import "MF/V3/Tasks/CalibrateTurntable.proto";
 import "MF/V3/Tasks/CameraCalibration.proto";
+import "MF/V3/Tasks/CaptureImage.proto";
 import "MF/V3/Tasks/CloseProject.proto";
 import "MF/V3/Tasks/ConnectWifi.proto";
 import "MF/V3/Tasks/DepthMap.proto";
@@ -221,6 +222,9 @@ rpc RotateTurntable(Tasks.RotateTurntable.Request) returns (Tasks.RotateTurntabl
 
 // Capture a new scan.
 rpc NewScan(Tasks.NewScan.Request) returns (Tasks.NewScan.Response);
+
+// Capture a single Image.
+rpc CaptureImage(Tasks.CaptureImage.Request) returns (Tasks.CaptureImage.Response);
 
 // Capture a depth map.
 rpc DepthMap(Tasks.DepthMap.Request) returns (Tasks.DepthMap.Response);

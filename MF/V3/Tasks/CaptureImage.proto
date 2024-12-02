@@ -89,8 +89,8 @@ message Request
     // "CaptureImage"
     string Type = 2;
 
-    // Index of the project to download.
-    int32 Input = 3;
+    // The Image settings 
+    Settings.CaptureImage Input = 3;
 }
 
 // Server response for the `CaptureImage` task.
