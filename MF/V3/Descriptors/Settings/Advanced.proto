@@ -294,9 +294,45 @@ message Advanced
             int32 min = 3;
             int32 max = 4;
         }
+
+        message PointClippingRadius
+        {
+            double value = 1;
+            double default = 2;
+            double min = 3;
+            double max = 4;
+        }
+
+        message PointClippingMinHeight
+        {
+            double value = 1;
+            double default = 2;
+            double min = 3;
+            double max = 4;
+        }
+
+        message PointClippingMaxHeight
+        {
+            double value = 1;
+            double default = 2;
+            double min = 3;
+            double max = 4;
+        }
         
+        // Use the advanced turntable settings.
+        Use use = 1;
+
         // The angle in degrees to slow down the turntable at the end of a rotation.
-        RampAngle rampAngle = 1;
+        RampAngle rampAngle = 2;
+        
+        // The radius of the point clipping cylinder.
+        PointClippingRadius pointClippingRadius = 3;
+
+        // The minimum height of the point clipping cylinder.
+        PointClippingMinHeight pointClippingMinHeight = 4;
+
+        // The maximum height of the point clipping cylinder.
+        PointClippingMaxHeight pointClippingMaxHeight = 5;
     }
 
     // Capture settings descriptor.

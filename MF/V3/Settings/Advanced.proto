@@ -198,6 +198,18 @@ message Advanced
     {
         // The angle in degrees to slow down the turntable at the end of a rotation.
         optional int32 rampAngle = 1;
+
+        // The radius of the point clipping cylinder.
+        optional double pointClippingRadius = 2;
+
+        // The minimum height of the point clipping cylinder.
+        optional double pointClippingMinHeight = 3;
+
+        // The maximum height of the point clipping cylinder.
+        optional double pointClippingMaxHeight = 4;
+
+        // Use the turntable settings.
+        optional bool use = 6;
     }
 
     // Capture settings.
