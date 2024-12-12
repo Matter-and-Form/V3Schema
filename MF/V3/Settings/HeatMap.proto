@@ -7,40 +7,6 @@ package MF.V3.Settings;
 // Scan heat map settings.
 message HeatMap
 {
-    // Outlier removal settings.
-    message OutlierRemoval
-    {
-        // Scan export formats.
-        enum Type
-        {
-            // Do not remove outliers.
-            None = 0;
-            // Remove outliers based on the absolute value given by `value`.
-            Absolute = 1;
-            /* 
-             * Remove outliers based on the median of the point distances.
-             * The absolute outlier removal is given by `medianValue * value`.
-             */
-            RelativeToMedian = 2;
-            /*
-             * Remove outliers based on the mean of the point distances.
-             * The absolute outlier removal is given by ` meanValue * value`.
-             */
-            RelativeToMean = 3;
-            /*
-             * Remove outliers based on the standard deviation of the point distances.
-             * The absolute outlier removal is given by ` stdDevValue * value`.
-             */
-            RelativeToStdDev = 4;
-        }
-        
-        // Outlier removal type.
-        optional Type type = 1;
-        
-        // Outlier removal value.
-        optional float value = 2;
-    }
-
     // Heat map color smoothing settings.
     message Smoothing
     {
@@ -50,21 +16,15 @@ message HeatMap
         // Gaussian filter standard deviation for heat map color smoothing.
         optional float sigma = 2;
     }
-
-    // The scan selection.
-    // optional ScanSelection selection = 1;
     
     // Index of the scan or group to align.
-    int32 source = 1;
+    repeated int32 sources = 1;
 
     // Index of the scan or group to align to.
-    int32 target = 2;
-
-    // Remesh settings.
-    optional OutlierRemoval outlierRemoval = 3;
+    repeated int32 targets = 2;
 
     // Simplify settings.
-    optional Smoothing smoothing = 4;
+    optional Smoothing smoothing = 3;
     
-    optional float clipDistance = 5;
+    optional float outlierDistance = 4;
 }

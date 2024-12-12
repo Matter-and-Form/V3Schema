@@ -16,12 +16,14 @@ message ScanData
         Color = 2;
         // Vertex UVs
         UV = 3;
+        // Vertex quality.
+        Quality = 4;
         // Triangle index.
-        Triangle = 4;
+        Triangle = 5;
         // Texture.
-        Texture = 5;
+        Texture = 6;
         // All buffer types.
-        All = 6;
+        All = 7;
     }
 
     // Scan metadata type.
