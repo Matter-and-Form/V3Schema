@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+// Merge descriptor.
+message HeatMap
+{
+    // The number of input scans.
+    uint32 count = 1;
+
+    // The number of input textures.
+    float min = 2;
+    
+    // The maximum number of faces for the simplify merge step.
+    float max = 3;
+
+    // The set of merged mesh descriptors.
+    float median = 4;
+    
+    float mean = 5;
+    
+    float stddev = 6;
+    
+    float clipDistance = 7;
+}
