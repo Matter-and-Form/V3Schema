@@ -13,4 +13,6 @@ message Turntable
 
     // Turntable angle sweep in degrees.
     int32 sweep = 3;
+    
+    optional double offsetAngle = 4;
 }
