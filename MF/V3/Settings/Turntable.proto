@@ -21,5 +21,9 @@ message Turntable
     optional double pointClippingMinHeight = 5;
 
     // The maximum height of the point clipping cylinder.
-    optional double pointClippingMaxHeight = 6;
+    optional double pointClippingMaxHeight = 6;  
+
+    // The offset Angle of the turntable for starting position
+    optional double offsetAngle = 4;
+
 }
