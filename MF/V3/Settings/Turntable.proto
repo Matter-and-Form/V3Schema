@@ -24,6 +24,6 @@ message Turntable
     optional double pointClippingMaxHeight = 6;  
 
     // The offset Angle of the turntable for starting position
-    optional double offsetAngle = 4;
+    optional double offsetAngle = 7;
 
 }
