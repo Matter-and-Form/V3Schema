@@ -13,4 +13,17 @@ message Turntable
 
     // Turntable angle sweep in degrees.
     int32 sweep = 3;
+
+    // The radius of the point clipping cylinder.
+    optional double pointClippingRadius = 4;
+
+    // The minimum height of the point clipping cylinder.
+    optional double pointClippingMinHeight = 5;
+
+    // The maximum height of the point clipping cylinder.
+    optional double pointClippingMaxHeight = 6;  
+
+    // The offset Angle of the turntable for starting position
+    optional double offsetAngle = 7;
+
 }
