@@ -7,24 +7,12 @@ package MF.V3.Settings;
 // Scan heat map settings.
 message HeatMap
 {
-    // Heat map color smoothing settings.
-    message Smoothing
-    {
-        // Maximum neighbour radius for heat map color smoothing.
-        optional float radius = 1;
-
-        // Gaussian filter standard deviation for heat map color smoothing.
-        optional float sigma = 2;
-    }
-    
-    // Index of the scan or group to align.
+    // Set of source group indexes.
     repeated int32 sources = 1;
 
-    // Index of the scan or group to align to.
+    // Set of target group indexes.
     repeated int32 targets = 2;
 
-    // Simplify settings.
-    optional Smoothing smoothing = 3;
-    
-    optional float outlierDistance = 4;
+    // Threshold for which distances are excluded from the statistics in the descriptor.
+    optional float outlierDistance = 3;
 }

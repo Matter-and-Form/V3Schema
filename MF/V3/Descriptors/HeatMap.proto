@@ -5,21 +5,24 @@ package MF.V3.Descriptors;
 // Merge descriptor.
 message HeatMap
 {
-    // The number of input scans.
+    // The of points included in the point-to-mesh statistics.
     uint32 count = 1;
 
-    // The number of input textures.
+    // The minimum point-to-mesh distance.
     float min = 2;
     
-    // The maximum number of faces for the simplify merge step.
+    // The maximum point-to-mesh distance.
     float max = 3;
 
-    // The set of merged mesh descriptors.
+    // The median point-to-mesh distance.
     float median = 4;
     
+    // The mean point-to-mesh distance.
     float mean = 5;
     
+    // The standard deviation of the point-to-mesh distances.
     float stddev = 6;
     
+    // The point-to-mesh outlier distance.  Distances greater than this value are excluded from the statistics.
     float outlierDistance = 7;
 }
