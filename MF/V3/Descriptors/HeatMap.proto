@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package MF.V3.Descriptors;
 
-// Merge descriptor.
+// Heat map descriptor.
 message HeatMap
 {
     // The of points included in the point-to-mesh statistics.
