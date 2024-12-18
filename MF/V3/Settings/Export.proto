@@ -25,6 +25,14 @@ message Export
         // Chemical format.
         xyz = 6;
     }
+    
+    message Color
+    {
+        optional float scale = 1;
+        optional float offset = 2;
+        optional float min = 3;
+        optional float max = 4;
+    }
 
     // The scan selection.
     optional ScanSelection selection = 1;
@@ -40,4 +48,6 @@ message Export
     
     // Scale factor of the exported geometry.
     optional double scale = 5;
+    
+    optional Color color = 6;
 }
