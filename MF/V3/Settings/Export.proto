@@ -25,6 +25,21 @@ message Export
         // Chemical format.
         xyz = 6;
     }
+    
+    // Settings for mapping the vertex quality to a vertex color.
+    // The specific meaning of 'quality' depends on the broader context.
+    // In the case heat maps, the quality is the point-to-mesh distance of the vertex.
+    message Color
+    {
+        // The scale in `normalizedQuality = quality * scale + offset` that normalizes the quality value to the range [0, 1] which maps to the color range [blue, red] .  `offset` must also be specified.
+        optional float scale = 1;
+        // The offset in `normalizedQuality = quality * scale + offset` that normalizes the quality value to the range [0, 1] which maps to the color range [blue, red] .  `scale` must also be specified.
+        optional float offset = 2;
+        // The quality value that is mapped to the minimum color (blue).  `max` must also be specified.
+        optional float min = 3;
+        // The quality value that is mapped to the maximum color (red).   `min` must also be specified.
+        optional float max = 4;
+    }
 
     // The scan selection.
     optional ScanSelection selection = 1;
@@ -40,4 +55,6 @@ message Export
     
     // Scale factor of the exported geometry.
     optional double scale = 5;
+    
+    optional Color color = 6;
 }
