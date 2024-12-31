@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Import mesh settings.
+message Import
+{
+    // Unit of imported mesh positions.
+    enum Unit
+    {
+        // Millimeters.
+        Millimeters = 0;
+        // Centimeters.
+        Centimeters = 1;
+        // Meters.
+        Meters = 2;
+        // Inches.
+        Inches = 3;
+        // Feet.
+        Feet = 4;
+    }
+    
+    // Optional scale factor for mesh positions.  Default is 1.0.
+    optional double scale = 1;
+    
+    // Unit of imported mesh positions.  Default is millimeters.  Ignored if the scale is specified.
+    optional Unit unit = 2;
+    
+    // If true the mesh is centered at the world origin.  Default is true.
+    optional bool center = 3;
+}
+
