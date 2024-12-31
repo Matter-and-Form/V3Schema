@@ -28,5 +28,8 @@ message Import
     
     // If true the mesh is centered at the world origin.  Default is true.
     optional bool center = 3;
+    
+    // Project group index in which to add the imported meshes.  Default is 0 (root group).
+    optional int32 groupIndex = 4;
 }
 
