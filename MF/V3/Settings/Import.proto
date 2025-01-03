@@ -8,16 +8,16 @@ message Import
     // Unit of imported mesh positions.
     enum Unit
     {
-        // Millimeters.
-        Millimeters = 0;
-        // Centimeters.
-        Centimeters = 1;
-        // Meters.
-        Meters = 2;
-        // Inches.
-        Inches = 3;
-        // Feet.
-        Feet = 4;
+        // Mesh positions in millimeters.
+        Millimeter = 0;
+        // Mesh positions in centimeters.
+        Centimeter = 1;
+        // Mesh positions in meters.
+        Meter = 2;
+        // Mesh positions in inches.
+        Inch = 3;
+        // Mesh positions in feet.
+        Foot = 4;
     }
     
     // Optional scale factor for mesh positions.  Default is 1.0.

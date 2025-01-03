@@ -15,7 +15,7 @@ package MF.V3.Tasks;
  *     "Task":{
  *         "Index":1,
  *         "Type":"Import",
- *         "Input":{"unit":"Inches"}
+ *         "Input":{"unit":"Inch"}
  *     }
  * }
  * ```
@@ -30,7 +30,7 @@ package MF.V3.Tasks;
  *         "Task":{
  *             "Index":1,
  *             "Type":"Import",
- *             "Input":{"unit":"Inches"}
+ *             "Input":{"unit":"Inch"}
  *         }
  *     }
  * }
@@ -44,7 +44,7 @@ package MF.V3.Tasks;
  *     "Task":{
  *         "Index":1,
  *         "Type":"Import",
- *         "Input":{"unit":"Inches"},
+ *         "Input":{"unit":"Inch"},
  *         "Output":{"groups":[{"index":1,"name":"box","scan":1}]},
  *         "State":"Completed"
  *     }
