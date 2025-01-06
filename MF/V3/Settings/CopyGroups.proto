@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-// Copy scan group settings.
-message CopyGroup
+// Copy scan groups settings.
+message CopyGroups
 {
     // The indexes of the groups to copy.
     repeated int32 sourceIndexes = 1;
