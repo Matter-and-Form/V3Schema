@@ -10,6 +10,7 @@ import "MF/V3/Tasks/CalibrateTurntable.proto";
 import "MF/V3/Tasks/CameraCalibration.proto";
 import "MF/V3/Tasks/CaptureImage.proto";
 import "MF/V3/Tasks/CloseProject.proto";
+import "MF/V3/Tasks/CopyGroups.proto";
 import "MF/V3/Tasks/ConnectWifi.proto";
 import "MF/V3/Tasks/DepthMap.proto";
 import "MF/V3/Tasks/DetectCalibrationCard.proto";
@@ -107,6 +108,9 @@ rpc OpenProject(Tasks.OpenProject.Request) returns (Tasks.OpenProject.Response);
 
 // Close the current open project.
 rpc CloseProject(Tasks.CloseProject.Request) returns (Tasks.CloseProject.Response);
+
+// Copy a set of scan groups in the current open project.
+rpc CopyGroups(Tasks.CopyGroups.Request) returns (Tasks.CopyGroups.Response);
 
 // Remove selected projects.
 rpc RemoveProjects(Tasks.RemoveProjects.Request) returns (Tasks.RemoveProjects.Response);
