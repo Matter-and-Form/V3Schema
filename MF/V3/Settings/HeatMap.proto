@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Scan heat map settings.
+message HeatMap
+{
+    // Set of source group indexes.
+    repeated int32 sources = 1;
+
+    // Set of target group indexes.
+    repeated int32 targets = 2;
+
+    // Threshold for which distances are excluded from the statistics in the descriptor.
+    optional float outlierDistance = 3;
+}
