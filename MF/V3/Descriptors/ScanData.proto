@@ -22,10 +22,12 @@ message ScanData
                 Color = 2;
                 // Vertex texture coordinate.
                 UV = 3;
+                // Vertex quality.
+                Quality = 4;
                 // Triangle index.
-                Triangle = 4;
+                Triangle = 5;
                 // Texture.
-                Texture = 5;
+                Texture = 6;
             }
 
             // Scan buffer component type.
