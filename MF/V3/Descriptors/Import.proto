@@ -7,6 +7,15 @@ package MF.V3.Descriptors;
 // Import scan descriptor.
 message Import
 {
+    enum Error
+    {
+        Unspecified = 0;
+        FileNotSupported = 1;
+        CannotReadFile = 2;
+        MeshIsEmpty = 3;
+        NotEnoughStorage = 4;
+    }
+    
     // 
     message Imported
     {
@@ -20,7 +29,7 @@ message Import
         // 
         string filename = 1;
         // 
-        string reason = 2;
+        Error error = 2;
     }
     
     // 
