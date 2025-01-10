@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "MF/V3/Descriptors/Project.proto";
+
+package MF.V3.Descriptors;
+
+// Import scan descriptor.
+message Import
+{
+    // 
+    message Imported
+    {
+        // 
+        string filename = 1;
+    }
+
+    // 
+    message Ignored
+    {
+        // 
+        string filename = 1;
+        // 
+        string reason = 2;
+    }
+    
+    // 
+    repeated Imported imported = 1;
+
+    // 
+    repeated Ignored ignored = 2;
+
+    //
+    Project.Group groups = 3;
+}
