@@ -20,16 +20,19 @@ message Import
         Foot = 4;
     }
     
+    // Optional name of the impored mesh.  Ignored if the imported file is a zip archive, in which case the archive filenames are used.
+    optional string name = 1;
+    
     // Optional scale factor for mesh positions.  Default is 1.0.
-    optional double scale = 1;
+    optional double scale = 2;
     
     // Unit of imported mesh positions.  Default is millimeters.  Ignored if the scale is specified.
-    optional Unit unit = 2;
+    optional Unit unit = 3;
     
     // If true the mesh is centered at the world origin.  Default is true.
-    optional bool center = 3;
+    optional bool center = 4;
     
     // Project group index in which to add the imported meshes.  Default is 0 (root group).
-    optional int32 groupIndex = 4;
+    optional int32 groupIndex = 5;
 }
 

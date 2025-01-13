@@ -20,14 +20,14 @@ message Import
     message Imported
     {
         // 
-        string filename = 1;
+        string file = 1;
     }
 
     // 
     message Ignored
     {
         // 
-        string filename = 1;
+        string file = 1;
         // 
         Error error = 2;
     }
