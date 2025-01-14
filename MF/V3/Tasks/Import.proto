@@ -45,7 +45,11 @@ package MF.V3.Tasks;
  *         "Index":1,
  *         "Type":"Import",
  *         "Input":{"unit":"Inch"},
- *         "Output":{"groups":[{"index":1,"name":"box","scan":1}]},
+ *         "Output":{
+ *             "groups":[{"index":1,"name":"box","scan":1}],
+ *             "imported":[{"file":"mesh.ply"}],
+ *             "ignored":[],
+ *         },
  *         "State":"Completed"
  *     }
  * }
