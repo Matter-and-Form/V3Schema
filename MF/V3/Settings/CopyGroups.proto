@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Copy scan groups settings.
+message CopyGroups
+{
+    // The indexes of the groups to copy.
+    repeated int32 sourceIndexes = 1;
+
+    /* 
+     * The index of the group into which the source groups are copied.
+     * If unspecified the copied groups are inserted after their respective source groups within the same parent group.
+     */
+    optional int32 targetIndex = 2;
+
+    /* 
+     * The position among the target group's children where the copied groups are inserted.
+     * If unspecified the copied groups are appended to the end of the target group's children.
+     * Ignored if the targetIndex is unspecified or specified but does not exist.
+     */
+    optional int32 childPosition = 3;
+    
+    /*
+     * Optional name suffix to append to the copied group names.
+     * If unspecified the copied group names are unchanged.
+     */
+    optional string nameSuffix = 4;
+    
+    /*
+     * Append a copy index the copied group names. e.g. ("name-2", "name-3").  Default is true.
+     * If a name suffix is specified then the first copy of each source group is not enumerated,
+     * but subsequent copies are.
+     */
+    optional bool enumerate = 5;
+}
