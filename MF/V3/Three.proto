@@ -25,6 +25,7 @@ import "MF/V3/Tasks/HasCameras.proto";
 import "MF/V3/Tasks/HasProjector.proto";
 import "MF/V3/Tasks/HasTurntable.proto";
 import "MF/V3/Tasks/HeatMap.proto";
+import "MF/V3/Tasks/Import.proto";
 import "MF/V3/Tasks/ListExportFormats.proto";
 import "MF/V3/Tasks/ListGroups.proto";
 import "MF/V3/Tasks/ListNetworkInterfaces.proto";
@@ -165,6 +166,9 @@ rpc MergeData(Tasks.MergeData.Request) returns (Tasks.MergeData.Response);
 
 // Add a merged scan to the current project.
 rpc AddMergeToProject(Tasks.AddMergeToProject.Request) returns (Tasks.AddMergeToProject.Response);
+
+// Import a set of 3D meshes to the current open project.  The meshes must be archived in a ZIP file.
+rpc Import(Tasks.Import.Request) returns (Tasks.Import.Response);
 
 // List all export formats.
 rpc ListExportFormats(Tasks.ListExportFormats.Request) returns (Tasks.ListExportFormats.Response);

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package MF.V3.Settings;
+
+// Import mesh settings.
+message Import
+{
+    // Unit of imported mesh positions.
+    enum Unit
+    {
+        // Mesh positions in millimeters.
+        Millimeter = 0;
+        // Mesh positions in centimeters.
+        Centimeter = 1;
+        // Mesh positions in meters.
+        Meter = 2;
+        // Mesh positions in inches.
+        Inch = 3;
+        // Mesh positions in feet.
+        Foot = 4;
+    }
+    
+    // Optional name of the impored mesh.  Ignored if the imported file is a zip archive, in which case the archive filenames are used.
+    optional string name = 1;
+    
+    // Optional scale factor for mesh positions.  Default is 1.0.
+    optional double scale = 2;
+    
+    // Unit of imported mesh positions.  Default is millimeters.  Ignored if the scale is specified.
+    optional Unit unit = 3;
+    
+    // If true the mesh is centered at the world origin.  Default is true.
+    optional bool center = 4;
+    
+    // Project group index in which to add the imported meshes.  Default is 0 (root group).
+    optional int32 groupIndex = 5;
+}
+

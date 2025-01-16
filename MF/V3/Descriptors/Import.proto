@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "MF/V3/Descriptors/Project.proto";
+
+package MF.V3.Descriptors;
+
+// Import scan descriptor.
+message Import
+{
+    // Import error codes.
+    enum Error
+    {
+        // The error is unspecified.
+        Unspecified = 0;
+        
+        // The file format is not supported.
+        FileNotSupported = 1;
+        
+        // The file format is supported but cannot be read.
+        CannotReadFile = 2;
+        
+        // The imported mesh has no faces.
+        MeshIsEmpty = 3;
+        
+        // There is not enough filesystem memory to store the mesh.
+        NotEnoughStorage = 4;
+    }
+    
+    // A file that was successfully imported to the project.
+    message Imported
+    {
+        // The file name.
+        string file = 1;
+    }
+
+    // A file that failed to be imported to the project.
+    message Ignored
+    {
+        // The file name.
+        string file = 1;
+        
+        // The import error code.
+        Error error = 2;
+    }
+    
+    // The list of successfully imported files.
+    repeated Imported imported = 1;
+
+    // The list of ignored files.
+    repeated Ignored ignored = 2;
+
+    // The updated project group tree.
+    Project.Group groups = 3;
+}
