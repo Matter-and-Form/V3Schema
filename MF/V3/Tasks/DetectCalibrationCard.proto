@@ -5,7 +5,8 @@ import "MF/V3/Task.proto";
 package MF.V3.Tasks;
 
 /**
- * Detect the calibration card on one or both cameras.
+ * Turns on the detection the calibration card on one or both cameras.
+ * Use the Video Frame Descriptor to get the results of the detection.
  * 
  * > Request example:
  *
@@ -45,7 +46,7 @@ message Request
     string Type = 2;
 
     /*
-     * Flag specifying on which camera(s) to detect the calibration card.
+     * Flag specifying on which camera(s) to start the detection the calibration card.
      * [0: neither camera (disable), 1: left camera, 2: right camera, 3: both cameras]
      */
     int32 Input = 3;
@@ -61,7 +62,7 @@ message Response
     string Type = 2;
 
     /*
-     * Flag sent in the request specifying on which camera(s) to detect the calibration card.
+     * Flag sent in the request specifying on which camera(s) to start the detection the calibration card.
      * [0: neither camera (disable), 1: left camera, 2: right camera, 3: both cameras]
      */
     int32 Input = 3;
