@@ -16,6 +16,7 @@ import "MF/V3/Tasks/DepthMap.proto";
 import "MF/V3/Tasks/DetectCalibrationCard.proto";
 import "MF/V3/Tasks/DownloadProject.proto";
 import "MF/V3/Tasks/Export.proto";
+import "MF/V3/Tasks/ExportFactoryCalibrationLogs.proto";
 import "MF/V3/Tasks/ExportHeatMap.proto";
 import "MF/V3/Tasks/ExportLogs.proto";
 import "MF/V3/Tasks/ExportMerge.proto";
@@ -184,6 +185,9 @@ rpc ExportMerge(Tasks.ExportMerge.Request) returns (Tasks.ExportMerge.Response);
 
 // Export scanner logs.
 rpc ExportLogs(Tasks.ExportLogs.Request) returns (Tasks.ExportLogs.Response);
+
+// Export scanner logs.
+rpc ExportFactoryCalibrationLogs(Tasks.ExportFactoryCalibrationLogs.Request) returns (Tasks.ExportFactoryCalibrationLogs.Response);
 
 // Check if the scanner has working cameras.
 rpc HasCameras(Tasks.HasCameras.Request) returns (Tasks.HasCameras.Response);
