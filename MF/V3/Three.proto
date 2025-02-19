@@ -9,6 +9,7 @@ import "MF/V3/Tasks/CalibrateCameras.proto";
 import "MF/V3/Tasks/CalibrateTurntable.proto";
 import "MF/V3/Tasks/CameraCalibration.proto";
 import "MF/V3/Tasks/CaptureImage.proto";
+import "MF/V3/Tasks/ClearSettings.proto";
 import "MF/V3/Tasks/CloseProject.proto";
 import "MF/V3/Tasks/CopyGroups.proto";
 import "MF/V3/Tasks/ConnectWifi.proto";
@@ -20,6 +21,7 @@ import "MF/V3/Tasks/ExportFactoryCalibrationLogs.proto";
 import "MF/V3/Tasks/ExportHeatMap.proto";
 import "MF/V3/Tasks/ExportLogs.proto";
 import "MF/V3/Tasks/ExportMerge.proto";
+import "MF/V3/Tasks/FactoryReset.proto";
 import "MF/V3/Tasks/FlattenGroup.proto";
 import "MF/V3/Tasks/ForgetWifi.proto";
 import "MF/V3/Tasks/HasCameras.proto";
@@ -108,6 +110,9 @@ rpc NewProject(Tasks.NewProject.Request) returns (Tasks.NewProject.Response);
 // Open an existing project.
 rpc OpenProject(Tasks.OpenProject.Request) returns (Tasks.OpenProject.Response);
 
+// Clear scanner settings and restore the default values.
+rpc ClearSettings(Tasks.ClearSettings.Request) returns (Tasks.ClearSettings.Response);
+
 // Close the current open project.
 rpc CloseProject(Tasks.CloseProject.Request) returns (Tasks.CloseProject.Response);
 
@@ -137,6 +142,9 @@ rpc NewGroup(Tasks.NewGroup.Request) returns (Tasks.NewGroup.Response);
 
 // Move a scan group.
 rpc MoveGroup(Tasks.MoveGroup.Request) returns (Tasks.MoveGroup.Response);
+
+// Reset the scanner to factory settings.
+rpc FactoryReset(Tasks.FactoryReset.Request) returns (Tasks.FactoryReset.Response);
 
 // Flatten a scan group such that it only consists of single scans.
 rpc FlattenGroup(Tasks.FlattenGroup.Request) returns (Tasks.FlattenGroup.Response);
