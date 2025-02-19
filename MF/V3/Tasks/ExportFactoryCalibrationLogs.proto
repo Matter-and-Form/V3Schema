@@ -5,7 +5,7 @@ import "MF/V3/Task.proto";
 package MF.V3.Tasks;
 
 /**
- * Export scanner logs.
+ * Export facotry calibration logs.
  * 
  * > Request example:
  *

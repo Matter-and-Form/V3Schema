@@ -186,7 +186,7 @@ rpc ExportMerge(Tasks.ExportMerge.Request) returns (Tasks.ExportMerge.Response);
 // Export scanner logs.
 rpc ExportLogs(Tasks.ExportLogs.Request) returns (Tasks.ExportLogs.Response);
 
-// Export scanner logs.
+// Export factory calibration logs.
 rpc ExportFactoryCalibrationLogs(Tasks.ExportFactoryCalibrationLogs.Request) returns (Tasks.ExportFactoryCalibrationLogs.Response);
 
 // Check if the scanner has working cameras.
