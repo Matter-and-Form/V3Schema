@@ -11,8 +11,10 @@ message I18n
         en = 0;
         fr = 1;
         de = 2;
+        zh = 3;
+        ja = 4;
     }
 
-    // The language setting.  Supported languages are ["en", "fr", "de"].
+    // The language setting.  Supported languages are ["en", "fr", "de", "zh", "ja"].
     optional Language language = 1;
 }
