@@ -15,8 +15,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-          registry-url: https://npm.pkg.github.com/
-      - name: Publish NPM packages
+          registry-url: https://registry.npmjs.org
+      - name: Publish NPM package
         env:
           NODE_AUTH_TOKEN: ${{secrets.REGISTRY_TOKEN}}
         run: |
