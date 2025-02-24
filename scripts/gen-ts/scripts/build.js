@@ -22,7 +22,7 @@ const exec = command =>
 (async () =>
 {
     // Transpile proto definitions 
-    await exec(`npx buf generate ..`);
+    await exec(`npx buf generate ../..`);
 
     // Generate export definitions
     const pbIndex = glob.sync(`${SCHEMA_ROOT_DIR}/**/*_pb.ts`)
@@ -51,12 +51,22 @@ const exec = command =>
     await exec('npm run transpile');
     await exec('rm -rf MF');
 
-    const dirs = [...new Set(Object.keys(pbIndex).map(dir => dir.split('/').at(0)))];
+    const dirs = [...new Set(Object.keys(pbIndex).map(dir => dir.split('/').at(0)))].filter(d => d !== '');
 
     // Move generated proto definitions to root dir
     for (const dir of dirs)
     {
         await exec(`mv build/${SCHEMA_ROOT_DIR}/${dir} .`);
     }
+
+    fs.writeFileSync(
+        `./index.d.ts`,
+        dirs.map(dir => `export * from './${dir}';`).join('\n')
+    );
+    fs.writeFileSync(
+        `./index.js`,
+        dirs.map(dir => `export * from './${dir}';`).join('\n')
+    );
+
     await exec(`rm -rf build`);
 })();
