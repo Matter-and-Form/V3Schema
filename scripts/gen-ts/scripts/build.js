@@ -25,13 +25,13 @@ const exec = command =>
     await exec(`npx buf generate ../..`);
 
     // Generate export definitions
-    const pbIndex = glob.sync(`${SCHEMA_ROOT_DIR}/**/*_pb.ts`)
+    const pbIndex = glob.sync(`${SCHEMA_ROOT_DIR}/**/*.ts`)
         .reduce((map, pb) =>
         {
             const [_, pathname] = pb.split(`${SCHEMA_ROOT_DIR}/`);
             const components = pathname.split('/');
             const [exportName] = components.at(-1).split('.ts');
-            const exportPath = `export * from './${exportName}';`;
+            const exportPath = `export * as ${exportName} from './${exportName}';`;
             const exportDir = components.slice(0, -1).join('/');
 
             return {
@@ -39,6 +39,9 @@ const exec = command =>
                 [exportDir]: map[exportDir] ? map[exportDir].concat([exportPath]) : [exportPath]
             }
         }, {});
+
+    delete pbIndex[''];
+    delete pbIndex['Tasks'];
 
     for (const dir in pbIndex)
     {
@@ -48,8 +51,14 @@ const exec = command =>
         );
     }
 
+    fs.writeFileSync(
+        `${SCHEMA_ROOT_DIR}/index.ts`,
+        Object.keys(pbIndex).map(d => `export * as ${d.split('/').join('_')} from './${d}';`).join('\n')
+    );
+
     await exec('npm run transpile');
     await exec('rm -rf MF');
+    await exec('rm -rf google');
 
     const dirs = [...new Set(Object.keys(pbIndex).map(dir => dir.split('/').at(0)))].filter(d => d !== '');
 
@@ -58,15 +67,8 @@ const exec = command =>
     {
         await exec(`mv build/${SCHEMA_ROOT_DIR}/${dir} .`);
     }
-
-    fs.writeFileSync(
-        `./index.d.ts`,
-        dirs.map(dir => `export * from './${dir}';`).join('\n')
-    );
-    fs.writeFileSync(
-        `./index.js`,
-        dirs.map(dir => `export * from './${dir}';`).join('\n')
-    );
+    await exec(`mv build/${SCHEMA_ROOT_DIR}/index.d.ts .`);
+    await exec(`mv build/${SCHEMA_ROOT_DIR}/index.js .`);
 
     await exec(`rm -rf build`);
 })();
