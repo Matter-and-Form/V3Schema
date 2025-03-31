@@ -5,10 +5,14 @@ package MF.V3.Settings;
 // Quality settings.
 enum Quality
 {
+    // Very Low Quality
+    VeryLow = 0;
     // Low quality.
-    Low = 0;
+    Low = 1;
     // Medium quality.
-    Medium = 1;
+    Medium = 2;
     // High quality.
-    High = 2;
+    High = 3;
+    // Very High Quality
+    VeryHigh = 4;
 }
