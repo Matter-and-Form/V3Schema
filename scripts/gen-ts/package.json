@@ -1,20 +1,25 @@
 {
-  "name": "@matter-and-form/v3schema",
-  "version": "2.0.0",
+  "name": "@matterandform/three-schema",
+  "version": "10.1.1",
   "description": "Message schema files for the Three Scanner",
   "main": "V3Frontend/scripts/build.js",
+  "exports": {
+    "types": "./index.d.ts",
+    "default": "./index.js"
+  },
   "scripts": {
-    "build": "node ./scripts/build",
-    "generate": "npx buf generate ..",
-    "transpile": "tsc"
+    "build": "npm run clean && node ./scripts/build",
+    "generate": "npx buf generate ../..",
+    "transpile": "tsc",
+    "clean": "rm -rf ./index.js ./index.d.ts ./build ./MF ./Descriptors ./Settings ./Tasks ./google"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "dependencies": {
     "@bufbuild/buf": "^1.32.0",
-    "@bufbuild/protobuf": "^1.9.0",
-    "@bufbuild/protoc-gen-es": "^1.9.0"
+    "@bufbuild/protobuf": "^2.2.3",
+    "ts-proto": "^2.6.1"
   },
   "devDependencies": {
     "glob": "^10.4.1",

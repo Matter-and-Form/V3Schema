@@ -1,0 +1,51 @@
+name: NPM Version Incrementor
+
+on:
+  push:
+    branches: [ main ]    
+
+  # Allows you to run this workflow manually from the Actions tab (when this yml is in the main branch)
+  workflow_dispatch:
+
+jobs:
+  Increment_BuildNumber:
+    strategy:
+      fail-fast: true
+    runs-on: ubuntu-latest   
+    steps:
+      # Checkout 
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with: 
+          token: ${{ secrets.API_TOKEN_GITHUB }} 
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+      
+      - name: Increment Minor Version in package.json
+        run: |
+            # Navigate to the npm package directory
+            cd ./scripts/gen-ts
+
+            # Read the current version
+            VERSION=$(jq -r '.version' package.json)
+  
+            # Break the version into major, minor, and patch numbers
+            MAJOR=$(echo $VERSION | cut -d'.' -f1)
+            MINOR=$(echo $VERSION | cut -d'.' -f2)
+            PATCH=$(echo $VERSION | cut -d'.' -f3)
+  
+            # Increment the minor version
+            MINOR=$((MINOR+1))
+  
+            # Create a new version string
+            NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+  
+            # Update package.json with the new version
+            jq ".version = \"$NEW_VERSION\"" package.json > temp.json && mv temp.json package.json
+  
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add package.json
+            git commit -m "Incremented minor version to $NEW_VERSION [skip ci]"
+            git push
