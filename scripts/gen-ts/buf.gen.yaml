@@ -1,6 +1,8 @@
 # Learn more: https://docs.buf.build/configuration/v1/buf-gen-yaml
 version: v1
 plugins:
-   - plugin: es
-     opt: target=ts
+   - name: ts
+     opt: stringEnums=true
      out: .
+     strategy: all
+     path: ./node_modules/ts-proto/protoc-gen-ts_proto
