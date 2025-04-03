@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "MF/V3/Settings/ScanSelection.proto";
+
+package MF.V3.Settings;
+
+// Mesh smoothing settings.
+message Smooth
+{
+    // Taubin smoothing settings.
+    message Taubin
+    {
+        // Number of smoothing iterations.
+        optional int32 iterations = 1;
+
+        // First laplacian smoothing filter parameter.
+        optional float lambda = 2;
+        
+        // Second laplacian smoothing filter parameter.
+        optional float mu = 3;
+    }
+
+    // The scan selection.
+    optional ScanSelection selection = 1;
+
+    // Taubin smoothing.
+    optional Taubin taubin = 2;
+}
