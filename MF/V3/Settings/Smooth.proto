@@ -13,10 +13,11 @@ message Smooth
         // Number of smoothing iterations.
         optional int32 iterations = 1;
 
-        // First laplacian smoothing filter parameter.
+        // First laplacian smoothing filter parameter. Must be greater than zero.
         optional float lambda = 2;
         
-        // Second laplacian smoothing filter parameter.
+        // Second laplacian smoothing filter parameter.  
+        // Must be negative and have magnitude greater or equal to lambda .
         optional float mu = 3;
     }
 
