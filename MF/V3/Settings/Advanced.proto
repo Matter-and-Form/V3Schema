@@ -169,7 +169,7 @@ message Advanced
     message Remesh
     {
         // Remesh quality preset.
-        optional Quality quality = 1;
+        optional RemeshQuality quality = 1;
 
         // Voxel size.
         optional float voxelSize = 2;
