@@ -17,6 +17,9 @@ docName=proto.md
 # The output markdown file.
 outName=index.md
 
+mkdir -p ${docPath}
+chmod -R u+w ${docPath}
+
 # Remove any previously generated documentation.
 rm -f ${docPath}/${docName}
 
@@ -35,7 +38,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Generate markdown documentation with pseudomuto/protoc-gen-doc.
-docker run --rm -v ${docPath}:/out -v ${protoPath}:/protos pseudomuto/protoc-gen-doc --doc_opt=markdown,${docName} ${protoFiles}
+docker run --rm --user $(id -u):$(id -g) -v ${docPath}:/out -v ${protoPath}:/protos pseudomuto/protoc-gen-doc --doc_opt=markdown,${docName} ${protoFiles}
 
 if [ $? -ne 0 ]; then
     #echo "Documentation generation failed."
