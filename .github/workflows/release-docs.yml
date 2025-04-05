@@ -23,7 +23,8 @@ jobs:
         env:
           LATEST_MD: THREE-‐-API-${{ github.event.release.tag_name }}
         run: |
-          scripts/gen-doc/gen-doc
+          cd scripts/gen-doc
+          ./gen-doc
           mv doc/index.md wiki/$LATEST_MD.md
           cd wiki
           sed "s/.*documentation for the latest version.*/Click here to see the \[documentation for the latest version\]\(wiki\/$LATEST_MD.md\)/" Home.md
