@@ -55,6 +55,7 @@ import "MF/V3/Tasks/SetCameras.proto";
 import "MF/V3/Tasks/SetGroup.proto";
 import "MF/V3/Tasks/SetProject.proto";
 import "MF/V3/Tasks/SetProjector.proto";
+import "MF/V3/Tasks/Smooth.proto";
 import "MF/V3/Tasks/Shutdown.proto";
 import "MF/V3/Tasks/SystemInfo.proto";
 import "MF/V3/Tasks/SplitGroup.proto";
@@ -163,6 +164,9 @@ rpc BoundingBox(Tasks.BoundingBox.Request) returns (Tasks.BoundingBox.Response);
 
 // Align two scan groups.
 rpc Align(Tasks.Align.Request) returns (Tasks.Align.Response);
+
+// Smooth a set of scans.
+rpc Smooth(Tasks.Smooth.Request) returns (Tasks.Smooth.Response);
 
 // Compute the point-to-mesh distances of a source mesh to a target mesh and visualize as a heat map.
 rpc HeatMap(Tasks.HeatMap.Request) returns (Tasks.HeatMap.Response);
