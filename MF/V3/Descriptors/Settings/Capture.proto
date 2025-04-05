@@ -10,8 +10,8 @@ message Capture
     // Capture quality preset.
     message Quality
     {
-        V3.Settings.Quality value = 1;
-        V3.Settings.Quality default = 2;
+        V3.Settings.CaptureQuality value = 1;
+        V3.Settings.CaptureQuality default = 2;
     }
 
     // Capture texture.

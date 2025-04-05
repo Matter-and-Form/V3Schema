@@ -12,7 +12,7 @@ message Merge
     message Remesh
     {
         // Remesh quality.
-        optional Quality quality = 1;
+        optional RemeshQuality quality = 1;
         
         // Voxel size.
         optional float voxelSize = 2;

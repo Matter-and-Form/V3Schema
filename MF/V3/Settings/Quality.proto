@@ -2,13 +2,28 @@ syntax = "proto3";
 
 package MF.V3.Settings;
 
-// Quality settings.
-enum Quality
+// Remesh quality settings.
+enum RemeshQuality
+{
+    // Very low remesh quality.
+    VeryLowRemesh = 0;
+    // Low remesh quality.
+    LowRemesh = 1;
+    // Medium remesh quality.
+    MediumRemesh = 2;
+    // High remesh quality.
+    HighRemesh = 3;
+    // Very high remesh quality.
+    VeryHighRemesh = 4;
+}
+
+// Capture quality settings.
+enum CaptureQuality
 {
     // Low quality.
-    Low = 0;
+    LowCapture = 0;
     // Medium quality.
-    Medium = 1;
+    MediumCapture = 1;
     // High quality.
-    High = 2;
+    HighCapture = 2;
 }
