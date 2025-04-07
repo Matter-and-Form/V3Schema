@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "MF/V3/Settings/Scan.proto";
 import "MF/V3/Settings/Quality.proto";
+import "MF/V3/Settings/Merge.proto";
 
 package MF.V3.Settings;
 
@@ -169,7 +170,7 @@ message Advanced
     message Remesh
     {
         // Remesh quality preset.
-        optional RemeshQuality quality = 1;
+        optional Merge.Quality quality = 1;
 
         // Voxel size.
         optional float voxelSize = 2;
