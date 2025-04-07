@@ -8,11 +8,26 @@ package MF.V3.Settings;
 // Scan merge settings.
 message Merge
 {
+    // Remesh quality settings.
+    enum Quality
+    {
+        // Very low remesh quality.
+        VeryLow = 0;
+        // Low remesh quality.
+        Low = 1;
+        // Medium remesh quality.
+        Medium = 2;
+        // High remesh quality.
+        High = 3;
+        // Very high remesh quality.
+        VeryHigh = 4;
+    }
+
     // Remesh settings.
     message Remesh
     {
         // Remesh quality.
-        optional RemeshQuality quality = 1;
+        optional Quality quality = 1;
         
         // Voxel size.
         optional float voxelSize = 2;

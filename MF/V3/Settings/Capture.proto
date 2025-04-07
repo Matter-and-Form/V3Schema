@@ -8,7 +8,7 @@ package MF.V3.Settings;
 message Capture
 {
     // Capture quality preset.
-    optional CaptureQuality quality = 1;
+    optional Quality quality = 1;
 
     // Capture texture.
     optional bool texture = 2;
