@@ -1,6 +1,6 @@
 {
   "name": "@matterandform/three-schema",
-  "version": "11.1.0",
+  "version": "11.2.0",
   "description": "Message schema files for the Three Scanner",
   "main": "V3Frontend/scripts/build.js",
   "exports": {
