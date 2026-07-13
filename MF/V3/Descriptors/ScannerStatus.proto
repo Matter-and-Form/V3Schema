@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+/*
+ * The desktop engine's scanner connection status.
+ *
+ * Returned by the `GetScannerStatus` task and pushed to every client as a
+ * `{"ScannerStatus": {...}}` message whenever the connection state changes.
+ */
+message ScannerStatus
+{
+    // True if the engine is connected to a scanner.
+    bool connected = 1;
+
+    // The connected scanner's host name or IP address.  Empty when not connected.
+    string host = 2;
+}

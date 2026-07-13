@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+/*
+ * Scanners discovered on the local network, returned by the
+ * `DiscoverScanners` task.
+ */
+message ScannerList
+{
+    // A discovered scanner.
+    message Scanner
+    {
+        // The scanner's advertised name (e.g. "THREE").
+        string name = 1;
+
+        // The scanner's mDNS host name (e.g. "matterandform.local").
+        string host = 2;
+
+        // The scanner's IPv4 address.
+        string ip = 3;
+
+        // The scanner's server port.
+        int32 port = 4;
+
+        // The scanner's advertised server version.  Empty if not advertised.
+        string version = 5;
+    }
+
+    // The discovered scanners.
+    repeated Scanner scanners = 1;
+}

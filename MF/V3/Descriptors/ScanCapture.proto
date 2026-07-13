@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+/*
+ * Raw scan capture image descriptor streamed to clients that process scans
+ * themselves (`SetProcessingDevices` client processing).  Each stereo capture
+ * is sent as two buffers, one per camera, described by this descriptor.
+ *
+ * The buffer payload is the raw image data: `rows` rows of `step` bytes,
+ * pixel format given by the OpenCV type code in `type`.
+ */
+message ScanCapture
+{
+    // Image rows.
+    int32 rows = 1;
+
+    // Image columns.
+    int32 cols = 2;
+
+    // OpenCV Mat type code (e.g. CV_8UC1).
+    int32 type = 3;
+
+    // Row step in bytes.
+    int32 step = 4;
+
+    // Camera index (0 or 1).
+    int32 camera = 5;
+
+    // Camera focus.
+    int32 focus = 6;
+
+    // Capture (turntable angle) index.
+    int32 index = 7;
+
+    // Pattern orientation, or -1 for texture captures.
+    int32 orientation = 8;
+
+    // Pattern frequency, or -1 for texture captures.
+    int32 frequency = 9;
+
+    // Pattern phase, or -1 for texture captures.
+    int32 phase = 10;
+
+    // Turntable angle in radians.
+    double angle = 11;
+
+    // True if this is a texture capture.
+    bool texture = 12;
+}

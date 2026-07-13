@@ -2,3 +2,13 @@ node_modules
 .venv
 .DS_Store
 doc/
+
+# gen-ts build output
+scripts/gen-ts/Descriptors/
+scripts/gen-ts/Settings/
+scripts/gen-ts/Tasks/
+scripts/gen-ts/MF/
+scripts/gen-ts/google/
+scripts/gen-ts/build/
+scripts/gen-ts/index.js
+scripts/gen-ts/index.d.ts
