@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 import "MF/V3/Settings/Scan.proto";
-import "MF/V3/Settings/Quality.proto";
 import "MF/V3/Settings/Merge.proto";
 
 package MF.V3.Settings;
@@ -54,7 +53,7 @@ message Advanced
 
         /*
         * Gaussian blur kernel standard deviation.  This parameter is ignored if
-        * \p gaussianBlurSize is zero.
+        * gaussianBlurSize is zero.
         */
         optional float gaussianBlurStdDev = 4;
 

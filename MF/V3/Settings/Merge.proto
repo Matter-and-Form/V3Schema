@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 import "MF/V3/Settings/ScanSelection.proto";
-import "MF/V3/Settings/Quality.proto";
 
 package MF.V3.Settings;
 
