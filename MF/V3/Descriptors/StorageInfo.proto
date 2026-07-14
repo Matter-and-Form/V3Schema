@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package MF.V3.Descriptors;
+
+/*
+ * Storage space of the desktop engine's local workspace and, when a scanner
+ * is connected, of the scanner.  Returned by the `StorageInfo` task.
+ */
+message StorageInfo
+{
+    // Storage space of one side.
+    message Space
+    {
+        // Available bytes.
+        uint64 available = 1;
+
+        // Total capacity in bytes.
+        uint64 capacity = 2;
+    }
+
+    // The engine's local workspace storage.
+    Space local = 1;
+
+    // The connected scanner's storage.  Absent when no scanner is connected.
+    optional Space scanner = 2;
+}
