@@ -12,10 +12,14 @@ import "MF/V3/Tasks/CaptureImage.proto";
 import "MF/V3/Tasks/ClearSettings.proto";
 import "MF/V3/Tasks/CloseProject.proto";
 import "MF/V3/Tasks/CopyGroups.proto";
+import "MF/V3/Tasks/ConnectScanner.proto";
 import "MF/V3/Tasks/ConnectWifi.proto";
 import "MF/V3/Tasks/DepthMap.proto";
 import "MF/V3/Tasks/DetectCalibrationCard.proto";
+import "MF/V3/Tasks/DisconnectScanner.proto";
+import "MF/V3/Tasks/DiscoverScanners.proto";
 import "MF/V3/Tasks/DownloadProject.proto";
+import "MF/V3/Tasks/DownloadScannerProject.proto";
 import "MF/V3/Tasks/Export.proto";
 import "MF/V3/Tasks/ExportFactoryCalibrationLogs.proto";
 import "MF/V3/Tasks/ExportHeatMap.proto";
@@ -24,6 +28,8 @@ import "MF/V3/Tasks/ExportMerge.proto";
 import "MF/V3/Tasks/FactoryReset.proto";
 import "MF/V3/Tasks/FlattenGroup.proto";
 import "MF/V3/Tasks/ForgetWifi.proto";
+import "MF/V3/Tasks/GetProtocolInfo.proto";
+import "MF/V3/Tasks/GetScannerStatus.proto";
 import "MF/V3/Tasks/HasCameras.proto";
 import "MF/V3/Tasks/HasProjector.proto";
 import "MF/V3/Tasks/HasTurntable.proto";
@@ -33,6 +39,7 @@ import "MF/V3/Tasks/ListExportFormats.proto";
 import "MF/V3/Tasks/ListGroups.proto";
 import "MF/V3/Tasks/ListNetworkInterfaces.proto";
 import "MF/V3/Tasks/ListProjects.proto";
+import "MF/V3/Tasks/ListScannerProjects.proto";
 import "MF/V3/Tasks/ListScans.proto";
 import "MF/V3/Tasks/ListSettings.proto";
 import "MF/V3/Tasks/ListWifi.proto";
@@ -44,15 +51,19 @@ import "MF/V3/Tasks/NewProject.proto";
 import "MF/V3/Tasks/NewScan.proto";
 import "MF/V3/Tasks/OpenProject.proto";
 import "MF/V3/Tasks/PopSettings.proto";
+import "MF/V3/Tasks/PullProject.proto";
+import "MF/V3/Tasks/PushProject.proto";
 import "MF/V3/Tasks/PushSettings.proto";
 import "MF/V3/Tasks/Reboot.proto";
 import "MF/V3/Tasks/RemoveGroups.proto";
 import "MF/V3/Tasks/RemoveProjects.proto";
+import "MF/V3/Tasks/RemoveScannerProjects.proto";
 import "MF/V3/Tasks/RestoreFactoryCalibration.proto";
 import "MF/V3/Tasks/RotateTurntable.proto";
 import "MF/V3/Tasks/ScanData.proto";
 import "MF/V3/Tasks/SetCameras.proto";
 import "MF/V3/Tasks/SetGroup.proto";
+import "MF/V3/Tasks/SetProcessingDevices.proto";
 import "MF/V3/Tasks/SetProject.proto";
 import "MF/V3/Tasks/SetProjector.proto";
 import "MF/V3/Tasks/Smooth.proto";
@@ -61,6 +72,7 @@ import "MF/V3/Tasks/SystemInfo.proto";
 import "MF/V3/Tasks/SplitGroup.proto";
 import "MF/V3/Tasks/StartVideo.proto";
 import "MF/V3/Tasks/StopVideo.proto";
+import "MF/V3/Tasks/StorageInfo.proto";
 import "MF/V3/Tasks/TransformGroup.proto";
 import "MF/V3/Tasks/TurntableCalibration.proto";
 import "MF/V3/Tasks/UpdateSettings.proto";
@@ -266,5 +278,41 @@ rpc Reboot(Tasks.Reboot.Request) returns (Tasks.Reboot.Response);
 
 // Shutdown the scanner.
 rpc Shutdown(Tasks.Shutdown.Request) returns (Tasks.Shutdown.Response);
+
+// Get the desktop-processing protocol version and capabilities.
+rpc GetProtocolInfo(Tasks.GetProtocolInfo.Request) returns (Tasks.GetProtocolInfo.Response);
+
+// Select the scan processing devices (server and/or client processing).
+rpc SetProcessingDevices(Tasks.SetProcessingDevices.Request) returns (Tasks.SetProcessingDevices.Response);
+
+// Connect the desktop engine to a scanner (desktop engine only).
+rpc ConnectScanner(Tasks.ConnectScanner.Request) returns (Tasks.ConnectScanner.Response);
+
+// Disconnect the desktop engine from its scanner (desktop engine only).
+rpc DisconnectScanner(Tasks.DisconnectScanner.Request) returns (Tasks.DisconnectScanner.Response);
+
+// Get the desktop engine's scanner connection status (desktop engine only).
+rpc GetScannerStatus(Tasks.GetScannerStatus.Request) returns (Tasks.GetScannerStatus.Response);
+
+// List the projects on the connected scanner (desktop engine only).
+rpc ListScannerProjects(Tasks.ListScannerProjects.Request) returns (Tasks.ListScannerProjects.Response);
+
+// Copy a local project to the connected scanner (desktop engine only).
+rpc PushProject(Tasks.PushProject.Request) returns (Tasks.PushProject.Response);
+
+// Copy a project from the connected scanner into the local workspace (desktop engine only).
+rpc PullProject(Tasks.PullProject.Request) returns (Tasks.PullProject.Response);
+
+// Remove projects on the connected scanner (desktop engine only).
+rpc RemoveScannerProjects(Tasks.RemoveScannerProjects.Request) returns (Tasks.RemoveScannerProjects.Response);
+
+// Download a project archive from the connected scanner (desktop engine only).
+rpc DownloadScannerProject(Tasks.DownloadScannerProject.Request) returns (Tasks.DownloadScannerProject.Response);
+
+// Get the local and scanner storage space (desktop engine only).
+rpc StorageInfo(Tasks.StorageInfo.Request) returns (Tasks.StorageInfo.Response);
+
+// Discover scanners on the local network (desktop engine only).
+rpc DiscoverScanners(Tasks.DiscoverScanners.Request) returns (Tasks.DiscoverScanners.Response);
 
 }
