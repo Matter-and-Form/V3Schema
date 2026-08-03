@@ -22,4 +22,20 @@ message Camera
 
     // Focus value.
     optional int32 focus = 6;
+
+    /*
+    * Second exposure for multi-exposure scans. (Optional)
+    *
+    * When set, a scan captures every pattern, frequency and phase twice: once at
+    * `exposure` and once at `secondExposure`.  Processing then selects, for each
+    * camera pixel independently, the exposure whose pattern set has the greater
+    * unclipped dynamic range at that pixel, and fuses the phase images using that
+    * one exposure for all of the pixel's frequencies and phases.  This extends the
+    * usable range of a single scan over surfaces whose reflectance varies more
+    * than one exposure can cover.
+    *
+    * Ignored if equal to `exposure`.  Requires the same 9 ms stepping as
+    * `exposure` (DLP/camera frequency matching).
+    */
+    optional int32 secondExposure = 7;
 }
