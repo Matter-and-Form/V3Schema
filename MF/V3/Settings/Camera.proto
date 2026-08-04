@@ -38,4 +38,13 @@ message Camera
     * `exposure` (DLP/camera frequency matching).
     */
     optional int32 secondExposure = 7;
+
+    /*
+    * Additional exposures for a multi-exposure scan. (Optional)
+    *
+    * `secondExposure` is the two-exposure shorthand the scan-settings UI uses;
+    * this carries any further exposures.  The full capture order is `exposure`,
+    * then `secondExposure`, then these.  Duplicates are ignored.
+    */
+    repeated int32 additionalExposures = 8;
 }

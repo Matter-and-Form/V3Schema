@@ -55,4 +55,11 @@ message ScanCapture
      * selects one exposure per camera pixel when fusing the phase images.
      */
     int32 exposure = 13;
+
+    /*
+     * Exposure probe image: 0 for a normal capture, 1 for the projector-off probe
+     * and 2 for the projector-on probe.  The probes of every exposure precede the
+     * patterns and give the per-pixel dynamic range of each exposure.
+     */
+    int32 probe = 14;
 }
