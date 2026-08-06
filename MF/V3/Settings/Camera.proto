@@ -47,4 +47,15 @@ message Camera
     * then `secondExposure`, then these.  Duplicates are ignored.
     */
     repeated int32 additionalExposures = 8;
+
+    /*
+    * Number of exposures for an automatic multi-exposure scan (2-10). (Optional)
+    *
+    * The scanner probes its full exposure range before the patterns and selects the
+    * set of this many exposures that covers the scene's reflectance best (greedy
+    * max-coverage of per-pixel fringe modulation, clip-guarded per colour channel).
+    * When set, `exposure`, `secondExposure` and `additionalExposures` are ignored.
+    * Fewer exposures may be captured if the scene does not benefit from more.
+    */
+    optional int32 multiExposureCount = 9;
 }

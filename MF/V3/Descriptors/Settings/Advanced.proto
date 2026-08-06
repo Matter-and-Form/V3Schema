@@ -278,9 +278,31 @@ message Advanced
             bool value = 1;
             bool default = 2;
         }
-        
+
+        // Multi-exposure scanning descriptor.
+        message UseMultiExposure
+        {
+            bool value = 1;
+            bool default = 2;
+        }
+
+        // Number of exposures descriptor for automatic multi-exposure scans.
+        message NumberOfExposures
+        {
+            int32 value = 1;
+            int32 default = 2;
+            int32 min = 3;
+            int32 max = 4;
+        }
+
         // Use continuous exposure values settings descriptor.
         UseContinuousExposureValues useContinuousExposureValues = 1;
+
+        // Multi-exposure scanning descriptor.
+        UseMultiExposure useMultiExposure = 2;
+
+        // Number of exposures descriptor for automatic multi-exposure scans.
+        NumberOfExposures numberOfExposures = 3;
     }
     
     // Turntable settings descriptor.
