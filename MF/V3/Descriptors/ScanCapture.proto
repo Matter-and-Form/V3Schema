@@ -47,4 +47,19 @@ message ScanCapture
 
     // True if this is a texture capture.
     bool texture = 12;
+
+    /*
+     * The exposure index of a multi-exposure scan, or 0 for single-exposure scans.
+     *
+     * A multi-exposure scan streams every pattern once per exposure; the processing client
+     * selects one exposure per camera pixel when fusing the phase images.
+     */
+    int32 exposure = 13;
+
+    /*
+     * Exposure probe image: 0 for a normal capture, 1 for the projector-off probe
+     * and 2 for the projector-on probe.  The probes of every exposure precede the
+     * patterns and give the per-pixel dynamic range of each exposure.
+     */
+    int32 probe = 14;
 }

@@ -22,4 +22,40 @@ message Camera
 
     // Focus value.
     optional int32 focus = 6;
+
+    /*
+    * Second exposure for multi-exposure scans. (Optional)
+    *
+    * When set, a scan captures every pattern, frequency and phase twice: once at
+    * `exposure` and once at `secondExposure`.  Processing then selects, for each
+    * camera pixel independently, the exposure whose pattern set has the greater
+    * unclipped dynamic range at that pixel, and fuses the phase images using that
+    * one exposure for all of the pixel's frequencies and phases.  This extends the
+    * usable range of a single scan over surfaces whose reflectance varies more
+    * than one exposure can cover.
+    *
+    * Ignored if equal to `exposure`.  Requires the same 9 ms stepping as
+    * `exposure` (DLP/camera frequency matching).
+    */
+    optional int32 secondExposure = 7;
+
+    /*
+    * Additional exposures for a multi-exposure scan. (Optional)
+    *
+    * `secondExposure` is the two-exposure shorthand the scan-settings UI uses;
+    * this carries any further exposures.  The full capture order is `exposure`,
+    * then `secondExposure`, then these.  Duplicates are ignored.
+    */
+    repeated int32 additionalExposures = 8;
+
+    /*
+    * Number of exposures for an automatic multi-exposure scan (2-10). (Optional)
+    *
+    * The scanner probes its full exposure range before the patterns and selects the
+    * set of this many exposures that covers the scene's reflectance best (greedy
+    * max-coverage of per-pixel fringe modulation, clip-guarded per colour channel).
+    * When set, `exposure`, `secondExposure` and `additionalExposures` are ignored.
+    * Fewer exposures may be captured if the scene does not benefit from more.
+    */
+    optional int32 multiExposureCount = 9;
 }

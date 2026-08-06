@@ -191,6 +191,12 @@ message Advanced
     message Camera
     {
         optional bool useContinuousExposureValues = 1;
+
+        // Multi-exposure scanning on/off. (Optional)
+        optional bool useMultiExposure = 2;
+
+        // The number of exposures of an automatic multi-exposure scan (2-10). (Optional)
+        optional int32 numberOfExposures = 3;
     }
     
     // Turntable settings.
