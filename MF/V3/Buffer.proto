@@ -48,7 +48,7 @@ package MF.V3;
  * {
  *     "Task":{
  *         "Index":1,
- *         "Type":"DownloadProject"
+ *         "Type":"DownloadProject",
  *         "Input":5,
  *         "State":"Completed"
  *     }

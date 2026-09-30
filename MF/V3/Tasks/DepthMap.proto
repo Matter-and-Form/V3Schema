@@ -7,7 +7,7 @@ import "MF/V3/Descriptors/Image.proto";
 package MF.V3.Tasks;
 
 /**
- * Capture a new scan.
+ * Capture a depth map.
  * 
  * > Request example:
  *
@@ -15,12 +15,12 @@ package MF.V3.Tasks;
  * {
  *     "Task":{
  *         "Index":1,
- *         "Type":"DepthMap"
+ *         "Type":"DepthMap",
  *         "Input":{
  *             "camera":{"exposure":18000,"analogGain":256,"digitalGain":256},
  *             "capture":{"quality":"Medium","texture":true},
  *             "projector":{"brightness":0.8}
- *         },
+ *         }
  *     }
  * }
  * ```
@@ -33,8 +33,8 @@ package MF.V3.Tasks;
  *         "Index":0,
  *         "Size":13128960,
  *         "Descriptor":{
- *             "cols":2104,
- *             "rows":1560,
+ *             "width":2104,
+ *             "height":1560,
  *             "step":8416,
  *             "type":5
  *         },
@@ -61,8 +61,8 @@ package MF.V3.Tasks;
  *         "Index":1,
  *         "Size":9846720,
  *         "Descriptor":{
- *             "cols":2104,
- *             "rows":1560,
+ *             "width":2104,
+ *             "height":1560,
  *             "step":6312,
  *             "type":16
  *         },
@@ -87,7 +87,7 @@ package MF.V3.Tasks;
  * {
  *     "Task":{
  *         "Index":1,
- *         "Type":"DepthMap"
+ *         "Type":"DepthMap",
  *         "Input":{
  *             "camera":{"exposure":18000,"analogGain":256,"digitalGain":256},
  *             "capture":{"quality":"Medium","texture":true},

@@ -18,7 +18,7 @@ package MF.V3.Tasks;
  *         "Type":"SetProject",
  *         "Input":{
  *             "name":"My Project"
- *         },
+ *         }
  *     }
  * }
  * ```
@@ -44,8 +44,8 @@ package MF.V3.Tasks;
  *                 "rotation":[0.2,0.8,-0.1],
  *                 "translation":[-275,-32,-134],
  *                 "visible":true
- *             }],
- *         }
+ *             }]
+ *         },
  *         "State":"Completed"
  *     }
  * }

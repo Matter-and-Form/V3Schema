@@ -31,7 +31,7 @@ package MF.V3.Tasks;
  *                 "analogGain":{"default":512.0,"max":1024.0,"min":256.0,"value":256.0},
  *                 "autoExposure":{"default":false,"value":false},
  *                 "digitalGain":{"default":256,"max":65536,"min":256,"value":320},
- *                 "exposure":{"default":27000,"max":90000,"min":9000,"value":18000},
+ *                 "exposure":{"default":27000,"max":90000,"min":9000,"value":18000}
  *              },
  *             "projector":{
  *                 "brightness":{"default":0.5,"max":1.0,"min":0.0,"value":0.800000011920929},

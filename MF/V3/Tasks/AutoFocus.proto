@@ -40,7 +40,7 @@ package MF.V3.Tasks;
  *                  "box":{"x":196,"y":130,"width":64,"height":64}
  *             }],
  *             "applyAll":false
- *         }
+ *         },
  *         "Output":{
  *             "analogGain":{"default":512.0,"max":1024.0,"min":256.0,"value":256.0},
  *             "autoExposure":{"default":false,"value":true},

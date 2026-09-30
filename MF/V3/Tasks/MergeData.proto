@@ -33,10 +33,10 @@ package MF.V3.Tasks;
  *         "Size":1558188,
  *         "Descriptor":{
  *             "components":[{
- *                 "type":"Position"
+ *                 "type":"Position",
  *                 "size":3,
  *                 "offset":0,
- *                 "normalized":false,
+ *                 "normalized":false
  *             }],
  *             "stride":3
  *         },
@@ -63,10 +63,10 @@ package MF.V3.Tasks;
  *         "Size":1558188,
  *         "Descriptor":{
  *             "components":[{
- *                 "type":"Normal"
+ *                 "type":"Normal",
  *                 "size":3,
  *                 "offset":0,
- *                 "normalized":false,
+ *                 "normalized":false
  *             }],
  *             "stride":3
  *         },
@@ -93,10 +93,10 @@ package MF.V3.Tasks;
  *         "Size":1038792,
  *         "Descriptor":{
  *             "components":[{
- *                 "type":"UV"
+ *                 "type":"UV",
  *                 "size":2,
  *                 "offset":0,
- *                 "normalized":false,
+ *                 "normalized":false
  *             }],
  *             "stride":2
  *         },
@@ -123,10 +123,10 @@ package MF.V3.Tasks;
  *         "Size":3504494,
  *         "Descriptor":{
  *             "components":[{
- *                 "type":"Texture"
+ *                 "type":"Texture",
  *                 "size":0,
  *                 "offset":0,
- *                 "normalized":false,
+ *                 "normalized":false
  *             }],
  *             "stride":0
  *         },
@@ -153,10 +153,10 @@ package MF.V3.Tasks;
  *         "Size":1996356,
  *         "Descriptor":{
  *             "components":[{
- *                 "type":"Triangle"
+ *                 "type":"Triangle",
  *                 "size":1,
  *                 "offset":0,
- *                 "normalized":false,
+ *                 "normalized":false
  *             }],
  *             "stride":1
  *         },
@@ -180,7 +180,7 @@ package MF.V3.Tasks;
  * {
  *     "Task":{
  *         "Index":1,
- *         "Type":"MergeData"
+ *         "Type":"MergeData",
  *         "Input":{"index":-1,"buffers":["All"]},
  *         "Output":{
  *             "buffers":[
