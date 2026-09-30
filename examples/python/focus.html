@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THREE Focus</title>
+<style>
+  :root {
+    --bg: #16181c; --panel: #202329; --line: #31353d;
+    --text: #e6e8ec; --dim: #9aa1ad; --accent: #3ddc97; --warn: #ff6b6b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif;
+    padding: 16px;
+  }
+  h1 { font-size: 16px; font-weight: 600; margin: 0 0 12px; letter-spacing: .02em; }
+  .bar {
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 10px; padding: 10px 12px; margin-bottom: 14px;
+  }
+  input[type=text] {
+    background: #14161a; color: var(--text); border: 1px solid var(--line);
+    border-radius: 6px; padding: 6px 9px; font: inherit; width: 170px;
+  }
+  button {
+    background: var(--accent); color: #0b0d10; border: 0; border-radius: 6px;
+    padding: 7px 14px; font: inherit; font-weight: 600; cursor: pointer;
+  }
+  button.ghost { background: #2c313a; color: var(--text); }
+  button:disabled { opacity: .4; cursor: default; }
+  #status { color: var(--dim); margin-left: auto; }
+  #status.on { color: var(--accent); }
+  #status.err { color: var(--warn); }
+  .cams { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 760px) { .cams { grid-template-columns: 1fr; } }
+  .cam {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px;
+  }
+  .cam h2 {
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--dim); margin: 0 0 8px;
+  }
+  canvas {
+    width: 100%; display: block; background: #000; border-radius: 6px;
+    cursor: crosshair; aspect-ratio: 510 / 380;
+  }
+  .row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+  .row label { color: var(--dim); font-size: 12px; min-width: 42px; }
+  input[type=range] { flex: 1; accent-color: var(--accent); }
+  .val { font-variant-numeric: tabular-nums; min-width: 42px; text-align: right; }
+  .hint { color: var(--dim); font-size: 12px; margin-top: 12px; }
+  .chk { display: flex; align-items: center; gap: 6px; color: var(--dim); }
+</style>
+</head>
+<body>
+
+<h1>THREE camera focus</h1>
+
+<div class="bar">
+  <input type="text" id="host" value="192.168.50.116" spellcheck="false">
+  <button id="connect">Connect</button>
+  <button id="light" class="ghost" disabled>Light on</button>
+  <label class="chk"><input type="checkbox" id="sync"> focus both together</label>
+  <span id="status">not connected</span>
+</div>
+
+<div class="cams">
+  <div class="cam">
+    <h2>Left camera</h2>
+    <canvas id="c0" width="510" height="380"></canvas>
+    <div class="row">
+      <label>focus</label>
+      <input type="range" id="f0" min="0" max="1024" value="350" disabled>
+      <span class="val" id="f0v">350</span>
+    </div>
+  </div>
+  <div class="cam">
+    <h2>Right camera</h2>
+    <canvas id="c1" width="510" height="380"></canvas>
+    <div class="row">
+      <label>focus</label>
+      <input type="range" id="f1" min="0" max="1024" value="350" disabled>
+      <span class="val" id="f1v">350</span>
+    </div>
+  </div>
+</div>
+
+<div class="bar" style="margin-top:14px">
+  <label style="color:var(--dim);font-size:12px">exposure</label>
+  <input type="range" id="exp" min="90" max="900" step="90" value="180"
+         style="flex:1;max-width:320px" disabled>
+  <span class="val" id="expv">180</span>
+  <span class="hint" style="margin:0">UI units, x100 = microseconds</span>
+</div>
+
+<p class="hint">
+  Click anywhere on a camera view to autofocus on that spot. The green box shows
+  where it last focused. Focus is stored on the scanner, so once it looks sharp
+  you can close this and run <code>depthmap.py --no-focus</code>.
+</p>
+
+<script>
+// Reserved task index the scanner streams video frames on.
+const VIDEO_TASK = -1;
+// The video stream size, which is the coordinate space the focus box uses.
+const VW = 510, VH = 380;
+const BOX = 64;
+
+let ws = null, taskIndex = 0, lightOn = false;
+const pending = {};            // task index -> resolver
+const boxes = [null, null];    // last focus box per camera
+const ctx = [0, 1].map(i => document.getElementById('c' + i).getContext('2d'));
+let waitingBuffer = null;
+
+const el = id => document.getElementById(id);
+const status = (text, cls = '') => {
+  el('status').textContent = text;
+  el('status').className = cls;
+};
+
+function send(type, input) {
+  const Index = ++taskIndex;
+  const task = { Index, Type: type };
+  if (input !== undefined) task.Input = input;
+  ws.send(JSON.stringify({ Task: task }));
+  return new Promise((resolve, reject) => { pending[Index] = { resolve, reject }; });
+}
+
+function drawFrame(camera, bytes) {
+  const blob = new Blob([bytes], { type: 'image/jpeg' });
+  createImageBitmap(blob).then(bitmap => {
+    const c = ctx[camera];
+    c.drawImage(bitmap, 0, 0, VW, VH);
+    bitmap.close();
+    const box = boxes[camera];
+    if (box) {
+      c.strokeStyle = '#3ddc97';
+      c.lineWidth = 2;
+      c.strokeRect(box.x, box.y, box.width, box.height);
+    }
+  });
+}
+
+function onMessage(event) {
+  if (typeof event.data !== 'string') {
+    if (waitingBuffer !== null) {
+      drawFrame(waitingBuffer, event.data);
+      waitingBuffer = null;
+    }
+    return;
+  }
+  const message = JSON.parse(event.data);
+
+  if (message.Buffer) {
+    // Video frames arrive on the reserved index; camera 0 and 1 in buffer 0/1.
+    if (message.Buffer.Task && message.Buffer.Task.Index === VIDEO_TASK) {
+      waitingBuffer = message.Buffer.Index;
+    }
+    return;
+  }
+  if (!message.Task) return;
+
+  const task = message.Task;
+  const waiter = pending[task.Index];
+  if (!waiter) return;
+  if (task.State === 'Completed') {
+    delete pending[task.Index];
+    waiter.resolve(task.Output);
+  } else if (task.State === 'Failed' || task.State === 'Cancelled') {
+    delete pending[task.Index];
+    waiter.reject(new Error(task.Error || task.State));
+  }
+}
+
+function applyFocusOutput(output) {
+  const values = output && output.focus && output.focus.value
+    && output.focus.value.value;
+  if (!Array.isArray(values)) return;
+  values.forEach((value, i) => {
+    el('f' + i).value = value;
+    el('f' + i + 'v').textContent = value;
+  });
+}
+
+async function connect() {
+  const host = el('host').value.trim();
+  status('connecting...');
+  ws = new WebSocket('ws://' + host + ':8081');
+  ws.binaryType = 'arraybuffer';
+
+  ws.onmessage = onMessage;
+  ws.onerror = () => status('cannot reach ' + host, 'err');
+  ws.onclose = () => {
+    status('disconnected', 'err');
+    ['f0', 'f1', 'exp', 'light'].forEach(id => el(id).disabled = true);
+    el('connect').disabled = false;
+  };
+
+  ws.onopen = async () => {
+    status('connected', 'on');
+    el('connect').disabled = true;
+    ['f0', 'f1', 'exp', 'light'].forEach(id => el(id).disabled = false);
+    try {
+      // Auto-exposure off so the slider means something, then start the stream.
+      applyFocusOutput(await send('SetCameras',
+        { selection: [0, 1], autoExposure: false, exposure: +el('exp').value * 100 }));
+      await send('StartVideo');
+    } catch (e) {
+      status(String(e.message || e), 'err');
+    }
+  };
+}
+
+for (const camera of [0, 1]) {
+  document.getElementById('c' + camera).addEventListener('click', async event => {
+    if (!ws || ws.readyState !== 1) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    // Canvas is displayed scaled; map the click back to video pixels.
+    const x = Math.round((event.clientX - rect.left) / rect.width * VW);
+    const y = Math.round((event.clientY - rect.top) / rect.height * VH);
+    const box = {
+      x: Math.max(0, Math.min(VW - BOX - 1, x - BOX / 2)),
+      y: Math.max(0, Math.min(VH - BOX - 1, y - BOX / 2)),
+      width: BOX, height: BOX
+    };
+    const both = el('sync').checked;
+    boxes[camera] = box;
+    if (both) boxes[1 - camera] = box;
+    status('focusing...');
+    try {
+      applyFocusOutput(await send('AutoFocus',
+        { cameras: [{ index: camera, box }], applyAll: both }));
+      status('focused', 'on');
+    } catch (e) {
+      // "did not converge" means there was nothing with detail in the box.
+      status(String(e.message || e), 'err');
+    }
+  });
+}
+
+for (const camera of [0, 1]) {
+  el('f' + camera).addEventListener('input', event => {
+    el('f' + camera + 'v').textContent = event.target.value;
+  });
+  el('f' + camera).addEventListener('change', async event => {
+    const selection = el('sync').checked ? [0, 1] : [camera];
+    try {
+      applyFocusOutput(await send('SetCameras',
+        { selection, focus: +event.target.value }));
+      status('focus set', 'on');
+    } catch (e) { status(String(e.message || e), 'err'); }
+  });
+}
+
+el('exp').addEventListener('input', e => el('expv').textContent = e.target.value);
+el('exp').addEventListener('change', async event => {
+  try {
+    await send('SetCameras',
+      { selection: [0, 1], autoExposure: false, exposure: +event.target.value * 100 });
+    status('exposure set', 'on');
+  } catch (e) { status(String(e.message || e), 'err'); }
+});
+
+el('light').addEventListener('click', async () => {
+  lightOn = !lightOn;
+  el('light').textContent = lightOn ? 'Light off' : 'Light on';
+  try {
+    // A flat white field, so a dark subject is lit well enough to focus on.
+    await send('SetProjector',
+      { on: lightOn, brightness: 1.0, color: [1, 1, 1] });
+  } catch (e) { status(String(e.message || e), 'err'); }
+});
+
+el('connect').addEventListener('click', connect);
+
+// Allow ?host=1.2.3.4 so a bookmark can point straight at a scanner.
+const fromQuery = new URLSearchParams(location.search).get('host');
+if (fromQuery) el('host').value = fromQuery;
+</script>
+</body>
+</html>
