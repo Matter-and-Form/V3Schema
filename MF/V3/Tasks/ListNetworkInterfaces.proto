@@ -28,7 +28,7 @@ package MF.V3.Tasks;
  *         "Type":"ListNetworkInterfaces",
  *         "Output":[
  *             {"ip":"192.168.1.234","name":"eth0","ssid":""},
- *             {"ip":"127.0.0.1","name":"lo","ssid":""}
+ *             {"ip":"127.0.0.1","name":"lo","ssid":""},
  *             {"ip":"192.168.2.345","name":"wlan0","ssid":"Network1"}
  *         ],
  *         "State":"Completed"

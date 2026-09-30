@@ -34,7 +34,7 @@ package MF.V3.Tasks;
  *             "selection":{"mode":"visible"},
  *             "taubin":{"iterations": 3, "lambda": 0.5, "mu": -0.53}
  *         },
- *         "Output":{[1, 2, 3]},
+ *         "Output":[1, 2, 3],
  *         "State":"Completed"
  *     }
  * }

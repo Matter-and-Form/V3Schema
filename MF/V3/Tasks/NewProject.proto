@@ -34,7 +34,7 @@ package MF.V3.Tasks;
  *         "Output":{
  *             "index":5,
  *             "name":"New Project Name"
- *         }
+ *         },
  *         "State":"Completed"
  *     }
  * }

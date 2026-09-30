@@ -32,7 +32,7 @@ package MF.V3.Tasks;
  *             "groups":[
  *                 {
  *                     "index":1,
- *                     "name":"Group 1",
+ *                     "name":"Group 1"
  *                 },
  *                 {
  *                     "index":2,

@@ -48,7 +48,7 @@ package MF.V3.Tasks;
  *         "Output":{
  *             "groups":[{"index":1,"name":"box","scan":1}],
  *             "imported":[{"file":"mesh.ply"}],
- *             "ignored":[],
+ *             "ignored":[]
  *         },
  *         "State":"Completed"
  *     }

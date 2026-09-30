@@ -17,7 +17,7 @@ package MF.V3.Tasks;
  *         {"index":1, "name":"Group 1"},
  *         {"index":2, "name":"Group 2"},
  *         {"index":3, "name":"Group 3"}
- *     ],
+ *     ]
  * }
  * ```
  *
@@ -49,11 +49,11 @@ package MF.V3.Tasks;
  *         "Output":{
  *             "groups":[
  *                 {"index":1, "name":"Group 1"},
- *                 {"index":4, "name":"Group 1-copy"}
+ *                 {"index":4, "name":"Group 1-copy"},
  *                 {"index":2, "name":"Group 2"},
  *                 {"index":3, "name":"Group 3"},
- *                 {"index":5, "name":"Group 3-copy"},
- *             ],
+ *                 {"index":5, "name":"Group 3-copy"}
+ *             ]
  *         },
  *         "State":"Completed"
  *     }

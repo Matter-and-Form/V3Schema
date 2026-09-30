@@ -18,7 +18,7 @@ package MF.V3.Tasks;
  *         "Type":"SetGroup",
  *         "Input":{
  *             "index":2, 
- *             "name":"Amazing Scan"
+ *             "name":"Amazing Scan",
  *             "color":[1,0,0,1],
  *             "rotation":[0,3.14,0],
  *             "translation":[0,10,25]
@@ -36,11 +36,11 @@ package MF.V3.Tasks;
  *         "Type":"SetGroup",
  *         "Input":{
  *             "index":2, 
- *             "name":"Amazing Scan"
+ *             "name":"Amazing Scan",
  *             "color":[1,0,0,1],
  *             "rotation":[0,3.14,0],
  *             "translation":[0,10,25]
- *         }   
+ *         },
  *         "Output":{
  *             "groups":[
  *                 {

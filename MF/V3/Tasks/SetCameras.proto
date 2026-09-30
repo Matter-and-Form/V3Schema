@@ -20,7 +20,7 @@ package MF.V3.Tasks;
  *             "analogGain":256,
  *             "digitalGain":128,
  *             "exposure":18000
- *         },
+ *         }
  *     }
  * }
  * ```
@@ -31,7 +31,7 @@ package MF.V3.Tasks;
  * {
  *     "Task":{
  *         "Index":1,
- *         "Type":"SetCameras"
+ *         "Type":"SetCameras",
  *         "Input":{
  *             "analogGain":256,
  *             "digitalGain":512,
@@ -40,7 +40,7 @@ package MF.V3.Tasks;
  *         "Output":{
  *             "analogGain":{"default":512.0,"max":1024.0,"min":256.0,"value":256.0},
  *             "digitalGain":{"default":256,"max":65536,"min":256,"value":512},
- *             "exposure":{"default":27000,"max":90000,"min":9000,"value":18000},
+ *             "exposure":{"default":27000,"max":90000,"min":9000,"value":18000}
  *         },
  *         "State":"Completed"
  *     }

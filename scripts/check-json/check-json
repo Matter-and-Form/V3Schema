@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""
+Check that every JSON example in the .proto doc comments actually parses.
+
+The doc comments are published to the wiki as the THREE API documentation
+(see .github/workflows/release-docs.yml), so a malformed example is something
+an integrator copies and then has to debug. Run from anywhere:
+
+    scripts/check-json/check-json
+
+Exits non-zero and prints the offending examples if any fail.
+"""
+
+import json
+import pathlib
+import re
+import sys
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
+FENCE = re.compile(r"```json\n(.*?)```", re.S)
+COMMENT_PREFIX = re.compile(r"^\s*\*\s?")
+
+
+def examples(path):
+    """Yield (line number, decoded example text) for one proto file."""
+    text = path.read_text()
+    for match in FENCE.finditer(text):
+        body = "\n".join(
+            COMMENT_PREFIX.sub("", line) for line in match.group(1).splitlines()
+        ).strip()
+        if body:
+            yield text[: match.start()].count("\n") + 1, body
+
+
+def main():
+    total = 0
+    failures = []
+
+    for path in sorted(ROOT.rglob("*.proto")):
+        for line, body in examples(path):
+            total += 1
+            try:
+                json.loads(body)
+            except json.JSONDecodeError as error:
+                failures.append((path.relative_to(ROOT), line, body, error))
+
+    for path, line, body, error in failures:
+        print(f"{path}:{line}: {error.msg} (example line {error.lineno})")
+        lines = body.splitlines()
+        for number in range(max(1, error.lineno - 1), min(len(lines), error.lineno + 1) + 1):
+            print(f"    {number:>3} | {lines[number - 1]}")
+        print()
+
+    print(f"{total} JSON examples checked, {len(failures)} malformed")
+    return 1 if failures else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

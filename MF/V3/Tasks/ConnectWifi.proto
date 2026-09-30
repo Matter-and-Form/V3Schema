@@ -16,8 +16,8 @@ package MF.V3.Tasks;
  *         "Index":1,
  *         "Type":"ConnectWifi",
  *         "Input":{
- *             "ssid":"Network1"
- *             "password":"password"   
+ *             "ssid":"Network1",
+ *             "password":"password"
  *         }
  *     }
  * }
@@ -31,10 +31,9 @@ package MF.V3.Tasks;
  *         "Index":1,
  *         "Type":"ConnectWifi",
  *         "Input":{
- *         {
- *             "ssid":"Network1"
- *             "password":"password"   
- *         }
+ *             "ssid":"Network1",
+ *             "password":"password"
+ *         },
  *         "State":"Completed"
  *     }
  * }
